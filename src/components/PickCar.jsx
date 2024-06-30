@@ -21,9 +21,9 @@ function PickCar() {
           <div className="pick-container">
             <div className="pick-container__title">
               <h3>Vehicle Models</h3>
-              <h2>Our rental fleet</h2>
+              <h2>Our Car fleet</h2>
               <p>
-                Choose from a variety of our amazing vehicles to rent for your
+                Choose from a variety of our amazing vehicles to Book for your
                 next adventure or business trip
               </p>
             </div>
@@ -37,7 +37,7 @@ function PickCar() {
                     btnID("btn1");
                   }}
                 >
-                  Audi A1 S-Line
+                  Sedan
                 </button>
                 <button
                   className={`${coloringButton("btn2")}`}
@@ -47,7 +47,7 @@ function PickCar() {
                     btnID("btn2");
                   }}
                 >
-                  VW Golf 6
+                  SUV
                 </button>
                 <button
                   className={`${coloringButton("btn3")}`}
@@ -57,7 +57,7 @@ function PickCar() {
                     btnID("btn3");
                   }}
                 >
-                  Toyota Camry
+                  Etios
                 </button>
                 <button
                   className={`${coloringButton("btn4")}`}
@@ -67,27 +67,7 @@ function PickCar() {
                     btnID("btn4");
                   }}
                 >
-                  BMW 320 ModernLine
-                </button>
-                <button
-                  className={`${coloringButton("btn5")}`}
-                  id="btn5"
-                  onClick={() => {
-                    setActive("FifthCar");
-                    btnID("btn5");
-                  }}
-                >
-                  Mercedes-Benz GLK
-                </button>
-                <button
-                  className={`${coloringButton("btn6")}`}
-                  id="btn6"
-                  onClick={() => {
-                    setActive("SixthCar");
-                    btnID("btn6");
-                  }}
-                >
-                  VW Passat CC
+                  Innova
                 </button>
               </div>
 
@@ -95,8 +75,6 @@ function PickCar() {
               {active === "SecondCar" && <CarBox data={CAR_DATA} carID={1} />}
               {active === "ThirdCar" && <CarBox data={CAR_DATA} carID={2} />}
               {active === "FourthCar" && <CarBox data={CAR_DATA} carID={3} />}
-              {active === "FifthCar" && <CarBox data={CAR_DATA} carID={4} />}
-              {active === "SixthCar" && <CarBox data={CAR_DATA} carID={5} />}
             </div>
           </div>
         </div>

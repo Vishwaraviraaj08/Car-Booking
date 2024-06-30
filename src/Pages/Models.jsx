@@ -2,7 +2,7 @@ import Footer from "../components/Footer";
 import HeroPages from "../components/HeroPages";
 import CarImg1 from "../images/cars-big/audi-box.png";
 import CarImg2 from "../images/cars-big/golf6-box.png";
-import CarImg3 from "../images/cars-big/toyota-box.png";
+import CarImg3 from "../images/cars-big/car-etios.png";
 import CarImg4 from "../images/cars-big/bmw-box.png";
 import CarImg5 from "../images/cars-big/benz-box.png";
 import CarImg6 from "../images/cars-big/passat-box.png";

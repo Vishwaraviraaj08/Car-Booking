@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-import CarAudi from "../images/cars-big/audia1.jpg";
-import CarGolf from "../images/cars-big/golf6.jpg";
-import CarToyota from "../images/cars-big/toyotacamry.jpg";
-import CarBmw from "../images/cars-big/bmw320.jpg";
-import CarMercedes from "../images/cars-big/benz.jpg";
-import CarPassat from "../images/cars-big/passatcc.jpg";
+import sedan from "../images/cars-big/car-sedan.png";
+import suv from "../images/cars-big/car-suv.png";
+import innova from "../images/cars-big/car-innova.png";
+import etios from "../images/cars-big/car-etios.png";
 
 function BookCar() {
   const [modal, setModal] = useState(false); //  class - active-modal
@@ -122,23 +120,17 @@ function BookCar() {
   // based on value name show car img
   let imgUrl;
   switch (carImg) {
-    case "Audi A1 S-Line":
-      imgUrl = CarAudi;
+    case "Sedan":
+      imgUrl = sedan;
       break;
-    case "VW Golf 6":
-      imgUrl = CarGolf;
+    case "SUV":
+      imgUrl = suv;
       break;
-    case "Toyota Camry":
-      imgUrl = CarToyota;
+    case "Etios":
+      imgUrl = etios;
       break;
-    case "BMW 320 ModernLine":
-      imgUrl = CarBmw;
-      break;
-    case "Mercedes-Benz GLK":
-      imgUrl = CarMercedes;
-      break;
-    case "VW Passat CC":
-      imgUrl = CarPassat;
+    case "Innova":
+      imgUrl = innova;
       break;
     default:
       imgUrl = "";
@@ -181,16 +173,42 @@ function BookCar() {
                   </label>
                   <select value={carType} onChange={handleCar}>
                     <option>Select your car type</option>
-                    <option value="Audi A1 S-Line">Audi A1 S-Line</option>
-                    <option value="VW Golf 6">VW Golf 6</option>
-                    <option value="Toyota Camry">Toyota Camry</option>
-                    <option value="BMW 320 ModernLine">
-                      BMW 320 ModernLine
+                    <option value="Sedan">Sedan</option>
+                    <option value="SUV">SUV</option>
+                    <option value="Etios">Etios</option>
+                    <option value="Innova">
+                      Innova
                     </option>
-                    <option value="Mercedes-Benz GLK">Mercedes-Benz GLK</option>
-                    <option value="VW Passat CC">VW Passat CC</option>
                   </select>
                 </div>
+
+
+                <div className="box-form__car-time">
+                  <label htmlFor="picktime">
+                    <i className="fa-regular fa-calendar-days "></i> &nbsp;
+                    Pick-up <b>*</b>
+                  </label>
+                  <input
+                      id="picktime"
+                      value={pickTime}
+                      onChange={handlePickTime}
+                      type="date"
+                  ></input>
+                </div>
+
+                <div className="box-form__car-time">
+                  <label htmlFor="droptime">
+                    <i className="fa-regular fa-calendar-days "></i> &nbsp;
+                    Drop-of <b>*</b>
+                  </label>
+                  <input
+                      id="droptime"
+                      value={dropTime}
+                      onChange={handleDropTime}
+                      type="date"
+                  ></input>
+                </div>
+
 
                 <div className="box-form__car-type">
                   <label>
@@ -222,31 +240,8 @@ function BookCar() {
                   </select>
                 </div>
 
-                <div className="box-form__car-time">
-                  <label htmlFor="picktime">
-                    <i className="fa-regular fa-calendar-days "></i> &nbsp;
-                    Pick-up <b>*</b>
-                  </label>
-                  <input
-                    id="picktime"
-                    value={pickTime}
-                    onChange={handlePickTime}
-                    type="date"
-                  ></input>
-                </div>
 
-                <div className="box-form__car-time">
-                  <label htmlFor="droptime">
-                    <i className="fa-regular fa-calendar-days "></i> &nbsp;
-                    Drop-of <b>*</b>
-                  </label>
-                  <input
-                    id="droptime"
-                    value={dropTime}
-                    onChange={handleDropTime}
-                    type="date"
-                  ></input>
-                </div>
+
 
                 <button onClick={openModal} type="submit">
                   Search
