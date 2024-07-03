@@ -24,16 +24,16 @@ function Testimonials() {
                   <i className="fa-solid fa-quote-right"></i>
                 </span>
                 <p>
-                  "We rented a car from this website and had an amazing
-                  experience! The booking was easy and the rental rates were
+                  "We booked a car from this website and had an amazing
+                  experience! The booking was easy and the service rates were
                   very affordable. "
                 </p>
                 <div className="all-testimonials__box__name">
                   <div className="all-testimonials__box__name__profile">
                     <img src={Img2} alt="user_img" />
                     <span>
-                      <h4>Jones Mbogholi</h4>
-                      <p>Kenya</p>
+                      <h4>Harshath</h4>
+                      <p>TamilNadu</p>
                     </span>
                   </div>
                 </div>
@@ -45,14 +45,14 @@ function Testimonials() {
                 </span>
                 <p>
                   "The car was in great condition and made our trip even better.
-                  Highly recommend for this car rental website!"
+                  Highly recommend for this car booking and taxi service website!"
                 </p>
                 <div className="all-testimonials__box__name">
                   <div className="all-testimonials__box__name__profile">
                     <img src={Img3} alt="user_img" />
                     <span>
-                      <h4>Solomon Odingo </h4>
-                      <p>South Sudan</p>
+                      <h4>Hars Khan </h4>
+                      <p>TN</p>
                     </span>
                   </div>
                 </div>
