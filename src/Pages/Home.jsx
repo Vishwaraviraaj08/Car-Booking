@@ -5,7 +5,7 @@ import PickCar from "../components/PickCar";
 import Banner from "../components/Banner";
 import ChooseUs from "../components/ChooseUs";
 import Testimonials from "../components/Testimonials";
-import Faq from "../components/Faq";
+import Faq from "./Faq";
 import Download from "../components/Download";
 import Footer from "../components/Footer";
 
@@ -19,8 +19,8 @@ function Home() {
       <Banner />
       <ChooseUs />
       <Testimonials />
-      <Faq />
-      <Download />
+      {/*<Faq />*/}
+      {/*<Download />*/}
       <Footer />
     </>
   );
