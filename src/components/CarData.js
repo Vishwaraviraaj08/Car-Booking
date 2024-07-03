@@ -20,7 +20,7 @@ export const CAR_DATA = [
   ],
   [
     {
-      name: "Toyota SUV",
+      name: "MUV-Xylo",
       price: "45",
       img: suv,
       model: "Audi",
@@ -33,23 +33,23 @@ export const CAR_DATA = [
     },
   ],
 
+  // [
+  //   {
+  //     name: "Toyota Etios",
+  //     price: "35",
+  //     img: etios,
+  //     model: "320",
+  //     mark: "BMW",
+  //     year: "2012",
+  //     doors: "4/5",
+  //     air: "Yes",
+  //     transmission: "Manual",
+  //     fuel: "Diesel",
+  //   },
+  // ],
   [
     {
-      name: "Toyota Etios",
-      price: "35",
-      img: etios,
-      model: "320",
-      mark: "BMW",
-      year: "2012",
-      doors: "4/5",
-      air: "Yes",
-      transmission: "Manual",
-      fuel: "Diesel",
-    },
-  ],
-  [
-    {
-      name: "Toyota Innova",
+      name: "MUV-Innova",
       price: "30",
       img: innova,
       model: "Camry",

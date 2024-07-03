@@ -3,7 +3,7 @@ import CarBox from "./CarBox";
 import { CAR_DATA } from "./CarData";
 
 function PickCar() {
-  const [active, setActive] = useState("SecondCar");
+  const [active, setActive] = useState("FirstCar");
   const [colorBtn, setColorBtn] = useState("btn1");
 
   const btnID = (id) => {
@@ -33,7 +33,7 @@ function PickCar() {
                 <button
                   className={`${coloringButton("btn1")}`}
                   onClick={() => {
-                    setActive("SecondCar");
+                    setActive("FirstCar");
                     btnID("btn1");
                   }}
                 >
@@ -43,11 +43,11 @@ function PickCar() {
                   className={`${coloringButton("btn2")}`}
                   id="btn2"
                   onClick={() => {
-                    setActive("FirstCar");
+                    setActive("SecondCar");
                     btnID("btn2");
                   }}
                 >
-                  SUV
+                  MUV-Xylo
                 </button>
                 <button
                   className={`${coloringButton("btn3")}`}
@@ -57,24 +57,24 @@ function PickCar() {
                     btnID("btn3");
                   }}
                 >
-                  Etios
+                  MUV-Innova
                 </button>
-                <button
-                  className={`${coloringButton("btn4")}`}
-                  id="btn4"
-                  onClick={() => {
-                    setActive("FourthCar");
-                    btnID("btn4");
-                  }}
-                >
-                  Innova
-                </button>
+                {/*<button*/}
+                {/*  className={`${coloringButton("btn4")}`}*/}
+                {/*  id="btn4"*/}
+                {/*  onClick={() => {*/}
+                {/*    setActive("FourthCar");*/}
+                {/*    btnID("btn4");*/}
+                {/*  }}*/}
+                {/*>*/}
+                {/*  Innova*/}
+                {/*</button>*/}
               </div>
 
               {active === "FirstCar" && <CarBox data={CAR_DATA} carID={0} />}
               {active === "SecondCar" && <CarBox data={CAR_DATA} carID={1} />}
               {active === "ThirdCar" && <CarBox data={CAR_DATA} carID={2} />}
-              {active === "FourthCar" && <CarBox data={CAR_DATA} carID={3} />}
+              {/*{active === "FourthCar" && <CarBox data={CAR_DATA} carID={3} />}*/}
             </div>
           </div>
         </div>

@@ -1,29 +1,33 @@
-import { useEffect, useState } from "react";
-import sedan from "../images/cars-big/car-sedan.png";
-import suv from "../images/cars-big/car-suv.png";
-import innova from "../images/cars-big/car-innova.png";
-import etios from "../images/cars-big/car-etios.png";
+import React, { useEffect, useState } from 'react';
+import { LoadScript, Autocomplete } from '@react-google-maps/api';
+import sedan from '../images/cars-big/car-sedan.png';
+import suv from '../images/cars-big/car-suv.png';
+import innova from '../images/cars-big/car-innova.png';
+import etios from '../images/cars-big/car-etios.png';
+
+const libraries = ['places'];
 
 function BookCar() {
   const [modal, setModal] = useState(false); //  class - active-modal
 
   // booking car
-  const [carType, setCarType] = useState("");
-  const [pickUp, setPickUp] = useState("");
-  const [dropOff, setDropOff] = useState("");
-  const [pickTime, setPickTime] = useState("");
-  const [dropTime, setDropTime] = useState("");
-  const [carImg, setCarImg] = useState("");
+  const [tripType, setTripType] = useState(''); // ['one-way', 'round-trip'
+  const [carType, setCarType] = useState('');
+  const [pickUp, setPickUp] = useState(null);
+  const [dropOff, setDropOff] = useState(null);
+  const [pickTime, setPickTime] = useState('');
+  const [dropTime, setDropTime] = useState('');
+  const [carImg, setCarImg] = useState('');
 
   // modal infos
-  const [name, setName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [age, setAge] = useState("");
-  const [email, setEmail] = useState("");
-  const [address, setAddress] = useState("");
-  const [city, setCity] = useState("");
-  const [zipcode, setZipCode] = useState("");
+  const [name, setName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [age, setAge] = useState('');
+  const [email, setEmail] = useState('');
+  const [address, setAddress] = useState('');
+  const [city, setCity] = useState('');
+  const [zipcode, setZipCode] = useState('');
 
   // taking value of modal inputs
   const handleName = (e) => {
@@ -61,29 +65,29 @@ function BookCar() {
   // open modal when all inputs are fulfilled
   const openModal = (e) => {
     e.preventDefault();
-    const errorMsg = document.querySelector(".error-message");
+    const errorMsg = document.querySelector('.error-message');
     if (
-      pickUp === "" ||
-      dropOff === "" ||
-      pickTime === "" ||
-      dropTime === "" ||
-      carType === ""
+        !pickUp ||
+        !dropOff ||
+        pickTime === '' ||
+        dropTime === '' ||
+        carType === ''
     ) {
-      errorMsg.style.display = "flex";
+      errorMsg.style.display = 'flex';
     } else {
       setModal(!modal);
-      const modalDiv = document.querySelector(".booking-modal");
+      const modalDiv = document.querySelector('.booking-modal');
       modalDiv.scroll(0, 0);
-      errorMsg.style.display = "none";
+      errorMsg.style.display = 'none';
     }
   };
 
   // disable page scroll when modal is displayed
   useEffect(() => {
     if (modal === true) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = 'auto';
     }
   }, [modal]);
 
@@ -91,22 +95,14 @@ function BookCar() {
   const confirmBooking = (e) => {
     e.preventDefault();
     setModal(!modal);
-    const doneMsg = document.querySelector(".booking-done");
-    doneMsg.style.display = "flex";
+    const doneMsg = document.querySelector('.booking-done');
+    doneMsg.style.display = 'flex';
   };
 
   // taking value of booking inputs
   const handleCar = (e) => {
     setCarType(e.target.value);
     setCarImg(e.target.value);
-  };
-
-  const handlePick = (e) => {
-    setPickUp(e.target.value);
-  };
-
-  const handleDrop = (e) => {
-    setDropOff(e.target.value);
   };
 
   const handlePickTime = (e) => {
@@ -120,340 +116,354 @@ function BookCar() {
   // based on value name show car img
   let imgUrl;
   switch (carImg) {
-    case "Sedan":
+    case 'Sedan':
       imgUrl = sedan;
       break;
-    case "SUV":
+    case 'SUV':
       imgUrl = suv;
       break;
-    case "Etios":
+    case 'Etios':
       imgUrl = etios;
       break;
-    case "Innova":
+    case 'Innova':
       imgUrl = innova;
       break;
     default:
-      imgUrl = "";
+      imgUrl = '';
   }
 
   // hide message
   const hideMessage = () => {
-    const doneMsg = document.querySelector(".booking-done");
-    doneMsg.style.display = "none";
+    const doneMsg = document.querySelector('.booking-done');
+    doneMsg.style.display = 'none';
   };
 
   return (
-    <>
-      <section id="booking-section" className="book-section">
-        {/* overlay */}
-        <div
-          onClick={openModal}
-          className={`modal-overlay ${modal ? "active-modal" : ""}`}
-        ></div>
+      <LoadScript googleMapsApiKey="AIzaSyANlHK0u60OeB61jRC-wdpY_djhheq3P98" libraries={libraries}>
+        <section id="booking-section" className="book-section">
+          {/* overlay */}
+          <div
+              onClick={openModal}
+              className={`modal-overlay ${modal ? 'active-modal' : ''}`}
+          ></div>
 
-        <div className="container">
-          <div className="book-content">
-            <div className="book-content__box">
-              <h2>Book a car</h2>
+          <div className="container">
+            <div className="book-content">
+              <div className="book-content__box">
+                <h2>Book a car</h2>
 
-              <p className="error-message">
-                All fields required! <i className="fa-solid fa-xmark"></i>
-              </p>
+                <p className="error-message">
+                  All fields required! <i className="fa-solid fa-xmark"></i>
+                </p>
 
-              <p className="booking-done">
-                Check your email to confirm an order.{" "}
-                <i onClick={hideMessage} className="fa-solid fa-xmark"></i>
-              </p>
-
-              <form className="box-form">
-                <div className="box-form__car-type">
-                  <label>
-                    <i className="fa-solid fa-car"></i> &nbsp; Select Your Car
-                    Type <b>*</b>
+                <div style={{display: "flex", flexDirection: 'column'}}>
+                  <label style={{fontSize:"16px", fontWeight:"bold"}}>
+                    <i className="fa-solid fa-car"></i> &nbsp;Journey Type<b>*</b>
                   </label>
-                  <select value={carType} onChange={handleCar}>
-                    <option>Select your car type</option>
-                    <option value="Sedan">Sedan</option>
-                    <option value="SUV">SUV</option>
-                    <option value="Etios">Etios</option>
-                    <option value="Innova">
-                      Innova
-                    </option>
-                  </select>
+                  <div style={{display: "flex", gap: "20px"}}>
+                    <input type={'radio'} name={'trip'} value={'one-way'}
+                           onChange={(e) => setTripType(e.target.value)}/>
+                    <label style={{fontSize: '15px'}} htmlFor={'one-way'}>One Way</label>
+                  </div>
+                  <div style={{display: "flex", gap: "20px"}}>
+                    <input type={'radio'} name={'trip'} value={'round-trip'}
+                           onChange={(e) => setTripType(e.target.value)}/>
+                    <label style={{fontSize: '15px'}} htmlFor={'round-trip'}>Round Trip</label>
+                  </div>
                 </div>
+                <br/>
+                <br/>
+                <p className="booking-done">
+                  Check your email to confirm an order.{' '}
+                  <i onClick={hideMessage} className="fa-solid fa-xmark"></i>
+                </p>
 
+                <form className="box-form">
+                  <div className="box-form__car-type">
+                    <label>
+                      <i className="fa-solid fa-car"></i> &nbsp; Select Your Car
+                      Type <b>*</b>
+                    </label>
+                    <select value={carType} onChange={handleCar}>
+                      <option>Select your car type</option>
+                      <option value="Sedan">Sedan</option>
+                      <option value="SUV">SUV</option>
+                      <option value="Etios">Etios</option>
+                      <option value="Innova">Innova</option>
+                    </select>
+                  </div>
 
-                <div className="box-form__car-time">
-                  <label htmlFor="picktime">
-                    <i className="fa-regular fa-calendar-days "></i> &nbsp;
-                    Pick-up <b>*</b>
-                  </label>
-                  <input
-                      id="picktime"
-                      value={pickTime}
-                      onChange={handlePickTime}
-                      type="date"
-                  ></input>
-                </div>
+                  <div className="box-form__car-time">
+                    <label htmlFor="picktime">
+                      <i className="fa-regular fa-calendar-days "></i> &nbsp;
+                      Pick-up <b>*</b>
+                    </label>
+                    <input
+                        id="picktime"
+                        value={pickTime}
+                        onChange={handlePickTime}
+                        type="date"
+                    ></input>
+                  </div>
 
-                <div className="box-form__car-time">
-                  <label htmlFor="droptime">
-                    <i className="fa-regular fa-calendar-days "></i> &nbsp;
-                    Drop-of <b>*</b>
-                  </label>
-                  <input
-                      id="droptime"
-                      value={dropTime}
-                      onChange={handleDropTime}
-                      type="date"
-                  ></input>
-                </div>
+                  <div className="box-form__car-time">
+                    <label htmlFor="droptime">
+                      <i className="fa-regular fa-calendar-days "></i> &nbsp;
+                      Drop-of <b>*</b>
+                    </label>
+                    <input
+                        id="droptime"
+                        value={dropTime}
+                        onChange={handleDropTime}
+                        type="date"
+                    ></input>
+                  </div>
 
+                  <div className="box-form__car-type">
+                    <label>
+                      <i className="fa-solid fa-location-dot"></i> &nbsp; Pick-up{' '}
+                      <b>*</b>
+                    </label>
+                    <Autocomplete
+                        onLoad={(autocomplete) => setPickUp(autocomplete)}
+                        onPlaceChanged={() => setPickUp(pickUp.getPlace())}
+                    >
+                      <input
+                          type="text"
+                          placeholder="Enter pick up location"
+                          style={{width: '100%', padding: '0.5rem'}}
+                      />
+                    </Autocomplete>
+                  </div>
 
-                <div className="box-form__car-type">
-                  <label>
-                    <i className="fa-solid fa-location-dot"></i> &nbsp; Pick-up{" "}
-                    <b>*</b>
-                  </label>
-                  <select value={pickUp} onChange={handlePick}>
-                    <option>Select pick up location</option>
-                    <option>Belgrade</option>
-                    <option>Novi Sad</option>
-                    <option>Nis</option>
-                    <option>Kragujevac</option>
-                    <option>Subotica</option>
-                  </select>
-                </div>
+                  <div className="box-form__car-type">
+                    <label>
+                      <i className="fa-solid fa-location-dot"></i> &nbsp; Drop-of{' '}
+                      <b>*</b>
+                    </label>
+                    <Autocomplete
+                        onLoad={(autocomplete) => setDropOff(autocomplete)}
+                        onPlaceChanged={() => setDropOff(dropOff.getPlace())}
+                    >
+                      <input
+                          type="text"
+                          placeholder="Enter drop off location"
+                          style={{width: '100%', padding: '0.5rem'}}
+                      />
+                    </Autocomplete>
+                  </div>
 
-                <div className="box-form__car-type">
-                  <label>
-                    <i className="fa-solid fa-location-dot"></i> &nbsp; Drop-of{" "}
-                    <b>*</b>
-                  </label>
-                  <select value={dropOff} onChange={handleDrop}>
-                    <option>Select drop off location</option>
-                    <option>Novi Sad</option>
-                    <option>Belgrade</option>
-                    <option>Nis</option>
-                    <option>Kragujevac</option>
-                    <option>Subotica</option>
-                  </select>
-                </div>
-
-
-
-
-                <button onClick={openModal} type="submit">
-                  Search
-                </button>
-              </form>
+                  <button onClick={openModal} type="submit">
+                    Search
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* modal ------------------------------------ */}
+        {/* modal ------------------------------------ */}
 
-      <div className={`booking-modal ${modal ? "active-modal" : ""}`}>
-        {/* title */}
-        <div className="booking-modal__title">
-          <h2>Complete Reservation</h2>
-          <i onClick={openModal} className="fa-solid fa-xmark"></i>
-        </div>
-        {/* message */}
-        <div className="booking-modal__message">
-          <h4>
-            <i className="fa-solid fa-circle-info"></i> Upon completing this
-            reservation enquiry, you will receive:
-          </h4>
-          <p>
-            Your rental voucher to produce on arrival at the rental desk and a
-            toll-free customer support number.
-          </p>
-        </div>
-        {/* car info */}
-        <div className="booking-modal__car-info">
-          <div className="dates-div">
-            <div className="booking-modal__car-info__dates">
-              <h5>Location & Date</h5>
-              <span>
+        <div className={`booking-modal ${modal ? 'active-modal' : ''}`}>
+          {/* title */}
+          <div className="booking-modal__title">
+            <h2>Complete Reservation</h2>
+            <i onClick={openModal} className="fa-solid fa-xmark"></i>
+          </div>
+          {/* message */}
+          <div className="booking-modal__message">
+            <h4>
+              <i className="fa-solid fa-circle-info"></i> Upon completing this
+              reservation enquiry, you will receive:
+            </h4>
+            <p>
+              Your rental voucher to produce on arrival at the rental desk and a
+              toll-free customer support number.
+            </p>
+          </div>
+          {/* car info */}
+          <div className="booking-modal__car-info">
+            <div className="dates-div">
+              <div className="booking-modal__car-info__dates">
+                <h5>Location & Date</h5>
+                <span>
                 <i className="fa-solid fa-location-dot"></i>
                 <div>
                   <h6>Pick-Up Date & Time</h6>
                   <p>
-                    {pickTime} /{" "}
+                    {pickTime} /{' '}
                     <input type="time" className="input-time"></input>
                   </p>
                 </div>
               </span>
-            </div>
+              </div>
 
-            <div className="booking-modal__car-info__dates">
+              <div className="booking-modal__car-info__dates">
               <span>
                 <i className="fa-solid fa-location-dot"></i>
                 <div>
                   <h6>Drop-Off Date & Time</h6>
                   <p>
-                    {dropTime} /{" "}
+                    {dropTime} /{' '}
                     <input type="time" className="input-time"></input>
                   </p>
                 </div>
               </span>
-            </div>
+              </div>
 
-            <div className="booking-modal__car-info__dates">
+              <div className="booking-modal__car-info__dates">
               <span>
                 <i className="fa-solid fa-calendar-days"></i>
                 <div>
                   <h6>Pick-Up Location</h6>
-                  <p>{pickUp}</p>
+                  <p>{pickUp ? pickUp.formatted_address : ''}</p>
                 </div>
               </span>
-            </div>
+              </div>
 
-            <div className="booking-modal__car-info__dates">
+              <div className="booking-modal__car-info__dates">
               <span>
                 <i className="fa-solid fa-calendar-days"></i>
                 <div>
                   <h6>Drop-Off Location</h6>
-                  <p>{dropOff}</p>
+                  <p>{dropOff ? dropOff.formatted_address : ''}</p>
                 </div>
               </span>
+              </div>
+            </div>
+            <div className="booking-modal__car-info__model">
+              <h5>
+                <span>Car -</span> {carType}
+              </h5>
+              {imgUrl && <img src={imgUrl} alt="car_img"/>}
             </div>
           </div>
-          <div className="booking-modal__car-info__model">
-            <h5>
-              <span>Car -</span> {carType}
-            </h5>
-            {imgUrl && <img src={imgUrl} alt="car_img" />}
-          </div>
-        </div>
-        {/* personal info */}
-        <div className="booking-modal__person-info">
-          <h4>Personal Information</h4>
-          <form className="info-form">
-            <div className="info-form__2col">
+          {/* personal info */}
+          <div className="booking-modal__person-info">
+            <h4>Personal Information</h4>
+            <form className="info-form">
+              <div className="info-form__2col">
               <span>
                 <label>
                   First Name <b>*</b>
                 </label>
                 <input
-                  value={name}
-                  onChange={handleName}
-                  type="text"
-                  placeholder="Enter your first name"
+                    value={name}
+                    onChange={handleName}
+                    type="text"
+                    placeholder="Enter your first name"
                 ></input>
                 <p className="error-modal">This field is required.</p>
               </span>
 
-              <span>
+                <span>
                 <label>
                   Last Name <b>*</b>
                 </label>
                 <input
-                  value={lastName}
-                  onChange={handleLastName}
-                  type="text"
-                  placeholder="Enter your last name"
+                    value={lastName}
+                    onChange={handleLastName}
+                    type="text"
+                    placeholder="Enter your last name"
                 ></input>
                 <p className="error-modal ">This field is required.</p>
               </span>
 
-              <span>
+                <span>
                 <label>
                   Phone Number <b>*</b>
                 </label>
                 <input
-                  value={phone}
-                  onChange={handlePhone}
-                  type="tel"
-                  placeholder="Enter your phone number"
+                    value={phone}
+                    onChange={handlePhone}
+                    type="tel"
+                    placeholder="Enter your phone number"
                 ></input>
                 <p className="error-modal">This field is required.</p>
               </span>
 
-              <span>
+                <span>
                 <label>
                   Age <b>*</b>
                 </label>
                 <input
-                  value={age}
-                  onChange={handleAge}
-                  type="number"
-                  placeholder="18"
+                    value={age}
+                    onChange={handleAge}
+                    type="number"
+                    placeholder="18"
                 ></input>
                 <p className="error-modal ">This field is required.</p>
               </span>
-            </div>
+              </div>
 
-            <div className="info-form__1col">
+              <div className="info-form__1col">
               <span>
                 <label>
                   Email <b>*</b>
                 </label>
                 <input
-                  value={email}
-                  onChange={handleEmail}
-                  type="email"
-                  placeholder="Enter your email address"
+                    value={email}
+                    onChange={handleEmail}
+                    type="email"
+                    placeholder="Enter your email address"
                 ></input>
                 <p className="error-modal">This field is required.</p>
               </span>
 
-              <span>
+                <span>
                 <label>
                   Address <b>*</b>
                 </label>
                 <input
-                  value={address}
-                  onChange={handleAddress}
-                  type="text"
-                  placeholder="Enter your street address"
+                    value={address}
+                    onChange={handleAddress}
+                    type="text"
+                    placeholder="Enter your street address"
                 ></input>
                 <p className="error-modal ">This field is required.</p>
               </span>
-            </div>
+              </div>
 
-            <div className="info-form__2col">
+              <div className="info-form__2col">
               <span>
                 <label>
                   City <b>*</b>
                 </label>
                 <input
-                  value={city}
-                  onChange={handleCity}
-                  type="text"
-                  placeholder="Enter your city"
+                    value={city}
+                    onChange={handleCity}
+                    type="text"
+                    placeholder="Enter your city"
                 ></input>
                 <p className="error-modal">This field is required.</p>
               </span>
 
-              <span>
+                <span>
                 <label>
                   Zip Code <b>*</b>
                 </label>
                 <input
-                  value={zipcode}
-                  onChange={handleZip}
-                  type="text"
-                  placeholder="Enter your zip code"
+                    value={zipcode}
+                    onChange={handleZip}
+                    type="text"
+                    placeholder="Enter your zip code"
                 ></input>
                 <p className="error-modal ">This field is required.</p>
               </span>
-            </div>
+              </div>
 
-            <span className="info-form__checkbox">
+              <span className="info-form__checkbox">
               <input type="checkbox"></input>
               <p>Please send me latest news and updates</p>
             </span>
 
-            <div className="reserve-button">
-              <button onClick={confirmBooking}>Reserve Now</button>
-            </div>
-          </form>
+              <div className="reserve-button">
+                <button onClick={confirmBooking}>Reserve Now</button>
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
-    </>
+      </LoadScript>
   );
 }
 
