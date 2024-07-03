@@ -2,6 +2,7 @@ import MainImg from "../images/chooseUs/main.png";
 import Box1 from "../images/chooseUs/icon1.png";
 import Box2 from "../images/chooseUs/icon2.png";
 import Box3 from "../images/chooseUs/icon3.png";
+import {Link} from "react-router-dom";
 
 function ChooseUs() {
   return (
@@ -20,16 +21,15 @@ function ChooseUs() {
                 <h2>Best valued deals you will ever find</h2>
                 <p>
                   Discover the best deals you'll ever find with our unbeatable
-                  offers. We're dedicated to providing you with the best value
-                  for your money, so you can enjoy top-quality services and
-                  products without breaking the bank. Our deals are designed to
-                  give you the ultimate renting experience, so don't miss out on
+                  Quality Of Service (QOS). We're dedicated to providing you with the best value
+                  for your money, so you can enjoy top-quality services without breaking the bank. Our deals are designed to
+                  give you the ultimate car booking and taxi experience, so don't miss out on
                   your chance to save big.
                 </p>
-                <a href="#home">
+                <Link to="about">
                   Find Details &nbsp;
                   <i className="fa-solid fa-angle-right"></i>
-                </a>
+                </Link>
               </div>
               <div className="text-container__right">
                 <div className="text-container__right__box">

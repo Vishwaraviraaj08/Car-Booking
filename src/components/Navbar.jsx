@@ -15,7 +15,7 @@ function Navbar() {
         {/* mobile */}
         <div className={`mobile-navbar ${nav ? "open-nav" : ""}`}>
           <div onClick={openNav} className="mobile-navbar__close">
-            <i className="fa-solid fa-xmark"></i>
+            <i className="fa-solid fa-xmark">X</i>
           </div>
           <ul className="mobile-navbar__links">
             <li>
@@ -106,8 +106,9 @@ function Navbar() {
           </div>
 
           {/* mobile */}
-          <div className="mobile-hamb" onClick={openNav}>
-            <i className="fa-solid fa-bars"></i>
+          <div className="mobile-hamb" style={{ justifyContent:"space-between"}}onClick={openNav}>
+          <i className="fa fa-bars" aria-hidden="true"></i> 
+          <img  className="burger_menu"  style={{width:"10%" , height:"10%"}} src="https://clipground.com/images/navbar-icons-png-2.png" alt="" />
           </div>
         </div>
       </nav>
