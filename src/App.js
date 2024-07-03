@@ -13,6 +13,8 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Faq from "./Pages/Faq";
 import Terms from "./Pages/Terms";
+import CancellationPolicy from "./Pages/CancellationPolicy";
+import RefundPolicy from "./Pages/RefundPolicy";
 
 function App() {
     return (
@@ -31,7 +33,8 @@ function App() {
                 <Route path="register" element={<Register/>}/>
                 <Route path={"faq"} element={<Faq />} />
                 <Route path={"terms"} element={<Terms />} />
-
+                <Route path="cancellation-policy" element={<CancellationPolicy />} />
+                <Route path="refund-policy" element={<RefundPolicy />} />
 
 
             </Routes>

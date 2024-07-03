@@ -1,7 +1,6 @@
 import sedan from "../images/cars-big/car-sedan.png";
 import suv from "../images/cars-big/car-suv.png";
 import innova from "../images/cars-big/car-innova.png";
-import etios from "../images/cars-big/car-etios.png";
 
 export const CAR_DATA = [
   [
