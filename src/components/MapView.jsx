@@ -18,7 +18,7 @@ const MapComponent = ({showMap, setShowMap, location, setLocation}) => {
                 <div style={mapContainerStyle}>
                         <GoogleMap
                             mapContainerStyle={mapStyle}
-                            center={{ lat: -34.397, lng: 150.644 }}
+                            center={location || { lat: 12.9257861, lng: 80.1178836}}
                             zoom={8}
                             onClick={handleMapClick}
                         >

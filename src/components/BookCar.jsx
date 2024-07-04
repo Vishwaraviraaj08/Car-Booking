@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { LoadScript, Autocomplete } from '@react-google-maps/api';
 import sedan from '../images/cars-big/car-sedan.png';
 import suv from '../images/cars-big/car-suv.png';
@@ -31,6 +31,8 @@ function BookCar() {
   const [address, setAddress] = useState('');
   const [city, setCity] = useState('');
   const [zipcode, setZipCode] = useState('');
+  const [distance, setDistance] = useState(null);
+
 
 
 
@@ -39,6 +41,17 @@ function BookCar() {
   const [dropLocation, setDropLocation] = useState(null);
   const [pickLocation, setPickLocation] = useState(null);
 
+  const [pickAddress, setPickAddress] = useState('');
+  const [dropAddress, setDropAddress] = useState('');
+
+  const updateAddress = async (location) => {
+    const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${location.lat},${location.lng}&key=AIzaSyANlHK0u60OeB61jRC-wdpY_djhheq3P98`);
+    const data = await response.json();
+    if (data.results && data.results[0]) {
+      return data.results[0].formatted_address;
+    }
+  };
+  
 
   function dropHandleMapView() {
     setDropShowMap(true);
@@ -49,11 +62,49 @@ function BookCar() {
     setPickShowMap(true);
   }
 
-
   useEffect(() => {
-    console.log(dropLocation);
+    if(pickLocation) {
+      updateAddress(pickLocation).then((address) => {
+        setPickAddress(address);
+      });
+    }
+
+    if(dropLocation) {
+      updateAddress(dropLocation).then((address) => {
+        setDropAddress(address);
+      });
+    }
   }, [dropLocation, pickLocation]);
 
+  useEffect(() => {
+
+      if (pickLocation && dropLocation) {
+          const origin = pickLocation;
+          const destination = dropLocation;
+  
+          const service = new window.google.maps.DistanceMatrixService();
+          service.getDistanceMatrix(
+              {
+                  origins: [origin],
+                  destinations: [destination],
+                  travelMode: 'DRIVING',
+              },
+              (response, status) => {
+                  if (status === 'OK') {
+                      const result = response.rows[0].elements[0];
+                      if (result.status === 'OK') {
+                          console.log(result.distance.value);
+                          setDistance(result.distance.value); // distance in meters
+                      } else {
+                          alert('Error calculating distance: ' + result.status);
+                      }
+                  } else {
+                      alert('Error calculating distance: ' + status);
+                  }
+              }
+          );
+      }
+  }, [pickLocation, dropLocation])
 
   // taking value of modal inputs
   const handleName = (e) => {
@@ -251,7 +302,13 @@ function BookCar() {
                     </label>
                     <Autocomplete
                         onLoad={(autocomplete) => setPickUp(autocomplete)}
-                        onPlaceChanged={() => setPickUp(pickUp.getPlace())}
+                        onPlaceChanged={() => {
+                          const place = pickUp.getPlace();
+                          setPickLocation({
+                            lat: place.geometry.location.lat(),
+                            lng: place.geometry.location.lng()
+                          });
+                        }}
                     >
                       <div>
                       <input
@@ -264,6 +321,7 @@ function BookCar() {
                       </div>
 
                     </Autocomplete>
+                    <p> {pickAddress != '' && pickAddress} </p>
                   </div>
 
                   <div className="box-form__car-type">
@@ -273,7 +331,14 @@ function BookCar() {
                     </label>
                     <Autocomplete
                         onLoad={(autocomplete) => setDropOff(autocomplete)}
-                        onPlaceChanged={() => setDropOff(dropOff.getPlace())}
+                        onPlaceChanged={() => {
+                          const place = dropOff.getPlace();
+                          setDropLocation({
+                            lat: place.geometry.location.lat(),
+                            lng: place.geometry.location.lng()
+                          });
+                        }}
+                
                     >
                       <div>
                         <input
@@ -292,6 +357,7 @@ function BookCar() {
                         {dropShowMap && <MapView showMap={dropShowMap} setShowMap={setDropShowMap} location={dropLocation} setLocation={setDropLocation}/>}
                       </div>
                     </Autocomplete>
+                    <p> {dropAddress != '' && dropAddress} </p>
                   </div>
 
                   <button onClick={openModal} type="submit">
@@ -356,7 +422,7 @@ function BookCar() {
                 <i className="fa-solid fa-calendar-days"></i>
                 <div>
                   <h6>Pick-Up Location</h6>
-                  <p>{pickUp ? pickUp.formatted_address : ''}</p>
+                  <p>{pickAddress}</p>
                 </div>
               </span>
               </div>
@@ -366,7 +432,7 @@ function BookCar() {
                 <i className="fa-solid fa-calendar-days"></i>
                 <div>
                   <h6>Drop-Off Location</h6>
-                  <p>{dropOff ? dropOff.formatted_address : ''}</p>
+                  <p>{dropAddress}</p>
                 </div>
               </span>
               </div>
@@ -378,7 +444,11 @@ function BookCar() {
               {carType === "sedan" && <img src={sedan} alt="car_img"/>}
               {carType === "xylo" && <img src={suv} alt="car_img"/>}
               {carType === "innova" && <img src={innova} alt="car_img"/>}
+              <div>
+                {distance && <h5>Distance: {(distance/1000).toFixed(2)} kilometers</h5>}
+              </div>
             </div>
+            
           </div>
           {/* personal info */}
           <div className="booking-modal__person-info">
@@ -494,10 +564,7 @@ function BookCar() {
               </span>
               </div>
 
-              <span className="info-form__checkbox">
-              <input type="checkbox"></input>
-              <p>Please send me latest news and updates</p>
-            </span>
+              
 
               <div className="reserve-button">
                 <button onClick={confirmBooking}>Reserve Now</button>
