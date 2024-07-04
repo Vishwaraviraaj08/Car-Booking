@@ -4,8 +4,11 @@ import sedan from '../images/cars-big/car-sedan.png';
 import suv from '../images/cars-big/car-suv.png';
 import innova from '../images/cars-big/car-innova.png';
 import etios from '../images/cars-big/car-etios.png';
+import MapView from "./MapView";
+
 
 const libraries = ['places'];
+
 
 function BookCar() {
   const [modal, setModal] = useState(false); //  class - active-modal
@@ -28,6 +31,29 @@ function BookCar() {
   const [address, setAddress] = useState('');
   const [city, setCity] = useState('');
   const [zipcode, setZipCode] = useState('');
+
+
+
+  const [dropShowMap, setDropShowMap] = useState(false);
+  const [pickShowMap, setPickShowMap] = useState(false);
+  const [dropLocation, setDropLocation] = useState(null);
+  const [pickLocation, setPickLocation] = useState(null);
+
+
+  function dropHandleMapView() {
+    setDropShowMap(true);
+  }
+
+
+  function pickHandleMapView() {
+    setPickShowMap(true);
+  }
+
+
+  useEffect(() => {
+    console.log(dropLocation);
+  }, [dropLocation, pickLocation]);
+
 
   // taking value of modal inputs
   const handleName = (e) => {
@@ -233,7 +259,8 @@ function BookCar() {
                           placeholder="Enter pick up location"
                           style={{width: '90%', padding: '1.5rem', height: '4rem', fontSize: '15px', fontWeight: "normal", fontFamily: 'sans-serif'}}
                       />
-                        <i className={"fa fa-location"} style={{fontSize:"20px", paddingLeft:"6px"}}></i>
+                        <i className={"fa fa-location"} style={{fontSize:"20px", paddingLeft:"6px"}} onClick={pickHandleMapView}></i>
+                        {pickShowMap && <MapView showMap={pickShowMap} setShowMap={setPickShowMap} location={pickLocation} setLocation={setPickLocation}/>}
                       </div>
 
                     </Autocomplete>
@@ -261,7 +288,8 @@ function BookCar() {
                               fontFamily: 'sans-serif'
                             }}
                         />
-                        <i className={"fa fa-location"} style={{fontSize: "20px", paddingLeft: "6px"}}></i>
+                        <i className={"fa fa-location"} style={{fontSize: "20px", paddingLeft: "6px"}} onClick={dropHandleMapView}></i>
+                        {dropShowMap && <MapView showMap={dropShowMap} setShowMap={setDropShowMap} location={dropLocation} setLocation={setDropLocation}/>}
                       </div>
                     </Autocomplete>
                   </div>
