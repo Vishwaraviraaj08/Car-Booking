@@ -1,8 +1,33 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/Login.css';
 import 'https://kit.fontawesome.com/a81368914c.js';
 
 const Login = () => {
+
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    // navigate to /login page
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const response = await fetch('https://car-booking-api.netlify.app/user/signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ name, email, password }),
+        });
+        const data = await response.json();
+        console.log(data);
+        if(data.created){
+            navigate('/login');
+        }
+    }
+
     useEffect(() => {
         const inputs = document.querySelectorAll(".login-input");
 
@@ -32,7 +57,7 @@ const Login = () => {
                     <img src="/bg.svg" alt="background" />
                 </div>
                 <div className="login-content">
-                    <form className="login-form" action="index.html">
+                    <form className="login-form">
                         <img src="/avatar.svg" alt="avatar" />
                         <h2 className="login-title">Welcome</h2>
                         <div className="login-input-div login-input-div-one">
@@ -41,7 +66,7 @@ const Login = () => {
                             </div>
                             <div className="login-div">
                                 <h5 className="login-h5">Username</h5>
-                                <input type="text" className="login-input" />
+                                <input type="text" className="login-input" onChange={(event) => {setName(event.target.value)}}/>
                             </div>
                         </div>
 
@@ -53,7 +78,7 @@ const Login = () => {
                             </div>
                             <div className="login-div">
                                 <h5 className="login-h5">Email</h5>
-                                <input type="text" className="login-input" />
+                                <input type="email" className="login-input" onChange={(event) => {setEmail(event.target.value)}}/>
                             </div>
                         </div>
 
@@ -64,11 +89,10 @@ const Login = () => {
                             </div>
                             <div className="login-div">
                                 <h5 className="login-h5">Password</h5>
-                                <input type="password" className="login-input" />
+                                <input type="password" className="login-input" onChange={(event) => {setPassword(event.target.value)}}/>
                             </div>
                         </div>
-                        {/* <a href="#" className="login-a">Forgot Password?</a> */}
-                        <input type="submit" className="login-btn" value="Register" />
+                        <input type="submit" className="login-btn" value="Register" onClick={handleSubmit}/>
                     </form>
                 </div>
             </div>
