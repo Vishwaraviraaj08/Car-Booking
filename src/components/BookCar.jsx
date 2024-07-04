@@ -186,10 +186,9 @@ function BookCar() {
                     </label>
                     <select value={carType} onChange={handleCar}>
                       <option>Select your car type</option>
-                      <option value="Sedan">Sedan</option>
-                      <option value="SUV">SUV</option>
-                      <option value="Etios">Etios</option>
-                      <option value="Innova">Innova</option>
+                      <option value="sedan">Sedan</option>
+                      <option value="xylo">MUV-Xylo</option>
+                      <option value="innova">MUV-Innova</option>
                     </select>
                   </div>
 
@@ -228,11 +227,15 @@ function BookCar() {
                         onLoad={(autocomplete) => setPickUp(autocomplete)}
                         onPlaceChanged={() => setPickUp(pickUp.getPlace())}
                     >
+                      <div>
                       <input
                           type="text"
                           placeholder="Enter pick up location"
-                          style={{width: '100%', padding: '0.5rem'}}
+                          style={{width: '90%', padding: '1.5rem', height: '4rem', fontSize: '15px', fontWeight: "normal", fontFamily: 'sans-serif'}}
                       />
+                        <i className={"fa fa-location"} style={{fontSize:"20px", paddingLeft:"6px"}}></i>
+                      </div>
+
                     </Autocomplete>
                   </div>
 
@@ -245,11 +248,21 @@ function BookCar() {
                         onLoad={(autocomplete) => setDropOff(autocomplete)}
                         onPlaceChanged={() => setDropOff(dropOff.getPlace())}
                     >
-                      <input
-                          type="text"
-                          placeholder="Enter drop off location"
-                          style={{width: '100%', padding: '0.5rem'}}
-                      />
+                      <div>
+                        <input
+                            type="text"
+                            placeholder="Enter drop off location"
+                            style={{
+                              width: '90%',
+                              padding: '1.5rem',
+                              height: '4rem',
+                              fontSize: '15px',
+                              fontWeight: "normal",
+                              fontFamily: 'sans-serif'
+                            }}
+                        />
+                        <i className={"fa fa-location"} style={{fontSize: "20px", paddingLeft: "6px"}}></i>
+                      </div>
                     </Autocomplete>
                   </div>
 
