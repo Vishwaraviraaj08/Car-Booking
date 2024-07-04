@@ -287,25 +287,24 @@ function BookCar() {
           <div className="booking-modal__message">
             <h4>
               <i className="fa-solid fa-circle-info"></i> Upon completing this
-              reservation enquiry, you will receive:
+             booking, you will receive:
             </h4>
             <p>
-              Your rental voucher to produce on arrival at the rental desk and a
-              toll-free customer support number.
+              Your booking details in the mail to make a Comfortable and safe journey.
             </p>
           </div>
           {/* car info */}
-          <div className="booking-modal__car-info">
-            <div className="dates-div">
+          <div className="booking-modal__car-info" >
+            <div className="dates-div" >
               <div className="booking-modal__car-info__dates">
                 <h5>Location & Date</h5>
-                <span>
+                <span style={{width:"100%"}}>
                 <i className="fa-solid fa-location-dot"></i>
                 <div>
                   <h6>Pick-Up Date & Time</h6>
                   <p>
                     {pickTime} /{' '}
-                    <input type="time" className="input-time"></input>
+                    <input type="time" className="input-time" ></input>
                   </p>
                 </div>
               </span>
@@ -348,7 +347,9 @@ function BookCar() {
               <h5>
                 <span>Car -</span> {carType}
               </h5>
-              {imgUrl && <img src={imgUrl} alt="car_img"/>}
+              {carType === "sedan" && <img src={sedan} alt="car_img"/>}
+              {carType === "xylo" && <img src={suv} alt="car_img"/>}
+              {carType === "innova" && <img src={innova} alt="car_img"/>}
             </div>
           </div>
           {/* personal info */}
@@ -481,3 +482,7 @@ function BookCar() {
 }
 
 export default BookCar;
+
+
+
+
