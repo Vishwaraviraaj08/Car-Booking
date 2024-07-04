@@ -24,7 +24,7 @@ body {
 /* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #309bff #ffffff;
+  scrollbar-color: #248232 #ffffff;
 }
 
 /* Chrome, Edge and Safari */
@@ -48,15 +48,15 @@ body {
 
 *::-webkit-scrollbar-thumb {
   border-radius: 20px;
-  background-color: #309bff;
+  background-color: #248232;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background-color: #309bff;
+  background-color: #248232;
 }
 
 *::-webkit-scrollbar-thumb:active {
-  background-color: #309bff;
+  background-color: #248232;
 }
 
 .navbar {
@@ -97,7 +97,7 @@ body {
   transition: all 0.3s;
 }
 .navbar__links a:hover {
-  color: #309bff;
+  color: #248232;
 }
 @media (max-width: 1000px) {
   .navbar__links {
@@ -123,10 +123,10 @@ body {
   transition: all 0.3s;
 }
 .navbar__buttons__sign-in:hover {
-  color: #309bff;
+  color: #248232;
 }
 .navbar__buttons__register {
-  background-color: #309bff;
+  background-color: #248232;
   /* color: white; */
   color: black;
   padding: 1.5rem 3rem;
@@ -136,7 +136,7 @@ body {
 }
 .navbar__buttons__register:hover {
   /* box-shadow: 0 10px 15px 0 rgb(255, 230, 216); */
-  background-color: #309bff;
+  background-color: #248232;
     color: white;
 
   /* background-color: white; */
@@ -152,7 +152,7 @@ body {
   transition: all 0.3s;
 }
 .mobile-hamb:hover {
-  color: #309bff;
+  color: #248232;
 }
 @media (max-width: 1000px) {
   .mobile-hamb {
@@ -183,7 +183,7 @@ body {
   transition: all 0.3s;
 }
 .mobile-navbar__close:hover {
-  color: #309bff;
+  color: #248232;
 }
 .mobile-navbar__links {
   display: flex;
@@ -200,7 +200,7 @@ body {
   transition: all 0.3s;
 }
 .mobile-navbar__links li a:hover {
-  color: #309bff;
+  color: #248232;
 }
 
 .open-nav {
@@ -266,7 +266,7 @@ body {
   margin-bottom: 2.3rem;
 }
 .hero-content__text h1 span {
-  color: #309bff;
+  color: #248232;
 }
 .hero-content__text p {
   font-size: 1.6rem;
@@ -292,12 +292,12 @@ body {
   font-weight: 700;
 }
 .hero-content__text__btns__book-ride {
-  background-color: #309bff;
+  background-color: #248232;
   padding: 1.8rem 3rem;
   border-radius: 0.3rem;
-  box-shadow: 0 10px 15px 0 rgb(182, 223, 255);
+  box-shadow: 0 1px 1px 0 #2BA84A ;
   transition: all 0.3s;
-  border: 2px solid #309bff;
+  border: 2px solid #248232;
 }
 @media (max-width: 450px) {
   .hero-content__text__btns__book-ride {
@@ -305,8 +305,8 @@ body {
   }
 }
 .hero-content__text__btns__book-ride:hover {
-  box-shadow: 0 10px 15px 0 rgb(182, 223, 255);
-  background-color: #309bff;
+  box-shadow: 0 1px 1px 0 #2BA84A ;
+  background-color: #248232;
 }
 .hero-content__text__btns__learn-more {
   background-color: #010103;
@@ -336,7 +336,7 @@ body {
   position: fixed;
   font-size: 2.5rem;
   color: white;
-  background-color: #309bff;
+  background-color: #248232;
   border: 3px solid white;
   width: 2rem;
   height: 2rem;
@@ -421,7 +421,7 @@ body {
   margin-bottom: 1.2rem;
 }
 .book-content__box .box-form__car-type label i {
-  color: #309bff;
+  color: #248232;
 }
 .book-content__box .box-form__car-type select {
   font-size: 1.5rem;
@@ -450,7 +450,7 @@ body {
   margin-bottom: 1.2rem;
 }
 .book-content__box .box-form__car-time label i {
-  color: #309bff;
+  color: #248232;
   
   ;
 }
@@ -471,13 +471,13 @@ body {
   font-size: 1.8rem;
   font-weight: 500;
   color: white;
-  background-color: #309bff;
-  box-shadow: 0 10px 15px rgb(182, 223, 255);
+  background-color: #248232;
+  box-shadow: 0 10px 15px #2BA84A ;
   cursor: pointer;
   transition: all 0.3s;
 }
 .book-content__box button:hover {
-  box-shadow: 0 10px 15px rgb(182, 223, 255);
+  box-shadow: 0 10px 15px #2BA84A ;
 }
 
 .error-message {
@@ -567,7 +567,7 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 1rem 1.5rem;
-  background-color: #309bff;
+  background-color: #248232;
   color: white;
   align-items: center;
 }
@@ -594,7 +594,7 @@ body {
 .booking-modal__message h4 {
   font-size: 1.9rem;
   font-weight: 700;
-  color: #309bff;
+  color: #248232;
 }
 .booking-modal__message h4 i {
   font-size: 2.5rem;
@@ -625,7 +625,7 @@ body {
 }
 .booking-modal__car-info__dates h5 {
   font-size: 1.8rem;
-  color: #309bff;
+  color: #248232;
 }
 .booking-modal__car-info__dates span {
   display: flex;
@@ -668,7 +668,7 @@ body {
 }
 .booking-modal__car-info__model h5 {
   font-size: 1.8rem;
-  color: #309bff;
+  color: #248232;
 }
 .booking-modal__car-info__model h5 span {
   color: #010103;
@@ -686,7 +686,7 @@ body {
 .booking-modal__person-info h4 {
   font-size: 1.8rem;
   text-transform: uppercase;
-  color: #309bff;
+  color: #248232;
   margin-bottom: 2rem;
 }
 
@@ -766,14 +766,14 @@ body {
   font-size: 2.4rem;
   color: white;
   font-weight: 700;
-  background-color: #309bff;
+  background-color: #248232;
   border: 1px solid rgb(118, 112, 112);
   padding: 1.2rem 2rem;
   cursor: pointer;
   transition: all 0.2s;
 }
 .reserve-button button:hover {
-  background-color: #309bff;
+  background-color: #248232;
 }
 
 .dates-div {
@@ -909,7 +909,7 @@ body {
   text-align: left;
 }
 .pick-box button:hover {
-  background-color: #309bff;
+  background-color: #248232;
   color: white;
 }
 
@@ -932,7 +932,7 @@ body {
 }
 .pick-description__price {
   width: 100%;
-  background-color: #309bff;
+  background-color: #248232;
   font-size: 1.8rem;
   display: flex;
   align-items: center;
@@ -972,7 +972,7 @@ body {
   font-weight: 600;
   color: white;
   font-family: "Poppins", sans-serif;
-  background-color: #309bff;
+  background-color: #248232;
   padding: 1rem 1rem;
   display: flex;
   width: 100%;
@@ -982,7 +982,7 @@ body {
   box-shadow: 6px 6px 0 #efe9e9;
 }
 .cta-btn:hover {
-  background-color: #309bff;
+  background-color: #248232;
 }
 
 .box-cars {
@@ -1005,7 +1005,7 @@ body {
 }
 
 .colored-button {
-  background-color: #309bff !important;
+  background-color: #248232 !important;
   color: white;
 }
 
@@ -1013,7 +1013,7 @@ body {
   width: 48px;
   height: 48px;
   border: 5px solid rgba(0, 0, 0, 0.2588235294);
-  border-bottom-color:#309bff;
+  border-bottom-color:#248232;
   border-radius: 50%;
   display: inline-block;
   box-sizing: border-box;
@@ -1073,7 +1073,7 @@ body {
   }
 }
 .banner-content__text span {
-  color: #309bff;
+  color: #248232;
   font-weight: 500;
 }
 
@@ -1150,19 +1150,19 @@ body {
   text-decoration: none;
   color: white;
   font-weight: 700;
-  background-color: #309bff;
+  background-color: #248232;
   padding: 1.5rem 2.5rem;
   border-radius: 0.3rem;
-  box-shadow: 0 10px 15px 0 rgb(182, 223, 255);
+  box-shadow: 0 1px 1px 0 #2BA84A ;
   transition: all 0.3s;
-  border: 2px solid #309bff;
+  border: 2px solid #248232;
   font-size: 1.6rem;
   width: -moz-fit-content;
   width: fit-content;
 }
 .text-container__left a:hover {
-  box-shadow: 0 10px 15px 0 rgb(182, 223, 255);
-  background-color: #309bff;
+  box-shadow: 0 1px 1px 0 #2BA84A ;
+  background-color: #248232;
 }
 .text-container__right {
   display: flex;
@@ -1287,7 +1287,7 @@ body {
 
 .quotes-icon {
   font-size: 6.2rem;
-  color: #309bff;
+  color: #248232;
   position: absolute;
   bottom: 33px;
   right: 60px;
@@ -1401,9 +1401,9 @@ body {
 }
 
 .active-question {
-  background-color: #309bff;
+  background-color: #248232;
   color: white;
-  box-shadow: 0 10px 15px 0 rgb(182, 223, 255);
+  box-shadow: 0 1px 1px 0 #2BA84A ;
 }
 /*-----------------------------------*\
   #BLOG
@@ -1607,7 +1607,7 @@ footer {
   transition: all 0.2s;
 }
 .footer-content__1 li a:hover {
-  color: #309bff;
+  color: #248232;
 }
 .footer-content__1 li:nth-child(1) {
   font-size: 2.4rem;
@@ -1642,7 +1642,7 @@ footer {
   transition: all 0.2s;
 }
 .footer-content__2 a:hover {
-  color: #309bff;
+  color: #248232;
 }
 .footer-content__2 li {
   font-size: 1.6rem;
@@ -1677,12 +1677,12 @@ footer {
   text-decoration: none;
   color: white;
   font-weight: 700;
-  background-color: #309bff;
+  background-color: #248232;
   padding: 1.5rem 2.5rem;
   border-radius: 0.3rem;
-  box-shadow: 0 10px 15px 0 rgb(182, 223, 255);
+  box-shadow: 0 1px 1px 0 #2BA84A ;
   transition: all 0.3s;
-  border: 2px solid #309bff;
+  border: 2px solid #248232;
   font-size: 1.6rem;
   width: -moz-fit-content;
   width: fit-content;
@@ -1690,8 +1690,8 @@ footer {
   width: 100%;
 }
 .submit-email:hover {
-  box-shadow: 0 10px 15px 0 rgb(182, 223, 255);
-  background-color:#309bff;
+  box-shadow: 0 1px 1px 0 #2BA84A ;
+  background-color:#248232;
 }
 
 .hero-pages {
@@ -1735,7 +1735,7 @@ footer {
   transition: all 0.2s;
 }
 .hero-pages__text p a:hover {
-  color: #309bff;
+  color: #248232;
 }
 
 .about-main {
@@ -1893,7 +1893,7 @@ footer {
   font-size: 2.7rem;
   gap: 1rem;
   align-items: center;
-  color: #309bff;
+  color: #248232;
   white-space: nowrap;
 }
 
@@ -2005,18 +2005,18 @@ footer {
   color: #010103;
 }
 .models-div__box__descr__name-price__btn {
-  background-color: #309bff;
+  background-color: #248232;
   padding: 1.8rem 3rem;
   border-radius: 0.3rem;
-  box-shadow: 0 10px 15px 0 rgb(182, 223, 255);
+  box-shadow: 0 1px 1px 0 #2BA84A ;
   transition: all 0.3s;
-  border: 2px solid #309bff;
+  border: 2px solid #248232;
   font-size: 1.8rem;
   cursor: pointer;
 }
 .models-div__box__descr__name-price__btn:hover {
-  box-shadow: 0 10px 15px 0 rgb(182, 223, 255);
-  background-color: #309bff;
+  box-shadow: 0 1px 1px 0 #2BA84A ;
+  background-color: #248232;
 }
 .models-div__box__descr__name-price__btn a {
   text-decoration: none;
@@ -2131,7 +2131,7 @@ footer {
   margin-bottom: 0.5rem;
 }
 .contact-div__text a:hover {
-  color: #309bff;
+  color: #248232;
 }
 .contact-div__form {
   display: flex;
@@ -2168,18 +2168,18 @@ footer {
   margin-bottom: 2.5rem;
 }
 .contact-div__form form button {
-  background-color: #309bff;
+  background-color: #248232;
   padding: 1.8rem 3rem;
   border-radius: 0.3rem;
-  box-shadow: 0 10px 15px 0 rgb(182, 223, 255);
+  box-shadow: 0 1px 1px 0 #2BA84A ;
   transition: all 0.3s;
-  border: 2px solid #309bff;
+  border: 2px solid #248232;
   color: white;
   font-size: 1.8rem;
   font-weight: 600;
   cursor: pointer;
 }
 .contact-div__form form button:hover {
-  box-shadow: 0 10px 15px 0 rgb(182, 223, 255);
-  background-color: #309bff;
+  box-shadow: 0 1px 1px 0 #2BA84A ;
+  background-color: #248232;
 }/*# sourceMappingURL=styles.css.map */

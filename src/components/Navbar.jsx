@@ -15,7 +15,7 @@ function Navbar() {
         {/* mobile */}
         <div className={`mobile-navbar ${nav ? "open-nav" : ""}`}>
           <div onClick={openNav} className="mobile-navbar__close">
-            <i className="fa-solid fa-xmark">X</i>
+            <i className="fa-solid fa-xmark"></i>
           </div>
           <ul className="mobile-navbar__links">
             <li>
@@ -29,18 +29,14 @@ function Navbar() {
               </Link>
             </li>
             <li>
-              <Link onClick={openNav} to="/models">
-                Models
+              <Link onClick={openNav} to="/luggage-policy">
+                Luggage Policy
               </Link>
             </li>
+          
             <li>
-              <Link onClick={openNav} to="/testimonials">
-                Testimonials
-              </Link>
-            </li>
-            <li>
-              <Link onClick={openNav} to="/team">
-                Our Team
+              <Link onClick={openNav} to="/terms">
+                Terms
               </Link>
             </li>
             <li>
@@ -73,22 +69,19 @@ function Navbar() {
             </li>
             <li>
               {" "}
-              <Link className="models-link" to="/models">
-                Vehicle Models
+              <Link className="models-link" to="/luggage-policy">
+                Luggage Policy
               </Link>
             </li>
+
             <li>
               {" "}
-              <Link className="testi-link" to="/testimonials">
-                Testimonials
+              <Link className="contact-link" to="/terms">
+                Terms
               </Link>
             </li>
-            <li>
-              {" "}
-              <Link className="team-link" to="/team">
-                Our Team
-              </Link>
-            </li>
+          
+            
             <li>
               {" "}
               <Link className="contact-link" to="/contact">
@@ -97,10 +90,10 @@ function Navbar() {
             </li>
           </ul>
           <div className="navbar__buttons">
-            <Link className="navbar__buttons__sign-in" to="/">
+            <Link className="navbar__buttons__sign-in" to="/login">
               Sign In
             </Link>
-            <Link className="navbar__buttons__register" to="/">
+            <Link className="navbar__buttons__register" to="/register">
               Register
             </Link>
           </div>
@@ -108,7 +101,7 @@ function Navbar() {
           {/* mobile */}
           <div className="mobile-hamb" style={{ justifyContent:"space-between"}}onClick={openNav}>
           <i className="fa fa-bars" aria-hidden="true"></i> 
-          <img  className="burger_menu"  style={{width:"10%" , height:"10%"}} src="https://clipground.com/images/navbar-icons-png-2.png" alt="" />
+          {/* <img  className="burger_menu"  style={{width:"10%" , height:"10%"}} src="https://clipground.com/images/navbar-icons-png-2.png" alt="" /> */}
           </div>
         </div>
       </nav>

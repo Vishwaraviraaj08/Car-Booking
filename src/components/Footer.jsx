@@ -17,45 +17,31 @@ function Footer() {
                   <i className="fa-solid fa-phone"></i> &nbsp; (123) -456-789
                 </a>
               </li>
-{/* 
-              <li>
-                <a
-                  href="mailto: 
-                carrental@gmail.com"
-                >
-                  <i className="fa-solid fa-envelope"></i>
-                  &nbsp; calebjephuneh@gmail.com
-                </a>
-              </li> */}
 
-              {/* <li>
-                <a
-                  style={{ fontSize: "14px" }}
-                  target="_blank"
-                  rel="noreferrer"
-                  href="https://jephunneh.com/"
-                >
-                
-                </a>
-              </li> */}
             </ul>
 
             <ul className="footer-content__2">
               <li>Company</li>
               <li>
-                <a href="#home">New York</a>
+                <a href="/about">About</a>
               </li>
               <li>
-                <a href="#home">Careers</a>
+                <a href="/luggage-policy">Luggage Policy</a>
               </li>
               <li>
-                <a href="#home">Mobile</a>
+                <a href="/terms">Terms</a>
               </li>
               <li>
-                <a href="#home">Blog</a>
+                <a href="/faq">FAQ</a>
               </li>
               <li>
-                <a href="#home">How we work</a>
+                <a href="/refund-policy">Refund Policy</a>
+              </li>
+              <li>
+                <a href="/cancellation-policy">Cancellation Policy</a>
+              </li>
+              <li>
+                <a href="/contact">Contact</a>
               </li>
             </ul>
 

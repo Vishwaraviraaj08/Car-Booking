@@ -51,13 +51,7 @@ function Hero() {
           </div>
         </div>
 
-        {/* page up */}
-        {/*<div*/}
-        {/*  onClick={scrollToTop}*/}
-        {/*  className={`scroll-up ${goUp ? "show-scroll" : ""}`}*/}
-        {/*>*/}
-        {/*  <i className="fa-solid fa-arrow-up" style={{background: "black"}}></i>*/}
-        {/*</div>*/}
+      
       </section>
     </>
   );

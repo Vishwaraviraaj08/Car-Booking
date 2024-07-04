@@ -1,5 +1,6 @@
 import { useState } from "react";
 import faqQuestions from "../components/faqQuestions";
+import Footer from "../components/Footer";
 
 function Faq() {
   const [activeQ, setActiveQ] = useState("");
@@ -17,6 +18,8 @@ function Faq() {
   };
 
   return (
+    
+  <div> 
       <section className="faq-section">
         <div className="container">
           <div className="faq-content">
@@ -55,6 +58,11 @@ function Faq() {
           </div>
         </div>
       </section>
+      <Footer></Footer>
+
+
+      </div>
+
   );
 }
 
