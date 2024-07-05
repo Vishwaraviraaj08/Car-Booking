@@ -15,11 +15,13 @@ import Faq from "./Pages/Faq";
 import Terms from "./Pages/Terms";
 import CancellationPolicy from "./Pages/CancellationPolicy";
 import RefundPolicy from "./Pages/RefundPolicy";
+import PhoneIcon from "./components/PhoneIcon";
 
 function App() {
     return (
         <>
             <Navbar/>
+            <PhoneIcon/>
             <Routes>
                 <Route path="place-finder" element={<PlaceFinder/>}/>
                 <Route index path="/" element={<Home/>}/>
