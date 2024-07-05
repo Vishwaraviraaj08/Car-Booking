@@ -33,7 +33,7 @@ function Navbar() {
                 Luggage Policy
               </Link>
             </li>
-          
+
             <li>
               <Link onClick={openNav} to="/terms">
                 Terms
@@ -44,6 +44,17 @@ function Navbar() {
                 Contact
               </Link>
             </li>
+            <hr/>
+            <li>
+              <Link className="" to="/login">
+                Sign In
+              </Link>
+            </li>
+            <li>
+              <Link className="" to="/register">
+                Register
+              </Link>
+          </li>
           </ul>
         </div>
 
@@ -52,7 +63,7 @@ function Navbar() {
         <div className="navbar">
           <div className="navbar__img">
             <Link to="/" onClick={() => window.scrollTo(0, 0)}>
-              <img src={Logo} alt="logo-img" />
+              <img src={Logo} alt="logo-img"/>
             </Link>
           </div>
           <ul className="navbar__links">

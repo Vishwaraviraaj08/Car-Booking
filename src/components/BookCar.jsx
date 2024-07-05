@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect,  useState } from 'react';
 import { LoadScript, Autocomplete } from '@react-google-maps/api';
 import sedan from '../images/cars-big/car-sedan.png';
 import suv from '../images/cars-big/car-suv.png';
@@ -215,7 +215,51 @@ function BookCar() {
     doneMsg.style.display = 'none';
   };
 
-  return (
+  return (<>
+        <style>
+          {
+            `
+            /* Add this to your Login.css file */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Position above the icon */
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%; /* Arrow below the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+`
+          }
+        </style>
       <LoadScript googleMapsApiKey="AIzaSyANlHK0u60OeB61jRC-wdpY_djhheq3P98" libraries={libraries}>
         <section id="booking-section" className="book-section">
           {/* overlay */}
@@ -235,7 +279,7 @@ function BookCar() {
 
                 <div style={{display: "flex", flexDirection: 'column'}}>
                   <label style={{fontSize:"16px", fontWeight:"bold"}}>
-                    <i className="fa-solid fa-car"></i> &nbsp;Journey Type<b>*</b>
+                    <i className="fa-solid fa-car"></i> &nbsp;Journey Type<b style={{color:"red"}}>*</b>
                   </label>
                   <div style={{display: "flex", gap: "20px"}}>
                     <input type={'radio'} name={'trip'} value={'one-way'}
@@ -260,6 +304,11 @@ function BookCar() {
                     <label>
                       <i className="fa-solid fa-car"></i> &nbsp; Select Your Car
                       Type <b>*</b>
+                      <div className="tooltip">
+                        &nbsp;&nbsp;
+                        <i className="fa-solid fa-info fa-beat-fade"></i>
+                        <span className="tooltiptext">To know more about the cars, <a href={"#pick-car"} style={{color:'blue'}}>Click Here !</a></span>
+                      </div>
                     </label>
                     <select value={carType} onChange={handleCar}>
                       <option>Select your car type</option>
@@ -573,6 +622,7 @@ function BookCar() {
           </div>
         </div>
       </LoadScript>
+      </>
   );
 }
 
