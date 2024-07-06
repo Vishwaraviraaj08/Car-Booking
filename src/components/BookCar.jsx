@@ -5,12 +5,14 @@ import suv from '../images/cars-big/car-suv.png';
 import innova from '../images/cars-big/car-innova.png';
 import etios from '../images/cars-big/car-etios.png';
 import MapView from "./MapView";
+import {Link} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 
 const libraries = ['places'];
 
 
-function BookCar() {
+function BookCar({ overAllState, setOverAllState}) {
   const [modal, setModal] = useState(false); //  class - active-modal
 
   // booking car
@@ -32,8 +34,21 @@ function BookCar() {
   const [city, setCity] = useState('');
   const [zipcode, setZipCode] = useState('');
   const [distance, setDistance] = useState(null);
+  const [price, setPrice] = useState(null);
+  const navigate = useNavigate();
 
 
+
+  useEffect(() => {
+    let minDistance = Math.max(130, distance);
+    if (tripType === "two-way") {
+      minDistance = 2 * minDistance;
+    }
+
+    const carRate = carType === "sedan" ? 13 : carType === "xylo" ? 17 : 18;
+    const price = Math.ceil((minDistance / 1000) * carRate) + 400;
+    setPrice(price);
+  },[distance])
 
 
   const [dropShowMap, setDropShowMap] = useState(false);
@@ -174,6 +189,32 @@ function BookCar() {
     setModal(!modal);
     const doneMsg = document.querySelector('.booking-done');
     doneMsg.style.display = 'flex';
+
+    console.log(overAllState);
+    const value = {
+        tripType: tripType,
+        carType: carType,
+        pickTime: pickTime,
+        dropTime: dropTime,
+        name: name,
+        lastName: lastName,
+        phone: phone,
+        age: age,
+        email: email,
+        address: address,
+        city: city,
+        zipcode: zipcode,
+        distance: distance,
+        price: price,
+        pickUpAddress: pickAddress,
+        dropOffAddress: dropAddress
+    }
+    setOverAllState(value);
+
+    setTimeout(() => {
+      navigate('/summary');
+    }, 500);
+    console.log("ghjkl");
   };
 
   // taking value of booking inputs
@@ -260,6 +301,11 @@ function BookCar() {
 `
           }
         </style>
+
+
+
+
+
       <LoadScript googleMapsApiKey="AIzaSyANlHK0u60OeB61jRC-wdpY_djhheq3P98" libraries={libraries}>
         <section id="booking-section" className="book-section">
           {/* overlay */}
@@ -281,7 +327,7 @@ function BookCar() {
                   <label style={{fontSize:"16px", fontWeight:"bold"}}>
                     <i className="fa-solid fa-car"></i> &nbsp;Journey Type<b style={{color:"red"}}>*</b>
                   </label>
-                  <div style={{display: "flex", gap: "20px"}}>
+                  <div style={{display: "flex", gap: "20px"}} aria-required>
                     <input type={'radio'} name={'trip'} value={'one-way'}
                            onChange={(e) => setTripType(e.target.value)}/>
                     <label style={{fontSize: '15px'}} htmlFor={'one-way'}>One Way</label>
@@ -615,7 +661,14 @@ function BookCar() {
 
               
 
-              <div className="reserve-button">
+              <div className="reserve-button" style={{display:"flex", flexDirection:'row', justifyContent:"space-between", alignItems:"center"}}>
+                <div className={"booking-price"} style={{textAlign:"left", fontSize:'2rem'}}>
+                  <p> Total Price : <b>&#8377; {price} * </b> </p>
+                  <br/>
+                  <p style={{fontSize:'1.5rem'}}> * Price with respect to kms : {price - 400} and</p>
+                  <p style={{fontSize:'1.5rem'}}> * Driver's Bata : {400}</p>
+
+                </div>
                 <button onClick={confirmBooking}>Reserve Now</button>
               </div>
             </form>

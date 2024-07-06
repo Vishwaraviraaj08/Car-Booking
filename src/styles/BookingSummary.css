@@ -1,0 +1,130 @@
+.booking-summary {
+    font-family: Arial, sans-serif;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 800px;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 13px;
+}
+
+.booking-summary h1, .booking-summary h2 {
+    color: #009900; /* Rich green color */
+    text-align: center;
+}
+
+.booking-summary h2 {
+    margin-bottom: 0;
+}
+
+.booking-summary table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.booking-summary th {
+    /*background-color: #009900; !* Rich green color *!*/
+    /*color: white;*/
+    padding: 10px;
+    text-align: center;
+}
+
+.booking-summary td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+}
+
+.booking-summary .title th {
+    background-color: #009900; /* Rich green color */
+    color: white;
+}
+
+.booking-summary th[colspan="2"] {
+    text-align: center;
+}
+
+.booking-summary td:first-child {
+    text-align: center;
+    font-weight: bold;
+}
+
+.booking-summary td:last-child {
+    text-align: left;
+}
+
+.booking-summary tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.booking-summary tr:last-child th {
+    font-size: 1.1em;
+    font-style: italic;
+    text-align: justify;
+}
+
+
+
+/* From uiverse.io by @Ali-Tahmazi99 */
+
+.button-div {
+    width: 100%;
+    height:auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.invoice-button {
+    display: flex;
+    width: auto;
+    padding: 10px 20px;
+    height: 50px;
+    border-radius: 10px;
+    border: 2px solid #000000;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease-in;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.invoice-button::before,
+.invoice-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 100%;
+    transform: skew(15deg);
+    transition: all 0.5s;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.invoice-button::before {
+    left: -10px;
+    background: #33a243;
+}
+
+.invoice-button::after {
+    right: -10px;
+    background: #0fcf2e;
+}
+
+.invoice-button:hover::before,
+.invoice-button:hover::after {
+    width: 58%;
+}
+
+.invoice-button:hover span {
+    color: black;
+    transition: 0.3s;
+}
+
+.invoice-button span {
+    color: #000000;
+    font-size: 18px;
+    transition: all 0.3s ease-in;
+}

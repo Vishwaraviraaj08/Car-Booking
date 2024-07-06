@@ -7,11 +7,11 @@ import ChooseUs from "../components/ChooseUs";
 import Testimonials from "../components/Testimonials";
 import Footer from "../components/Footer";
 
-function Home() {
+function Home({ overAllState, setOverAllState}) {
   return (
     <>
       <Hero />
-      <BookCar />
+      <BookCar overAllState={overAllState} setOverAllState={setOverAllState} />
       <PlanTrip />
       <PickCar />
       {/*<Banner />*/}

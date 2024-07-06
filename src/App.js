@@ -16,17 +16,24 @@ import Terms from "./Pages/Terms";
 import CancellationPolicy from "./Pages/CancellationPolicy";
 import RefundPolicy from "./Pages/RefundPolicy";
 import PhoneIcon from "./components/PhoneIcon";
+import {useState} from "react";
+import Summary from "./components/Summary";
+import BookingConfirmation from "./components/BookingConfirmation";
+
 
 function App() {
+    const [overAllState, setOverAllState] = useState(null);
     return (
         <>
             <Navbar/>
             <PhoneIcon/>
             <Routes>
                 <Route path="place-finder" element={<PlaceFinder/>}/>
-                <Route index path="/" element={<Home/>}/>
+                <Route index path="/" element={<Home overAllState={overAllState} setOverAllState={setOverAllState} />}/>
                 <Route path="about" element={<About/>}/>
-             
+
+                <Route path={"summary"} element={<Summary overAllState={overAllState} setOverAllState={setOverAllState} />}/>
+                <Route path={"booking-confirmation"} element={<BookingConfirmation/>}/>
                 <Route path="contact" element={<Contact/>}/>
                 <Route path="luggage-policy" element={<LuggagePolicy/>}/>
                 <Route path="login" element={<Login/>}/>

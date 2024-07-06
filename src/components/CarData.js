@@ -6,7 +6,7 @@ export const CAR_DATA = [
   [
     {
       name: "Sedan",
-      price: "37",
+      price: "13",
       img: sedan,
       model: "Golf 6",
       mark: "Volkswagen",
@@ -20,7 +20,7 @@ export const CAR_DATA = [
   [
     {
       name: "MUV-Xylo",
-      price: "45",
+      price: "17",
       img: suv,
       model: "Audi",
       mark: "A1",
@@ -49,7 +49,7 @@ export const CAR_DATA = [
   [
     {
       name: "MUV-Innova",
-      price: "30",
+      price: "18",
       img: innova,
       model: "Camry",
       mark: "Toyota",
