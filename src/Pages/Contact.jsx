@@ -5,15 +5,13 @@ function Contact() {
   return (
     <>
       <section className="contact-page">
-        <HeroPages name="Contact" />
+        <h1 style={{textAlign:'center', fontSize:'4em'}}>Contact ZeroDropTaxi</h1>
         <div className="container">
           <div className="contact-div">
             <div className="contact-div__text">
               <h2>Need additional information?</h2>
               <p>
-                A multifaceted professional skilled in multiple fields of
-                research, development as well as a learning specialist. Over 15
-                years of experience.
+                Our Car Booking Service is available 24/7. If you have any questions or need assistance, please feel free to contact us. We're here to help you with all your car booking service needs.
               </p>
               <a href="/">
                 <i className="fa-solid fa-phone"></i>&nbsp; (123) 456-7869
@@ -32,12 +30,12 @@ function Contact() {
                 <label>
                   Full Name <b>*</b>
                 </label>
-                <input type="text" placeholder='E.g: "Joe Shmoe"'></input>
+                <input type="text" placeholder='E.g: "ABC"'></input>
 
                 <label>
                   Email <b>*</b>
                 </label>
-                <input type="email" placeholder="youremail@example.com"></input>
+                <input type="email" placeholder="abc@example.com"></input>
 
                 <label>
                   Tell us about it <b>*</b>
@@ -52,18 +50,7 @@ function Contact() {
             </div>
           </div>
         </div>
-        <div className="book-banner">
-          <div className="book-banner__overlay"></div>
-          <div className="container">
-            <div className="text-content">
-              <h2>Book a car by getting in touch with us</h2>
-              <span>
-                <i className="fa-solid fa-phone"></i>
-                <h3>(123) 456-7869</h3>
-              </span>
-            </div>
-          </div>
-        </div>
+
         <Footer />
       </section>
     </>

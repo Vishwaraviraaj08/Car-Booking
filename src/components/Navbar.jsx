@@ -10,7 +10,9 @@ function Navbar() {
   };
 
   return (
-    <>
+    <div
+        // style={{position:'sticky'}}
+    >
       <nav>
         {/* mobile */}
         <div className={`mobile-navbar ${nav ? "open-nav" : ""}`}>
@@ -116,7 +118,7 @@ function Navbar() {
           </div>
         </div>
       </nav>
-    </>
+    </div>
   );
 }
 

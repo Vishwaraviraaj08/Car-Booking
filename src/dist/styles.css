@@ -58,7 +58,6 @@ body {
 *::-webkit-scrollbar-thumb:active {
   background-color: #248232;
 }
-
 .navbar {
   max-width: 133rem;
   width: 100%;
@@ -67,14 +66,15 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 2.7rem 2rem;
-  position: absolute;
+  position: page;
   top: 0;
   left: 0;
   right: 0;
   background-color: transparent;
-  z-index: 99999;
+  z-index: 999999;
   margin: 0 auto;
 }
+
 .navbar__img {
   width: 14.5rem;
 }

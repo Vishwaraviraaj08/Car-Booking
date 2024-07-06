@@ -10,11 +10,6 @@ function ChooseUs() {
       <section className="choose-section">
         <div className="container">
           <div className="choose-container">
-            <img
-              className="choose-container__img"
-              src={MainImg}
-              alt="car_img"
-            />
             <div className="text-container">
               <div className="text-container__left">
                 <h4>Why Choose Us</h4>
@@ -35,10 +30,10 @@ function ChooseUs() {
                 <div className="text-container__right__box">
                   <img src={Box1} alt="car-img" />
                   <div className="text-container__right__box__text">
-                    <h4>Cross Country Drive</h4>
+                    <h4>Cross State Drive</h4>
                     <p>
                       Take your driving experience to the next level with our
-                      top-notch vehicles for your cross-country adventures.
+                      best vehicles for your cross-state adventures.
                     </p>
                   </div>
                 </div>
