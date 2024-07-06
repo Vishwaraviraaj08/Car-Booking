@@ -66,6 +66,7 @@ const Summary = ({ overAllState, setOverAllState }) => {
     // }
 
 
+
     return (
         <>
             <div className="booking-summary" id={"booking-summary"}>
