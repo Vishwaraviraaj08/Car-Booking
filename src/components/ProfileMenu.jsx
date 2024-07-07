@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import {Link} from "react-router-dom";
 
 export default function ProfileMenu() {
+
+    const [open, setOpen] = useState(false);
+
     return <>
         <style>
             {
@@ -33,9 +36,7 @@ export default function ProfileMenu() {
   user-select: none;
   /* Likely future */
 }
-.profile-dropdown input[type=checkbox] {
-  display: none;
-}
+
 .profile-dropdown input[type=checkbox]:checked ~ ul {
   display: block;
   animation: pulse 0.5s;
@@ -80,16 +81,16 @@ export default function ProfileMenu() {
   text-overflow: ellipsis;
 }
 .profile-dropdown ul {
-  display: none;
   list-style: none;
   padding: 0;
-  marrgin: 0;
+  margin: 0;
   background: #fff;
   position: absolute;
   top: 100%;
   right: 0;
   width: 100%;
   border-radius: 3px;
+  z-index: 100000;
 }
 .profile-dropdown ul li a {
   display: block;
@@ -134,14 +135,6 @@ export default function ProfileMenu() {
   clear: both;
 }
 
-h1 {
-  text-align: center;
-  font-size: 3rem;
-  color: rgba(0, 0, 0, 0.5);
-  text-transform: uppercase;
-  margin: 2rem 0 0;
-  letter-spacing: 0.5rem;
-}
 
 .profile-container {
   width: 80%;
@@ -179,17 +172,18 @@ p.subtitle {
 `
             }
         </style>
-        <div className="profile-container">
-            <div className="half">
-                <label htmlFor="profile2" className="profile-dropdown">
-                    <input type="checkbox" id="profile2"/>
+        <div className="">
+            <div className="" onClick={() => {setOpen((curr) => {
+                        return !curr;
+            })}}>
+                <label  className="profile-dropdown">
                     <img src="https://cdn0.iconfinder.com/data/icons/avatars-3/512/avatar_hipster_guy-512.png"/>
                     <span>John Doe</span>
                     {/*<label htmlFor="profile2"></label>*/}
-                    <ul>
+                    {open && <ul>
                         <li><Link to={"/history"}>History</Link></li>
                         <li><Link to={"/login"}>LogOut</Link></li>
-                    </ul>
+                    </ul>}
                 </label>
             </div>
         </div>
