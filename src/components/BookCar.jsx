@@ -108,7 +108,6 @@ function BookCar({ overAllState, setOverAllState}) {
                   if (status === 'OK') {
                       const result = response.rows[0].elements[0];
                       if (result.status === 'OK') {
-                          console.log(result.distance.value);
                           setDistance(result.distance.value); // distance in meters
                       } else {
                           alert('Error calculating distance: ' + result.status);
@@ -190,7 +189,6 @@ function BookCar({ overAllState, setOverAllState}) {
     const doneMsg = document.querySelector('.booking-done');
     doneMsg.style.display = 'flex';
 
-    console.log(overAllState);
     const value = {
         tripType: tripType,
         carType: carType,
@@ -214,7 +212,6 @@ function BookCar({ overAllState, setOverAllState}) {
     setTimeout(() => {
       navigate('/summary');
     }, 500);
-    console.log("ghjkl");
   };
 
   // taking value of booking inputs
@@ -493,7 +490,9 @@ function BookCar({ overAllState, setOverAllState}) {
                   <h6>Pick-Up Date & Time</h6>
                   <p>
                     {pickTime} /{' '}
-                    <input type="time" className="input-time" ></input>
+                    <input type="time" className="input-time" onChange={(e) => {
+                      setPickTime(pickTime+" "+e.target.value);
+                    }}></input>
                   </p>
                 </div>
               </span>
@@ -506,7 +505,9 @@ function BookCar({ overAllState, setOverAllState}) {
                   <h6>Drop-Off Date & Time</h6>
                   <p>
                     {dropTime} /{' '}
-                    <input type="time" className="input-time"></input>
+                    <input type="time" className="input-time" onChange={(e) => {
+                      setDropTime(dropTime+" "+e.target.value);
+                    }}></input>
                   </p>
                 </div>
               </span>

@@ -48,7 +48,7 @@ function Navbar({userData}) {
               </Link>
             </li>
             <hr/>
-            {userData && <ProfileMenu/>}
+            {userData && <ProfileMenu userName={userData.name} openNav={openNav}/>}
             {!userData && <div>
             <li>
               <Link className="" onClick={openNav} to="/login">
@@ -108,7 +108,7 @@ function Navbar({userData}) {
             </li>
           </ul>
           <div className="navbar__buttons">
-            {userData && <ProfileMenu/>}
+            {userData && <ProfileMenu userName={userData.name}/>}
             {!userData && 
             <Link className="navbar__buttons__sign-in" to="/login">
               Sign In

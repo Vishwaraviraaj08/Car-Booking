@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/Register.css';
 import 'https://kit.fontawesome.com/a81368914c.js';
 
-const Register = ({userData, setUserData}) => {
+const Register = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');

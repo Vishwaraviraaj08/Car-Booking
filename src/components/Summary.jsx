@@ -10,7 +10,7 @@ import {useNavigate} from "react-router-dom";
 
 
 
-const Summary = ({ overAllState, setOverAllState }) => {
+const Summary = ({ overAllState, setOverAllState, userData }) => {
 
     const navigate = useNavigate();
 
@@ -27,11 +27,50 @@ const Summary = ({ overAllState, setOverAllState }) => {
         html2pdf().from(invoice).set(opt).save();
     }
 
-    function handleBooking() {
+    async function handleBooking() {
         alert("Booking Confirmed");
 
+        // POST http://localhost:8888/user/addhistory HTTP/1.1
+        // Content-Type: application/json
 
+        // {
+        //     "id": "66858ebacfd411801e8d613b",
+        //     "history": {
+        //         "tripType": "two way",
+        //         "carType": "sedan",
+        //         "pickTime": "2024-01-05",
+        //         "dropTime": "2023-01-06",
+        //         "name": "Sukhress",
+        //         "lastName": "Warun",
+        //         "phone": "09789858295",
+        //         "age": "20",
+        //         "email": "sukhresswarun@gmail.com",
+        //         "address": "No.9 , F6 , Ruby Enclave Flats , Kullakarai street",
+        //         "city": "Chennai",
+        //         "zipcode": "600045",
+        //         "distance": 27619,
+        //         "price": 760,
+        //         "pickUpAddress": "37MC+P5G, Poongavanapuram, Chennai, Tamil Nadu 600003, India",
+        //         "dropOffAddress": "Tambaram (தாம்பரம்), East Tambaram Railway Station Road, West Tambaram, Tambaram, East Tambaram, Tambaram, Chennai, Tamil Nadu 600045, India"
+        //     }
+        // }
+        let response = await fetch('https://car-booking-api.netlify.app/user/addhistory', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: userData._id,
+                history: overAllState
+            })
+        });
 
+        if(response.status !== 200) {
+            alert("Booking Failed");
+            return;
+        }
+        response = await response.json();
+        
 
 //     EmailJS
 
@@ -47,20 +86,18 @@ const Summary = ({ overAllState, setOverAllState }) => {
     // const data = {
     //     tripType: "one-way",
     //     carType: "Sedan",
-    //     pickUp: "Adirampattinam",
-    //     dropOff: "Alangayam",
     //     pickTime: "11-Jul-2024 00:15",
     //     dropTime: "11-Jul-2024 02:30",
     //     name: "Ms. L",
     //     lastName: "L",
     //     phone: "1234567890",
-    //     age: 35,
+    //     age: "35",
     //     email: "s.sankarking.s@gmail.com",
     //     address: "123 Main St",
     //     city: "Cityname",
     //     zipcode: "12345",
-    //     distance: "100 km",
-    //     price: "52300",
+    //     distance: 100,
+    //     price: 52300,
     //     pickUpAddress: "ykjnlk",
     //     dropOffAddress: "ygbuhnjm"
     // }

@@ -1,22 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import '../styles/History.css';
 
-const collapsibleData = [
-    {
-        title: 'Painting details',
-        content: 'As all of our paintings, "Cyclone", is hand-made by one of our artists. High quality oil and acrylic paint and cotton canvas are used making the painting sturdy, capable of keeping the same color vibrancy for decades.'
-    },
-    {
-        title: 'Shipping info',
-        content: 'We ship all paintings world-wide, free of charge. We are partnered with major carriers like DHL, UPS, and FedEx. Due to the hand-painting and drying process, all orders are processed within 10 business days.'
-    },
-    {
-        title: 'Love it or return it',
-        content: "100% Satisfaction Guaranteed. Get a full refund or a painting re-do if you find that your art piece didn't meet your expectations, or you were anyhow dissatisfied with it."
-    }
-];
-
-function CollapsibleTab({ title, content }) {
+function CollapsibleTab({ item }) {
     const [isOpen, setIsOpen] = useState(false);
     const contentRef = useRef(null);
 
@@ -33,28 +18,65 @@ function CollapsibleTab({ title, content }) {
     return (
         <div className={`collapsibles-wrapper ${isOpen ? 'collapsible-tab__open' : ''}`}>
             <button type="button" className="collapsible-trigger-btn" onClick={toggleOpen}>
-                {title}
+                {item.pickTime}
             </button>
             <div className="collapsible-content" ref={contentRef}>
                 <div className="collapsible-content__inner">
-                    <p>{content}</p>
+                    <table border = "1" style={{ borderCollapse: 'collapse', fontSize: '1.5rem'}} className='history-table'>
+
+                    {
+                        Object.keys(item).filter((ele) => (ele != '_id')).map((key, index) => {
+                            return (
+                                <tr>
+                                    <td style={{padding: '5px', width: '30%'}}>{key}</td>
+                                    <td style={{padding: '5px'}}>{item[key]}</td>
+                                </tr>
+                            );                                    
+                            })
+                    }
+                    </table>
                 </div>
             </div>
         </div>
     );
 }
 
-function App() {
+function History({userData}) {
+
+    const [data, setData] = useState(null);
+
+    useEffect(() => {
+        async function fetchData() {
+            // You can await here
+            const response = await fetch('https://car-booking-api.netlify.app/user/gethistory', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ id:  userData._id}),
+            });
+            setData(await response.json());
+            
+        }
+        fetchData();
+
+    }, []);
+
     return (
+
         <div className={"history-container"}>
-            <h1 style={{textAlign:'center', margin:'3rem auto 6rem auto', fontSize:'30px'}}> Previous Booking History</h1>
-        <div className="collapsible-tabs__wrapper">
-            {collapsibleData.map((item, index) => (
-                <CollapsibleTab key={index} title={item.title} content={item.content} />
-            ))}
-        </div>
+            {!data && <h1 style={{textAlign:'center', margin:'3rem auto 6rem auto', fontSize:'30px'}}> Loading... </h1>}
+            {data && data.history.length === 0 && <h1 style={{textAlign:'center', margin:'3rem auto 6rem auto', fontSize:'30px'}}> No Previous Bookings Found </h1>}
+            {data && data.history.length !== 0 && <>
+                <h1 style={{textAlign:'center', margin:'3rem auto 6rem auto', fontSize:'30px'}}> Previous Booking History</h1>
+                <div className="collapsible-tabs__wrapper">
+                    {data.history.map((item, index) => (
+                        <CollapsibleTab key={index} item={item} />
+                    ))}
+                </div>
+            </>}
         </div>
     );
 }
 
-export default App;
+export default History;

@@ -24,7 +24,7 @@ const Login = ({userData, setUserData}) => {
         setLoading(false);
         console.log(data);
         if (data.auth) {
-            setUserData(data);
+            setUserData(data.userObject);
             navigate('/');
         }
     }
