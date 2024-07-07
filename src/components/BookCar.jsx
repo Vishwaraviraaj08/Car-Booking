@@ -40,13 +40,13 @@ function BookCar({ overAllState, setOverAllState}) {
 
 
   useEffect(() => {
-    let minDistance = Math.max(130, distance);
+    let minDistance = Math.max(130, distance/1000);
     if (tripType === "two-way") {
       minDistance = 2 * minDistance;
     }
 
     const carRate = carType === "sedan" ? 13 : carType === "xylo" ? 17 : 18;
-    const price = Math.ceil((minDistance / 1000) * carRate) + 400;
+    const price = Math.ceil((minDistance) * carRate) + 400;
     setPrice(price);
   },[distance])
 
@@ -202,7 +202,7 @@ function BookCar({ overAllState, setOverAllState}) {
         address: address,
         city: city,
         zipcode: zipcode,
-        distance: distance,
+        distance: Math.ceil(distance/1000),
         price: price,
         pickUpAddress: pickAddress,
         dropOffAddress: dropAddress
