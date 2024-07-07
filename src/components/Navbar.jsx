@@ -107,16 +107,20 @@ function Navbar({userData}) {
               </Link>
             </li>
           </ul>
-          {userData && <ProfileMenu/>}
-          {!userData && <div className="navbar__buttons">
+          <div className="navbar__buttons">
+            {userData && <ProfileMenu/>}
+            {!userData && 
             <Link className="navbar__buttons__sign-in" to="/login">
               Sign In
-            </Link>
+            </Link>}
+            {!userData &&
             <Link className="navbar__buttons__register" to="/register">
               Register
             </Link>
+            }
+            
           </div>
-          }
+          
 
           {/* mobile */}
           <div className="mobile-hamb" style={{ justifyContent:"space-between"}} onClick={openNav}>
