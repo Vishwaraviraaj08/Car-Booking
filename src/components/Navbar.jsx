@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import Logo from "../images/logo/logo.png";
 import { useState } from "react";
+import ProfileMenu from "./ProfileMenu";
 
-function Navbar() {
+function Navbar({userData}) {
   const [nav, setNav] = useState(false);
 
   const openNav = () => {
@@ -47,16 +48,20 @@ function Navbar() {
               </Link>
             </li>
             <hr/>
+            {userData && <ProfileMenu/>}
+            {!userData && <div>
             <li>
-              <Link className="" to="/login">
+              <Link className="" onClick={openNav} to="/login">
                 Sign In
               </Link>
             </li>
             <li>
-              <Link className="" to="/register">
+              <Link className="" onClick={openNav} to="/register">
                 Register
               </Link>
-          </li>
+            </li>
+            </div>
+            }
           </ul>
         </div>
 
@@ -102,7 +107,8 @@ function Navbar() {
               </Link>
             </li>
           </ul>
-          <div className="navbar__buttons">
+          {userData && <ProfileMenu/>}
+          {!userData && <div className="navbar__buttons">
             <Link className="navbar__buttons__sign-in" to="/login">
               Sign In
             </Link>
@@ -110,9 +116,10 @@ function Navbar() {
               Register
             </Link>
           </div>
+          }
 
           {/* mobile */}
-          <div className="mobile-hamb" style={{ justifyContent:"space-between"}}onClick={openNav}>
+          <div className="mobile-hamb" style={{ justifyContent:"space-between"}} onClick={openNav}>
           <i className="fa fa-bars" aria-hidden="true"></i> 
           {/* <img  className="burger_menu"  style={{width:"10%" , height:"10%"}} src="https://clipground.com/images/navbar-icons-png-2.png" alt="" /> */}
           </div>

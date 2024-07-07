@@ -19,16 +19,19 @@ import PhoneIcon from "./components/PhoneIcon";
 import {useState} from "react";
 import Summary from "./components/Summary";
 import BookingConfirmation from "./components/BookingConfirmation";
+import History from "./components/History";
+import ProfileMenu from "./components/ProfileMenu";
 
 
 function App() {
     const [overAllState, setOverAllState] = useState(null);
+    const [userData, setUserData] = useState(null);
+
     return (
         <>
-            <Navbar/>
+            <Navbar userData={userData}/>
             <PhoneIcon/>
             <Routes>
-                <Route path="place-finder" element={<PlaceFinder/>}/>
                 <Route index path="/" element={<Home overAllState={overAllState} setOverAllState={setOverAllState} />}/>
                 <Route path="about" element={<About/>}/>
 
@@ -36,12 +39,14 @@ function App() {
                 <Route path={"booking-confirmation"} element={<BookingConfirmation/>}/>
                 <Route path="contact" element={<Contact/>}/>
                 <Route path="luggage-policy" element={<LuggagePolicy/>}/>
-                <Route path="login" element={<Login/>}/>
-                <Route path="register" element={<Register/>}/>
+                <Route path="login" element={<Login userData={userData} setUserData={setUserData}/>}/>
+                <Route path="register" element={<Register userData={userData} setUserData={setUserData}/>}/>
                 <Route path={"faq"} element={<Faq />} />
                 <Route path={"terms"} element={<Terms />} />
                 <Route path="cancellation-policy" element={<CancellationPolicy />} />
                 <Route path="refund-policy" element={<RefundPolicy />} />
+                <Route path={"/history"} element={<History/>}/>
+                <Route path={"/profile"} element={<ProfileMenu/>}/>
 
 
             </Routes>

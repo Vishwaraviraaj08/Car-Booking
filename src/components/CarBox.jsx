@@ -19,17 +19,12 @@ function CarBox({data, carID}) {
                     {/* description */}
                     <div className="pick-description">
                         <div className="pick-description__price">
-                            <span>${car.price}</span>/ rent per day
+                            <span>Rs. {car.price}</span>/ per km
                         </div>
                         <div className="pick-description__table">
                             <div className="pick-description__table__col">
                                 <span>Model</span>
-                                <span>{car.model}</span>
-                            </div>
-
-                            <div className="pick-description__table__col">
-                                <span>Mark</span>
-                                <span>{car.mark}</span>
+                                <span>{car.name}</span>
                             </div>
 
                             <div className="pick-description__table__col">
@@ -42,14 +37,16 @@ function CarBox({data, carID}) {
                                 <span>{car.doors}</span>
                             </div>
 
+
+
                             <div className="pick-description__table__col">
                                 <span>AC</span>
-                                <span>{car.air}</span>
+                                <span>{car.AC}</span>
                             </div>
 
                             <div className="pick-description__table__col">
-                                <span>Transmission</span>
-                                <span>{car.transmission}</span>
+                                <span>Capacity</span>
+                                <span>{car.capacity}</span>
                             </div>
 
                             <div className="pick-description__table__col">

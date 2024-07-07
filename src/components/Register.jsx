@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/Login.css';
+import '../styles/Register.css';
 import 'https://kit.fontawesome.com/a81368914c.js';
 
-const Login = () => {
-
+const Register = ({userData, setUserData}) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [loading, setLoading] = useState(false);
 
-    // navigate to /login page
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
         const response = await fetch('https://car-booking-api.netlify.app/user/signup', {
             method: 'POST',
             headers: {
@@ -22,8 +22,9 @@ const Login = () => {
             body: JSON.stringify({ name, email, password }),
         });
         const data = await response.json();
+        setLoading(false);
         console.log(data);
-        if(data.created){
+        if (data.created) {
             navigate('/login');
         }
     }
@@ -54,7 +55,7 @@ const Login = () => {
             <img className="login-wave" src="/wave.png" alt="background wave" />
             <div className="login-container">
                 <div className="login-img">
-                    <img src="/bg.svg" alt="background" />
+                    <img src="https://th.bing.com/th/id/R.1efa549df250eb0940d5c9fccd2458ae?rik=MqNtlILhKv3QuQ&riu=http%3a%2f%2fcliparts.co%2fcliparts%2f6cp%2f67k%2f6cp67k9di.png&ehk=azpc%2fUcO0cyrlundAvuLCVGjR1tMZLjuHH%2fZHx6Yfjw%3d&risl=&pid=ImgRaw&r=0" alt="background" />
                 </div>
                 <div className="login-content">
                     <form className="login-form">
@@ -66,33 +67,33 @@ const Login = () => {
                             </div>
                             <div className="login-div">
                                 <h5 className="login-h5">Username</h5>
-                                <input type="text" className="login-input" onChange={(event) => {setName(event.target.value)}}/>
+                                <input style={{fontSize:'1.5rem'}}  type="text" className="login-input" onChange={(event) => { setName(event.target.value) }} />
                             </div>
                         </div>
-
-
-
                         <div className="login-input-div login-input-div-one">
                             <div className="login-i">
                                 <i className="fas fa-envelope"></i>
                             </div>
                             <div className="login-div">
                                 <h5 className="login-h5">Email</h5>
-                                <input type="email" className="login-input" onChange={(event) => {setEmail(event.target.value)}}/>
+                                <input style={{fontSize:'1.5rem'}}  type="email" className="login-input" onChange={(event) => { setEmail(event.target.value) }} />
                             </div>
                         </div>
-
-
                         <div className="login-input-div login-input-div-pass">
                             <div className="login-i">
                                 <i className="fas fa-lock"></i>
                             </div>
                             <div className="login-div">
                                 <h5 className="login-h5">Password</h5>
-                                <input type="password" className="login-input" onChange={(event) => {setPassword(event.target.value)}}/>
+                                <input style={{fontSize:'1.5rem'}} type="password" className="login-input" onChange={(event) => { setPassword(event.target.value) }} />
                             </div>
                         </div>
-                        <input type="submit" className="login-btn" value="Register" onClick={handleSubmit}/>
+                        <input style={{fontSize:'1.5rem'}} type="submit" className="login-btn" value="Register" onClick={handleSubmit} />
+                        {loading && (
+                            <div className="spinner-container">
+                                <div className="spinner"></div>
+                            </div>
+                        )}
                     </form>
                 </div>
             </div>
@@ -100,4 +101,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;

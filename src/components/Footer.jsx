@@ -6,15 +6,15 @@ function Footer() {
           <div className="footer-content">
             <ul className="footer-content__1">
               <li>
-                <span>CAR</span> Rental
+                <span>Zero</span> Taxi
               </li>
               <li>
-                We offers a big range of vehicles for all your driving needs. We
+                We offers Car Booking Service for all your driving needs. We
                 have the perfect car to meet your needs.
               </li>
               <li>
-                <a href="tel:123456789">
-                  <i className="fa-solid fa-phone"></i> &nbsp; (123) -456-789
+                <a href="tel:+917999222000">
+                  <i className="fa-solid fa-phone"></i> &nbsp; +91 7-999-222-0
                 </a>
               </li>
 
@@ -46,19 +46,19 @@ function Footer() {
             </ul>
 
             <ul className="footer-content__2">
-              <li>Working Hours</li>
-              <li>Mon - Fri: 9:00AM - 9:00PM</li>
-              <li>Sat: 9:00AM - 19:00PM</li>
-              <li>Sun: Closed</li>
+              <li>DropTaxi</li>
+              <li>286, GST Road</li>
+              <li>Chromepet, Chennai, 600044</li>
+              <li>support@droptaxi.in</li>
             </ul>
 
             <ul className="footer-content__2">
-              <li>Subscription</li>
+              <li>Need to Contact us ? </li>
               <li>
-                <p>Subscribe your Email address for latest news & updates.</p>
+                <p>Contact us with your Email address for queries</p>
               </li>
               <li>
-                <input type="email" placeholder="Enter Email Address"></input>
+                <input type="text" placeholder="Query ... "></input>
               </li>
               <li>
                 <button className="submit-email">Submit</button>

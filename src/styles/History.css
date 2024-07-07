@@ -1,0 +1,68 @@
+
+
+
+.collapsible-tabs__wrapper {
+    max-width: 500px;
+    margin: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .collapsible-tabs__wrapper {
+        max-width: 300px;
+    }
+}
+
+.collapsibles-wrapper:last-child {
+    border-bottom: 1px solid #979797;
+}
+
+.collapsibles-wrapper .collapsible-trigger-btn {
+    background: none;
+    width: 100%;
+    font-size: 14px;
+    font-family: Montserrat;
+    font-weight: 600;
+    letter-spacing: 2.6px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    padding: 16px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #979797;
+    position: relative;
+}
+
+.collapsibles-wrapper .collapsible-trigger-btn::after {
+    content: "+";
+    font-size: 30px;
+    font-weight: 400;
+    position: absolute;
+    right: 0;
+}
+
+.collapsibles-wrapper.collapsible-tab__open .collapsible-trigger-btn::after {
+    content: "-";
+    font-size: 40px;
+}
+
+.collapsibles-wrapper .collapsible-content {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s linear;
+}
+
+.collapsibles-wrapper.collapsible-tab__open .collapsible-content {
+    visibility: visible;
+    opacity: 1;
+}
+
+.collapsibles-wrapper .collapsible-content__inner {
+    padding-bottom: 20px;
+}
+
+.collapsibles-wrapper .collapsible-content__inner p {
+    font-size: 16px;
+    line-height: 24px;
+}

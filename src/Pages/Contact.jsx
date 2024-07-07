@@ -13,16 +13,15 @@ function Contact() {
               <p>
                 Our Car Booking Service is available 24/7. If you have any questions or need assistance, please feel free to contact us. We're here to help you with all your car booking service needs.
               </p>
-              <a href="/">
-                <i className="fa-solid fa-phone"></i>&nbsp; (123) 456-7869
+              <a href="tel:+917999222000">
+                <i className="fa-solid fa-phone"></i>&nbsp; (+91) 7-999-222-000
               </a>
-              <a href="/">
+              <a href="mailto:support@droptaxi.in">
                 <i className="fa-solid fa-envelope"></i>&nbsp;
-                carrental@carmail.com
+                support@droptaxi.in
               </a>
               <a href="/">
-                <i className="fa-solid fa-location-dot"></i>&nbsp; Belgrade,
-                Serbia
+                <i className="fa-solid fa-location-dot"></i>&nbsp; DropTaxi, 286, GST Road, Chromepet, Chennai
               </a>
             </div>
             <div className="contact-div__form">
