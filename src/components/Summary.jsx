@@ -66,23 +66,23 @@ const Summary = ({ overAllState, setOverAllState, userData }) => {
     }
 
     async function handleBooking() {
-        let response = await fetch('https://car-booking-api.netlify.app/user/addhistory', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                id: userData._id,
-                history: overAllState
-            })
-        });
+        if(userData) {
+            let response = await fetch('https://car-booking-api.netlify.app/user/addhistory', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    id: userData._id,
+                    history: overAllState
+                })
+            });
 
-        response = await response.json();
-        console.log(response);
-        alert("Booking Confirmed");
-        
+            response = await response.json();
+        }
 
         // Generate the formatted booking summary text
+
         const bookingSummaryText = generateBookingSummaryText(overAllState);
 
         const templateParams = {
@@ -95,16 +95,15 @@ const Summary = ({ overAllState, setOverAllState, userData }) => {
             .then((result) => {
                 console.log(result.text);
                 alert("Booking summary sent to your email!");
+                navigate('/booking-confirmation');
             }, (error) => {
                 console.log(error.text);
                 alert("An error occurred, Please try again");
+                navigate('/');
             });
-
-        navigate('/booking-confirmation');
     }
 
     const data = overAllState;
-    console.log(data);
     // const data = {
     //     tripType: "one-way",
     //     carType: "Sedan",

@@ -36,6 +36,8 @@ function BookCar({ overAllState, setOverAllState}) {
   const [distance, setDistance] = useState(null);
   const [price, setPrice] = useState(null);
   const navigate = useNavigate();
+  const [pickUpTime, setPickUpTime] = useState('');
+  const [dropOffTime, setDropOffTime] = useState('');
 
 
 
@@ -192,8 +194,8 @@ function BookCar({ overAllState, setOverAllState}) {
     const value = {
         tripType: tripType,
         carType: carType,
-        pickTime: pickTime,
-        dropTime: dropTime,
+        pickTime: pickTime + ' ' + pickUpTime,
+        dropTime: dropTime + ' ' + dropOffTime,
         name: name,
         lastName: lastName,
         phone: phone,
@@ -491,7 +493,7 @@ function BookCar({ overAllState, setOverAllState}) {
                   <p>
                     {pickTime} /{' '}
                     <input type="time" className="input-time" onChange={(e) => {
-                      setPickTime(pickTime+" "+e.target.value);
+                      setPickUpTime(e.target.value);
                     }}></input>
                   </p>
                 </div>
@@ -506,7 +508,7 @@ function BookCar({ overAllState, setOverAllState}) {
                   <p>
                     {dropTime} /{' '}
                     <input type="time" className="input-time" onChange={(e) => {
-                      setDropTime(dropTime+" "+e.target.value);
+                      setDropOffTime(e.target.value);
                     }}></input>
                   </p>
                 </div>
