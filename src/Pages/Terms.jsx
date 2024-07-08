@@ -33,8 +33,8 @@ function Terms() {
                     }}
                 >
                     <p>
-                        The mobile Platform <em>droptaxi </em>(the “<strong>Application</strong>”)
-                        and the website <a href="http://www.droptaxi.in">www.droptaxi.in</a> (the “
+                        The mobile Platform <em>ZeroDropTaxi </em>(the “<strong>Application</strong>”)
+                        and the website <a href="http://www.ZeroDropTaxi.in">www.ZeroDropTaxi.in</a> (the “
                         <strong>Website</strong>”) (collectively the “<strong>Platform</strong>”) is
                         owned and operated by Sanviv Services Private Limited, a company
                         incorporated in India, having its registered office at No 286 2<sup>nd</sup>{" "}
@@ -70,7 +70,7 @@ function Terms() {
                             <ol>
                                 <li>
                                     These Terms of Use and the privacy policy available at{" "}
-                                    <u>https://www.droptaxi.in/privacy.php</u> (“
+                                    <u>https://www.ZeroDropTaxi.in/privacy.php</u> (“
                                     <strong>Privacy Policy</strong>”) are applicable to the entire content
                                     of the Platform and the Services. We request you to carefully go
                                     through these Terms of Use and the Privacy Policy before you decide to
@@ -182,9 +182,9 @@ function Terms() {
                             <ol>
                                 <li>
                                     A booking ID No (confirmation) will be sent to the traveler over email
-                                    when he completes an online car booking with Droptaxi along with a SMS
+                                    when he completes an online car booking with ZeroDropTaxi along with a SMS
                                     update on the same. Producing the booking ID No. provided earlier is
-                                    mandatory to avail the car rental services by DropTaxi. If this is not
+                                    mandatory to avail the car rental services by ZeroDropTaxi. If this is not
                                     done, it entitles the driver to refuse the Services without any
                                     liability to us.
                                 </li>
@@ -234,9 +234,9 @@ function Terms() {
                                     done within 10 hours of the time of pick up time. In cases where
                                     amendments are requested on cab type, the cab type requested is
                                     subject to availability. In case of a no show where the customer has
-                                    not informed DropTaxi on the changes on his schedule 10 hours before
+                                    not informed ZeroDropTaxi on the changes on his schedule 10 hours before
                                     the pick-up no refunds will be made. The amendments can be done by
-                                    contacting the support team of DropTaxi on 7-999-222-000 and mention
+                                    contacting the support team of ZeroDropTaxi on 7-999-222-000 and mention
                                     the booking ID No for references.
                                 </li>
                                 <li>
@@ -270,7 +270,7 @@ function Terms() {
                                     If needed, a customer can amend his booking from one way to round trip
                                     or from one way to multi city while his travel is in progress. A
                                     request for amendment while mentioning the booking ID number &amp;
-                                    reason for amendment has to be made to the support team at DropTaxi by
+                                    reason for amendment has to be made to the support team at ZeroDropTaxi by
                                     reaching them on 7-999-222-000. Whether or not to make an amendment as
                                     per the request of the customer solely rests with our support team. If
                                     the amendment request by the customer is approved our support team
@@ -291,7 +291,7 @@ function Terms() {
                                         <u>Luggage Policy</u>
                                     </strong>
                                     :&nbsp;The following is the maximum limit of luggage which you are
-                                    permitted to carry in a taxi booked through Droptaxi. Any deviation
+                                    permitted to carry in a taxi booked through ZeroDropTaxi. Any deviation
                                     from this policy shall result in additional payments being made by you
                                     to our driver.
                                     <table id="lp" width={556}>
@@ -397,7 +397,7 @@ function Terms() {
                                     (whichever of these two higher).
                                 </li>
                                 <li>
-                                    DropTaxi cannot be held liable for any (i) delay or consequential loss
+                                    ZeroDropTaxi cannot be held liable for any (i) delay or consequential loss
                                     caused to the customer due to traffic jam or reasons beyond reasonable
                                     control of the driver or lapses on the part of the driver; (ii) loss,
                                     damage, physical injury etc suffered by the customer while availing
@@ -405,7 +405,7 @@ function Terms() {
                                     driver; (iv) Any dispute between you and the driver; and (v) force
                                     majeure events.. In case of any misconduct or misbehavior by the
                                     driver the customer should immediately report to the support team of
-                                    DropTaxi at 7-999-222-000 and share the experience while mentioning
+                                    ZeroDropTaxi at 7-999-222-000 and share the experience while mentioning
                                     the booking ID No for reference. While we will attempt to resolve any
                                     dispute, we cannot guarantee that we will remedy any losses incurred
                                     or suffered by you. As all drivers listed with us have produced a
@@ -421,9 +421,9 @@ function Terms() {
                                     In a scenario, where in a customer already has received the driver
                                     &amp; cab details and the cab hired does not show up on the day of
                                     travel, it will be considered as the failure of the fleet partner of
-                                    DropTaxi. DropTaxi being a Taxi Booking Facilitator will take all
+                                    ZeroDropTaxi. ZeroDropTaxi being a Taxi Booking Facilitator will take all
                                     necessary efforts to provide the customer an alternative mode of
-                                    transport immediately, in the shortest possible time. DropTaxi is not
+                                    transport immediately, in the shortest possible time. ZeroDropTaxi is not
                                     liable to reimburse its customer for any expenses like hotel stay
                                     charges, flight ticket charges or any other type of monetary expenses
                                     which the customer had to bear as a result of no show of the cab on
@@ -432,9 +432,9 @@ function Terms() {
                                 <li>
                                     You acknowledge that each car booked by availing the Services can be
                                     used by limited number of passengers only. In the case of outstation
-                                    travel, you are obligated to inform Droptaxi of the number of persons
-                                    travelling in one car and Droptaxi reserves the right to accept or
-                                    refuse to provide Services. In any event, Droptaxi reserves the right
+                                    travel, you are obligated to inform ZeroDropTaxi of the number of persons
+                                    travelling in one car and ZeroDropTaxi reserves the right to accept or
+                                    refuse to provide Services. In any event, ZeroDropTaxi reserves the right
                                     to refuse Services if you attempt to use the car for members exceeding
                                     the designated number of members for such car.
                                 </li>
@@ -679,7 +679,7 @@ function Terms() {
                             <ol>
                                 <li>
                                     Payment for the Services procured through the Platform shall be paid
-                                    by you to Droptaxi in the following ways. For the avoidance of doubt,
+                                    by you to ZeroDropTaxi in the following ways. For the avoidance of doubt,
                                     the Company does not provide Services directly to you and is solely
                                     the provider of a platform for facilitating transactions between you
                                     and various service providers.
@@ -780,7 +780,7 @@ function Terms() {
                                             payment. If your original method of payment has been cancelled,
                                             expired or has otherwise changed, you must inform the customer
                                             support team immediately at 7-999-222-000 or through email
-                                            support@droptaxi.in. If you fail to do this and you are refunded
+                                            support@ZeroDropTaxi.in. If you fail to do this and you are refunded
                                             to your original method of payment, you may need to coordinate
                                             with your bank or your payment service provider to obtain your
                                             refund. The Company not provide more than one refund.
@@ -831,7 +831,7 @@ function Terms() {
                             <strong>Trademarks</strong>
                             <ol>
                                 <li>
-                                    Droptaxi and other marks indicated on the Platform are trademarks or
+                                    ZeroDropTaxi and other marks indicated on the Platform are trademarks or
                                     registered trademarks of the Company. All other trademarks not owned
                                     by the Company that appear on this Platform are the property of their
                                     respective owners, who may or may not be affiliated with, connected
@@ -1043,7 +1043,7 @@ function Terms() {
                                 <li>
                                     In the event you come across any abuse or violation of the Terms or if
                                     you become aware of any objectionable content on the Platform, please
-                                    report to support@droptaxi.in.
+                                    report to support@ZeroDropTaxi.in.
                                 </li>
                             </ol>
                         </li>
@@ -1076,7 +1076,7 @@ function Terms() {
                             withdraw my consent? <br/>
                             If after you opt-in, you change your mind, you may withdraw your consent
                             for us to contact you, for the continued collection, use or disclosure of
-                            your information, at any time, by contacting us at support@droptaxi.in or
+                            your information, at any time, by contacting us at support@ZeroDropTaxi.in or
                             mailing us at: No 286 2nd Floor GST Road, Chrompet, Chennai -600044.
                             <h5> DISCLOSURE </h5>
                             We may disclose your personal information if we are required by law to do
@@ -1134,7 +1134,7 @@ function Terms() {
                             <h5>QUESTIONS AND CONTACT INFORMATION </h5>
                             If you would like to: access, correct, amend or delete any personal
                             information we have about you, register a complaint, or simply want more
-                            information contact our Privacy Compliance Officer support@droptaxi.in or
+                            information contact our Privacy Compliance Officer support@ZeroDropTaxi.in or
                             by mail at No 286 2nd Floor GST Road, Chrompet, Chennai - 600044.
                         </li>
                         <li>
@@ -1145,7 +1145,7 @@ function Terms() {
                                     including any discrepancies and grievances with respect to processing
                                     of information, you can contact our Grievance Officer at:Mr R
                                     Raghavan, Manager Operations. Phone No 9597409865 email ;
-                                    raghavan@droptaxi.in
+                                    raghavan@ZeroDropTaxi.in
                                 </li>
                             </ol>
                         </li>

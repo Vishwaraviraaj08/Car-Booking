@@ -22,7 +22,7 @@ function RefundPolicy() {
                 You may not able to claim refund for your payment which has been done before 30days.Contact us
                 <br />
                 <br />
-                You may reach us at Email:support@droptaxi.in, Telephone: 044-44556677 and Mobile:8939998403
+                You may reach us at Email:support@ZeroDropTaxi.in, Telephone: 044-44556677 and Mobile:8939998403
             </p>
             </div>
             

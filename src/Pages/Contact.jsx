@@ -23,7 +23,7 @@ function Contact() {
   return (
       <>
         <section className="contact-page">
-          <h1 style={{textAlign:'center', fontSize:'4em'}}>Contact ZeroDropTaxi</h1>
+          <h1 style={{textAlign:'center', fontSize:'4em'}}>Contact ZeroDrop Taxi</h1>
           <div className="container">
             <div className="contact-div">
               <div className="contact-div__text">
@@ -34,12 +34,12 @@ function Contact() {
                 <a href="tel:+917999222000">
                   <i className="fa-solid fa-phone"></i>&nbsp; (+91) 7-999-222-000
                 </a>
-                <a href="mailto:support@droptaxi.in">
+                <a href="mailto:support@ZeroDropTaxi.in">
                   <i className="fa-solid fa-envelope"></i>&nbsp;
-                  support@droptaxi.in
+                  support@ZeroDropTaxi.in
                 </a>
                 <a href="/">
-                  <i className="fa-solid fa-location-dot"></i>&nbsp; DropTaxi, 286, GST Road, Chromepet, Chennai
+                  <i className="fa-solid fa-location-dot"></i>&nbsp; ZeroDropTaxi, 286, GST Road, Chromepet, Chennai
                 </a>
               </div>
               <div className="contact-div__form">

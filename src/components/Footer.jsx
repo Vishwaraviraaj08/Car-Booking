@@ -6,7 +6,7 @@ function Footer() {
           <div className="footer-content">
             <ul className="footer-content__1">
               <li>
-                <span>Zero</span> Taxi
+                <span>Zero Drop </span> Taxi
               </li>
               <li>
                 We offers Car Booking Service for all your driving needs. We
@@ -46,10 +46,10 @@ function Footer() {
             </ul>
 
             <ul className="footer-content__2">
-              <li>DropTaxi</li>
+              <li>ZeroDropTaxi</li>
               <li>286, GST Road</li>
               <li>Chromepet, Chennai, 600044</li>
-              <li>support@droptaxi.in</li>
+              <li>support@ZeroDropTaxi.in</li>
             </ul>
 
             <ul className="footer-content__2">

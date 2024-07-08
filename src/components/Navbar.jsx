@@ -69,8 +69,11 @@ function Navbar({userData}) {
 
         <div className="navbar">
           <div className="navbar__img">
-            <Link to="/" onClick={() => window.scrollTo(0, 0)}>
-              <img src={Logo} alt="logo-img"/>
+            <Link to="/" onClick={() => window.scrollTo(0, 0)} style={{textDecoration:'none'}}>
+              <div style={{display:"flex", alignItems:'center', justifyContent:'center', gap:'20px'}}>
+                <img src={"/company_logo.png"} alt="logo-img" style={{width:"50px", height:'auto'}}/>
+                <h2 style={{color: "green", fontSize:'2rem' }}>ZeroDropTaxi</h2>
+              </div>
             </Link>
           </div>
           <ul className="navbar__links">
