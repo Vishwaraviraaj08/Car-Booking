@@ -24,7 +24,8 @@ const Login = ({userData, setUserData}) => {
         setLoading(false);
         console.log(data);
         if (data.auth) {
-            setUserData(data.userObject);
+            setUserData({_id: data.userObject._id,name: data.userObject.name});
+            sessionStorage.setItem('userData', JSON.stringify({_id: data.userObject._id,name: data.userObject.name}));
             navigate('/');
         }
     }

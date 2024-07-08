@@ -12,7 +12,7 @@ import Terms from "./Pages/Terms";
 import CancellationPolicy from "./Pages/CancellationPolicy";
 import RefundPolicy from "./Pages/RefundPolicy";
 import PhoneIcon from "./components/PhoneIcon";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import Summary from "./components/Summary";
 import BookingConfirmation from "./components/BookingConfirmation";
 import History from "./components/History";
@@ -22,9 +22,16 @@ function App() {
     const [overAllState, setOverAllState] = useState(null);
     const [userData, setUserData] = useState(null);
 
+    useEffect(() => {
+        const prevData = sessionStorage.getItem('userData');
+        if (prevData) {
+            setUserData(JSON.parse(prevData));
+        }
+      }, []);
+
     return (
         <>
-            <Navbar userData={userData}/>
+            <Navbar userData={userData} setUserData={setUserData}/>
             <PhoneIcon/>
             <Routes>
                 <Route index path="/" element={<Home overAllState={overAllState} setOverAllState={setOverAllState} />}/>

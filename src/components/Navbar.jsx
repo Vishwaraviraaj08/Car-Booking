@@ -3,7 +3,7 @@ import Logo from "../images/logo/logo.png";
 import { useState } from "react";
 import ProfileMenu from "./ProfileMenu";
 
-function Navbar({userData}) {
+function Navbar({userData, setUserData}) {
   const [nav, setNav] = useState(false);
 
   const openNav = () => {
@@ -48,7 +48,7 @@ function Navbar({userData}) {
               </Link>
             </li>
             <hr/>
-            {userData && <ProfileMenu userName={userData.name} openNav={openNav}/>}
+            {userData && <ProfileMenu userData={userData} setUserData={setUserData} openNav={openNav}/>}
             {!userData && <div>
             <li>
               <Link className="" onClick={openNav} to="/login">
@@ -111,7 +111,7 @@ function Navbar({userData}) {
             </li>
           </ul>
           <div className="navbar__buttons">
-            {userData && <ProfileMenu userName={userData.name}/>}
+            {userData && <ProfileMenu userData={userData} setUserData={setUserData}/>}
             {!userData && 
             <Link className="navbar__buttons__sign-in" to="/login">
               Sign In
