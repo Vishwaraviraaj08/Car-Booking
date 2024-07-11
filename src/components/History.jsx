@@ -42,7 +42,14 @@ function CollapsibleTab({ item }) {
     );
 }
 
-function History({userData}) {
+function History({userData, setUserData}) {
+
+    useEffect(() => {
+        const prevData = sessionStorage.getItem('userData');
+        if (prevData) {
+            setUserData(JSON.parse(prevData));
+        }
+      }, []);
 
     const [data, setData] = useState(null);
 
@@ -61,7 +68,7 @@ function History({userData}) {
         }
         fetchData();
 
-    }, []);
+    }, [userData]);
 
     return (
         <>

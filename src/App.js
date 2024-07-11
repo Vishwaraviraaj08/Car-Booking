@@ -37,7 +37,7 @@ function App() {
                 <Route index path="/" element={<Home overAllState={overAllState} setOverAllState={setOverAllState} />}/>
                 <Route path="about" element={<About/>}/>
 
-                <Route path={"summary"} element={<Summary overAllState={overAllState} setOverAllState={setOverAllState} userData={userData}/>}/>
+                <Route path={"summary"} element={<Summary overAllState={overAllState} setOverAllState={setOverAllState} userData={userData} setUserData={setUserData}/>}/>
                 <Route path={"booking-confirmation"} element={<BookingConfirmation/>}/>
                 <Route path="contact" element={<Contact/>}/>
                 <Route path="luggage-policy" element={<LuggagePolicy/>}/>
@@ -47,7 +47,7 @@ function App() {
                 <Route path={"terms"} element={<Terms />} />
                 <Route path="cancellation-policy" element={<CancellationPolicy />} />
                 <Route path="refund-policy" element={<RefundPolicy />} />
-                <Route path={"/history"} element={<History userData={userData}/>}/>
+                <Route path={"/history"} element={<History userData={userData} setUserData={setUserData}/>}/>
 
 
             </Routes>
