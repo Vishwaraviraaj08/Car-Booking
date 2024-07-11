@@ -36,9 +36,9 @@ function Hero() {
                 >
                   Book Ride &nbsp; <i className="fa-solid fa-circle-check"></i>
                 </Link>
-                <Link className="hero-content__text__btns__learn-more" to="/about">
-                  Learn More &nbsp; <i className="fa-solid fa-angle-right"></i>
-                </Link>
+                <a className="hero-content__text__btns__learn-more" href="tel:0123456789">
+                  Call Now &nbsp; <i className="fa-solid fa-phone"></i>
+                </a>
               </div>
             </div>
 
