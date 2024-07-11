@@ -16,7 +16,7 @@ function BookCar({ overAllState, setOverAllState}) {
   const [modal, setModal] = useState(false); //  class - active-modal
 
   // booking car
-  const [tripType, setTripType] = useState(''); // ['one-way', 'round-trip'
+  const [tripType, setTripType] = useState('one-way'); // ['one-way', 'round-trip'
   const [carType, setCarType] = useState('');
   const [pickUp, setPickUp] = useState(null);
   const [dropOff, setDropOff] = useState(null);
@@ -180,6 +180,11 @@ function BookCar({ overAllState, setOverAllState}) {
     e.preventDefault();
     const errorMsg = document.querySelector('.error-message');
     if (
+        tripType === '' ||
+        dropAddress === '' ||
+        dropLocation === null ||
+        pickAddress === '' ||
+        pickLocation === null ||
         !pickUp ||
         !dropOff ||
         pickTime === '' ||
@@ -342,12 +347,12 @@ function BookCar({ overAllState, setOverAllState}) {
                   All fields required! <i className="fa-solid fa-xmark"></i>
                 </p>
 
-                <div style={{display: "flex", flexDirection: 'column'}}>
+                <div style={{display: "flex", flexDirection: 'column'}} >
                   <label style={{fontSize:"16px", fontWeight:"bold"}}>
                     <i className="fa-solid fa-car"></i> &nbsp;Journey Type<b style={{color:"red"}}>*</b>
                   </label>
-                  <div style={{display: "flex", gap: "20px"}} aria-required>
-                    <input type={'radio'} name={'trip'} value={'one-way'}
+                  <div style={{display: "flex", gap: "20px"}} >
+                    <input type={'radio'} name={'trip'} value={'one-way'} defaultChecked
                            onChange={(e) => setTripType(e.target.value)}/>
                     <label style={{fontSize: '15px'}} htmlFor={'one-way'}>One Way</label>
                   </div>
@@ -375,7 +380,7 @@ function BookCar({ overAllState, setOverAllState}) {
                         <span className="tooltiptext">To know more about the cars, <a href={"#pick-car"} style={{color:'blue'}}>Click Here !</a></span>
                       </div>
                     </label>
-                    <select value={carType} onChange={handleCar}>
+                    <select value={carType} onChange={handleCar} required>
                       <option>Select your car type</option>
                       <option value="sedan">Sedan</option>
                       <option value="xylo">MUV-Xylo</option>
@@ -389,6 +394,7 @@ function BookCar({ overAllState, setOverAllState}) {
                       Pick-up <b>*</b>
                     </label>
                     <input
+                        required
                         id="picktime"
                         value={pickTime}
                         onChange={handlePickTime}
@@ -404,6 +410,7 @@ function BookCar({ overAllState, setOverAllState}) {
                     <input
                         id="droptime"
                         value={dropTime}
+                        required
                         onChange={handleDropTime}
                         type="date"
                     ></input>
@@ -427,6 +434,7 @@ function BookCar({ overAllState, setOverAllState}) {
                       <div>
                       <input
                           type="text"
+                          required
                           placeholder="Enter pick up location"
                           style={{width: '90%', padding: '1.5rem', height: '4rem', fontSize: '15px', fontWeight: "normal", fontFamily: 'sans-serif'}}
                       />
@@ -457,6 +465,7 @@ function BookCar({ overAllState, setOverAllState}) {
                       <div>
                         <input
                             type="text"
+                            required
                             placeholder="Enter drop off location"
                             style={{
                               width: '90%',
