@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {Link} from "react-router-dom";
 
-export default function ProfileMenu({userName, openNav}) {
+export default function ProfileMenu({userData, openNav, setUserData}) {
 
     const [open, setOpen] = useState(false);
 
@@ -178,11 +178,15 @@ p.subtitle {
             })}}>
                 <label  className="profile-dropdown">
                     <img src="https://cdn0.iconfinder.com/data/icons/avatars-3/512/avatar_hipster_guy-512.png"/>
-                    <span>Hello, {userName}</span>
+                    <span>Hello, {userData.name}</span>
                     {/*<label htmlFor="profile2"></label>*/}
                     {open && <ul>
                         <li><Link to={"/history"} onClick={openNav}>History</Link></li>
-                        <li><a href="/login" onClick={openNav}>LogOut</a></li>
+                        <li><Link to="/login" onClick={() => {
+                          sessionStorage.removeItem("userData");
+                          setUserData(null);
+                          openNav();
+                        }}>LogOut</Link></li>
                     </ul>}
                 </label>
             </div>

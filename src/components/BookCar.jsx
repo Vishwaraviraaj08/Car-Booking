@@ -1,9 +1,9 @@
 import React, { useEffect,  useState } from 'react';
 import { LoadScript, Autocomplete } from '@react-google-maps/api';
-import sedan from '../images/car-sedan-new.webp';
-import suv from '../images/car-xylo-new.webp';
-import innova from '../images/car-innova-new.jpg';
-import etios from '../images/cars-big/car-sedan.png';
+import sedan from '../images/cars-big/car-sedan.png';
+import suv from '../images/cars-big/car-suv.png';
+import innova from '../images/cars-big/car-innova.png';
+import etios from '../images/cars-big/car-etios.png';
 import MapView from "./MapView";
 import {Link} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
@@ -37,6 +37,8 @@ function BookCar({ overAllState, setOverAllState}) {
   const [travelTime, setTravelTime] = useState(null);
   const [price, setPrice] = useState(null);
   const navigate = useNavigate();
+  const [pickUpTime, setPickUpTime] = useState('');
+  const [dropOffTime, setDropOffTime] = useState('');
 
 
 
@@ -109,16 +111,7 @@ function BookCar({ overAllState, setOverAllState}) {
                   if (status === 'OK') {
                       const result = response.rows[0].elements[0];
                       if (result.status === 'OK') {
-                        const distance = result.distance.value; // Distance in meters
-                        const duration = result.duration.value; // Duration in seconds
-
-
-                        // Convert duration to user-friendly format (e.g., minutes or hours)
-                        const formattedDuration = calculateTravelTime(duration);
-
-                        // Update state with calculated values
-                        setDistance(distance);
-                        setTravelTime(formattedDuration); // distance in meters
+                          setDistance(result.distance.value); // distance in meters
                       } else {
                           alert('Error calculating distance: ' + result.status);
                       }
@@ -128,16 +121,6 @@ function BookCar({ overAllState, setOverAllState}) {
               }
           );
       }
-
-// Function to convert duration to user-preferred unit (example)
-    function calculateTravelTime(durationInSeconds) {
-      const minutes = durationInSeconds / 60;
-      const hours = minutes / 60;
-
-      // Choose the relevant unit based on your app's requirements
-      return `${hours.toFixed(1)} hr`; // Or `${minutes.toFixed(0)} min`
-    }
-
   }, [pickLocation, dropLocation])
 
   // taking value of modal inputs
@@ -521,24 +504,15 @@ function BookCar({ overAllState, setOverAllState}) {
               <div className="booking-modal__car-info__dates">
               <span>
                 <i className="fa-solid fa-location-dot"></i>
-                {/*<div>*/}
-                {/*  <h6>Drop-Off Date & Time</h6>*/}
-                {/*  <p>*/}
-                {/*    {dropTime} /{' '}*/}
-                {/*    <input type="time" className="input-time" onChange={(e) => {*/}
-                {/*      setDropTime(dropTime + " " + e.target.value);*/}
-                {/*    }}></input>*/}
-                {/*  </p>*/}
-                {/*</div>*/}
-
                 <div>
-                  <h6>Estimated Travelling Time</h6>
+                  <h6>Drop-Off Date & Time</h6>
                   <p>
-                    {travelTime}
+                    {dropTime} /{' '}
+                    <input type="time" className="input-time" onChange={(e) => {
+                      setDropTime(dropTime+" "+e.target.value);
+                    }}></input>
                   </p>
                 </div>
-
-
               </span>
               </div>
 
@@ -562,33 +536,18 @@ function BookCar({ overAllState, setOverAllState}) {
               </span>
               </div>
             </div>
-            <div className="booking-modal__car-info__model" style={{justifyContent:'center', alignItems:'center', display:'flex'}}>
+            <div className="booking-modal__car-info__model">
               <h5>
                 <span>Car -</span> {carType}
               </h5>
               {carType === "sedan" && <img src={sedan} alt="car_img"/>}
               {carType === "xylo" && <img src={suv} alt="car_img"/>}
               {carType === "innova" && <img src={innova} alt="car_img"/>}
-              <div style={{textAlign: 'center'}}>
-                {distance && <h5>Distance &nbsp;:&nbsp; {(distance / 1000).toFixed(2)} kilometers</h5>}
+              <div>
+                {distance && <h5>Distance: {(distance/1000).toFixed(2)} kilometers</h5>}
               </div>
-
-              <div style={{ width:'70%', border: '3px solid black', padding:'15px', background:'lightyellow', textAlign:'center'}}>
-                <h2>Trip Estimation</h2>
-                <h1>Fare : ₹ {price}</h1>
-                <div style={{textAlign:'left', margin:'10px auto'}}>
-                  <p>Total Distance : {distance}</p>
-                  <p>Total Duration: {travelTime}</p>
-                  <p>Selected Car : {carType}</p>
-                  <p>Driver Allowance : Included*</p>
-                </div>
-                <h3><i>NOTE : Above estimation us exclusive of Toll Gate and State Permit Etc</i></h3>
-
-              </div>
-
-
             </div>
-
+            
           </div>
           {/* personal info */}
           <div className="booking-modal__person-info">

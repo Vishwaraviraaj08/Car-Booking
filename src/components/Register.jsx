@@ -23,7 +23,6 @@ const Register = () => {
         });
         const data = await response.json();
         setLoading(false);
-        console.log(data);
         if (data.created) {
             navigate('/login');
         }

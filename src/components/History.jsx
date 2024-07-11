@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import '../styles/History.css';
+import Footer from './Footer';
 
 function CollapsibleTab({ item }) {
     const [isOpen, setIsOpen] = useState(false);
@@ -63,19 +64,21 @@ function History({userData}) {
     }, []);
 
     return (
-
-        <div className={"history-container"}>
-            {!data && <h1 style={{textAlign:'center', margin:'3rem auto 6rem auto', fontSize:'30px'}}> Loading... </h1>}
-            {data && data.history.length === 0 && <h1 style={{textAlign:'center', margin:'3rem auto 6rem auto', fontSize:'30px'}}> No Previous Bookings Found </h1>}
-            {data && data.history.length !== 0 && <>
-                <h1 style={{textAlign:'center', margin:'3rem auto 6rem auto', fontSize:'30px'}}> Previous Booking History</h1>
-                <div className="collapsible-tabs__wrapper">
-                    {data.history.map((item, index) => (
-                        <CollapsibleTab key={index} item={item} />
-                    ))}
-                </div>
-            </>}
-        </div>
+        <>
+            <div className={"history-container"}>
+                {!data && <h1 style={{textAlign:'center', margin:'3rem auto 6rem auto', fontSize:'30px'}}> Loading... </h1>}
+                {data && data.history.length === 0 && <h1 style={{textAlign:'center', margin:'3rem auto 6rem auto', fontSize:'30px'}}> No Previous Bookings Found </h1>}
+                {data && data.history.length !== 0 && <>
+                    <h1 style={{textAlign:'center', margin:'3rem auto 6rem auto', fontSize:'30px'}}> Previous Booking History</h1>
+                    <div className="collapsible-tabs__wrapper">
+                        {data.history.slice().reverse().map((item, index) => (
+                            <CollapsibleTab key={index} item={item} />
+                        ))}
+                    </div>
+                </>}
+            </div>
+            <Footer />
+        </>
     );
 }
 
