@@ -402,10 +402,10 @@ function BookCar({ overAllState, setOverAllState}) {
                     ></input>
                   </div>
 
-                  <div className="box-form__car-time">
+                  {tripType !== "round-trip" && <div className="box-form__car-time">
                     <label htmlFor="droptime">
                       <i className="fa-regular fa-calendar-days "></i> &nbsp;
-                      Drop-of <b>*</b>
+                      Drop-off <b>*</b>
                     </label>
                     <input
                         id="droptime"
@@ -414,7 +414,7 @@ function BookCar({ overAllState, setOverAllState}) {
                         onChange={handleDropTime}
                         type="date"
                     ></input>
-                  </div>
+                  </div>}
 
                   <div className="box-form__car-type">
                     <label>
@@ -448,7 +448,7 @@ function BookCar({ overAllState, setOverAllState}) {
 
                   <div className="box-form__car-type">
                     <label>
-                      <i className="fa-solid fa-location-dot"></i> &nbsp; Drop-of{' '}
+                      <i className="fa-solid fa-location-dot"></i> &nbsp; Drop-off {' '}
                       <b>*</b>
                     </label>
                     <Autocomplete
@@ -608,29 +608,17 @@ function BookCar({ overAllState, setOverAllState}) {
               <div className="info-form__2col">
               <span>
                 <label>
-                  First Name <b>*</b>
+                  Full Name <b>*</b>
                 </label>
                 <input
                     value={name}
                     onChange={handleName}
                     type="text"
-                    placeholder="Enter your first name"
+                    placeholder="Enter your name"
                 ></input>
                 <p className="error-modal">This field is required.</p>
               </span>
 
-                <span>
-                <label>
-                  Last Name <b>*</b>
-                </label>
-                <input
-                    value={lastName}
-                    onChange={handleLastName}
-                    type="text"
-                    placeholder="Enter your last name"
-                ></input>
-                <p className="error-modal ">This field is required.</p>
-              </span>
 
                 <span>
                 <label>
@@ -645,18 +633,7 @@ function BookCar({ overAllState, setOverAllState}) {
                 <p className="error-modal">This field is required.</p>
               </span>
 
-                <span>
-                <label>
-                  Age <b>*</b>
-                </label>
-                <input
-                    value={age}
-                    onChange={handleAge}
-                    type="number"
-                    placeholder="18"
-                ></input>
-                <p className="error-modal ">This field is required.</p>
-              </span>
+
               </div>
 
               <div className="info-form__1col">
@@ -687,33 +664,6 @@ function BookCar({ overAllState, setOverAllState}) {
               </span>
               </div>
 
-              <div className="info-form__2col">
-              <span>
-                <label>
-                  City <b>*</b>
-                </label>
-                <input
-                    value={city}
-                    onChange={handleCity}
-                    type="text"
-                    placeholder="Enter your city"
-                ></input>
-                <p className="error-modal">This field is required.</p>
-              </span>
-
-                <span>
-                <label>
-                  Zip Code <b>*</b>
-                </label>
-                <input
-                    value={zipcode}
-                    onChange={handleZip}
-                    type="text"
-                    placeholder="Enter your zip code"
-                ></input>
-                <p className="error-modal ">This field is required.</p>
-              </span>
-              </div>
 
               
 
