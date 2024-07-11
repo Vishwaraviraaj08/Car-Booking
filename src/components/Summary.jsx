@@ -10,17 +10,17 @@ const Summary = ({ overAllState, setOverAllState, userData, setUserData }) => {
     const navigate = useNavigate();
     const formRef = useRef();
 
-    useEffect(() => {
-        if (performance.getEntriesByType('navigation')[0].type === 'reload') {
-          navigate('/');
-        }
-    }, [navigate]);
-
-    useEffect(() => {
-        if(overAllState === null) {
-            navigate('/');
-        }
-    }, [overAllState, navigate]);
+    // useEffect(() => {
+    //     if (performance.getEntriesByType('navigation')[0].type === 'reload') {
+    //       navigate('/');
+    //     }
+    // }, [navigate]);
+    //
+    // useEffect(() => {
+    //     if(overAllState === null) {
+    //         navigate('/');
+    //     }
+    // }, [overAllState, navigate]);
 
     const generateBookingSummaryText = (data) => {
         return `

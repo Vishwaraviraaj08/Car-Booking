@@ -36,7 +36,7 @@ function Hero() {
                 >
                   Book Ride &nbsp; <i className="fa-solid fa-circle-check"></i>
                 </Link>
-                <a className="hero-content__text__btns__learn-more" href="tel:0123456789">
+                <a className="hero-content__text__btns__learn-more" href="tel:7358380026">
                   Call Now &nbsp; <i className="fa-solid fa-phone"></i>
                 </a>
               </div>

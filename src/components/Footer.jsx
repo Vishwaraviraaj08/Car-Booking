@@ -13,8 +13,8 @@ function Footer() {
                 have the perfect car to meet your needs.
               </li>
               <li>
-                <a href="tel:+917999222000">
-                  <i className="fa-solid fa-phone"></i> &nbsp; +91 7-999-222-0
+                <a href="tel:+917358380026">
+                  <i className="fa-solid fa-phone"></i> &nbsp; +91 7358380026
                 </a>
               </li>
 
@@ -47,9 +47,9 @@ function Footer() {
 
             <ul className="footer-content__2">
               <li>ZeroDropTaxi</li>
-              <li>286, GST Road</li>
-              <li>Chromepet, Chennai, 600044</li>
-              <li>support@ZeroDropTaxi.in</li>
+              <li>2/5, Parvathy Nagar</li>
+              <li>Chennai, 600063</li>
+              <li>zerodroptaxi@gmail.com</li>
             </ul>
 
             <ul className="footer-content__2">

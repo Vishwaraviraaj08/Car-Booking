@@ -31,15 +31,15 @@ function Contact() {
                 <p>
                   Our Car Booking Service is available 24/7. If you have any questions or need assistance, please feel free to contact us. We're here to help you with all your car booking service needs.
                 </p>
-                <a href="tel:+917999222000">
-                  <i className="fa-solid fa-phone"></i>&nbsp; (+91) 7-999-222-000
+                <a href="tel:+917358380026">
+                  <i className="fa-solid fa-phone"></i>&nbsp; (+91) 7358380026
                 </a>
-                <a href="mailto:support@ZeroDropTaxi.in">
+                <a href="mailto:zerodroptaxi@gmail.com">
                   <i className="fa-solid fa-envelope"></i>&nbsp;
-                  support@ZeroDropTaxi.in
+                  zerodroptaxi@gmail.com
                 </a>
                 <a href="/">
-                  <i className="fa-solid fa-location-dot"></i>&nbsp; ZeroDropTaxi, 286, GST Road, Chromepet, Chennai
+                  <i className="fa-solid fa-location-dot"></i>&nbsp; ZeroDropTaxi, 2 / 5, Parvathy Nagar, Chennai - 600063
                 </a>
               </div>
               <div className="contact-div__form">

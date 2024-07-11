@@ -1,4 +1,4 @@
-import React, { useEffect,  useState } from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import { LoadScript, Autocomplete } from '@react-google-maps/api';
 import sedan from '../images/car-sedan-new.webp';
 import suv from '../images/car-xylo-new.webp';
@@ -40,6 +40,11 @@ function BookCar({ overAllState, setOverAllState}) {
   const [pickUpTime, setPickUpTime] = useState('');
   const [dropOffTime, setDropOffTime] = useState('');
 
+  const mapViewRef = useRef(null); // Ref for MapView component
+
+
+
+
 
 
   useEffect(() => {
@@ -69,7 +74,12 @@ function BookCar({ overAllState, setOverAllState}) {
       return data.results[0].formatted_address;
     }
   };
-  
+
+  useEffect(() => {
+    if (pickShowMap && mapViewRef.current) {
+      mapViewRef.current.focus(); // Focus on the MapView component when it is rendered
+    }
+  }, [pickShowMap]);
 
   function dropHandleMapView() {
     setDropShowMap(true);
@@ -181,14 +191,14 @@ function BookCar({ overAllState, setOverAllState}) {
     const errorMsg = document.querySelector('.error-message');
     if (
         tripType === '' ||
-        dropAddress === '' ||
-        dropLocation === null ||
+        // (tripType === 'round-trip' && dropAddress === '' ) ||
+        // (tripType === 'round-trip' && dropLocation === null) ||
         pickAddress === '' ||
         pickLocation === null ||
         !pickUp ||
-        !dropOff ||
+        // !dropOff ||
         pickTime === '' ||
-        dropTime === '' ||
+        // dropTime === '' ||
         carType === ''
     ) {
       errorMsg.style.display = 'flex';
@@ -237,6 +247,7 @@ function BookCar({ overAllState, setOverAllState}) {
     setOverAllState(value);
 
     setTimeout(() => {
+      console.log(overAllState)
       navigate('/summary');
     }, 500);
   };
