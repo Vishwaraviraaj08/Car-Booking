@@ -1,14 +1,26 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import '../styles/BookingSummary.css';
 import Footer from "./Footer";
 import html2pdf from "html2pdf.js";
 import emailjs from 'emailjs-com';
 import { useNavigate } from "react-router-dom";
 
-const Summary = ({ overAllState, setOverAllState, userData }) => {
+const Summary = ({ overAllState, setOverAllState, userData, setUserData }) => {
 
     const navigate = useNavigate();
     const formRef = useRef();
+
+    // useEffect(() => {
+    //     if (performance.getEntriesByType('navigation')[0].type === 'reload') {
+    //       navigate('/');
+    //     }
+    // }, [navigate]);
+    //
+    useEffect(() => {
+        if(overAllState === null) {
+            navigate('/');
+        }
+    }, [overAllState, navigate]);
 
     const generateBookingSummaryText = (data) => {
         return `
@@ -123,7 +135,9 @@ const Summary = ({ overAllState, setOverAllState, userData }) => {
     //     dropOffAddress: "ygbuhnjm"
     // }
 
-
+    if(!data) {
+        return null;
+    }
 
     return (
         <>

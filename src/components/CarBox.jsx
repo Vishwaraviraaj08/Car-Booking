@@ -28,30 +28,30 @@ function CarBox({data, carID}) {
                             </div>
 
                             <div className="pick-description__table__col">
-                                <span>Year</span>
-                                <span>{car.year}</span>
+                                <span>Seats</span>
+                                <span>{car.seats}</span>
                             </div>
 
                             <div className="pick-description__table__col">
-                                <span>Doors</span>
-                                <span>{car.doors}</span>
+                                <span>Luggage</span>
+                                <span>{car.luggage}</span>
                             </div>
 
 
 
-                            <div className="pick-description__table__col">
-                                <span>AC</span>
-                                <span>{car.AC}</span>
+                            <div className="pick-description__table__col" style={{alignItems:'center', justifyContent:'center'}}>
+                                <span>Driver's Allowance</span>
+                                <span>{car.driverAllowance}</span>
                             </div>
 
                             <div className="pick-description__table__col">
-                                <span>Capacity</span>
-                                <span>{car.capacity}</span>
+                                <span>One Way</span>
+                                <span>{car.oneWayMin}</span>
                             </div>
 
                             <div className="pick-description__table__col">
-                                <span>Fuel</span>
-                                <span>{car.fuel}</span>
+                                <span>Round Trip</span>
+                                <span>{car.roundTripMin}</span>
                             </div>
                         </div>
                         {/* btn cta */}

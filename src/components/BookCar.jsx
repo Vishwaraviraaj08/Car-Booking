@@ -1,9 +1,9 @@
-import React, { useEffect,  useState } from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import { LoadScript, Autocomplete } from '@react-google-maps/api';
-import sedan from '../images/cars-big/car-sedan.png';
-import suv from '../images/cars-big/car-suv.png';
-import innova from '../images/cars-big/car-innova.png';
-import etios from '../images/cars-big/car-etios.png';
+import sedan from '../images/car-sedan-new.webp';
+import suv from '../images/car-xylo-new.webp';
+import innova from '../images/car-innova-new.jpg';
+import etios from '../images/cars-big/car-sedan.png';
 import MapView from "./MapView";
 import {Link} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
@@ -16,13 +16,15 @@ function BookCar({ overAllState, setOverAllState}) {
   const [modal, setModal] = useState(false); //  class - active-modal
 
   // booking car
-  const [tripType, setTripType] = useState(''); // ['one-way', 'round-trip'
+  const [tripType, setTripType] = useState('round-trip'); // ['one-way', 'round-trip'
   const [carType, setCarType] = useState('');
   const [pickUp, setPickUp] = useState(null);
   const [dropOff, setDropOff] = useState(null);
   const [pickTime, setPickTime] = useState('');
   const [dropTime, setDropTime] = useState('');
   const [carImg, setCarImg] = useState('');
+  const [pickUpInput, setPickUpInput] = useState('');
+  const [dropOffInput, setDropOffInput] = useState('');
 
   // modal infos
   const [name, setName] = useState('');
@@ -34,10 +36,16 @@ function BookCar({ overAllState, setOverAllState}) {
   const [city, setCity] = useState('');
   const [zipcode, setZipCode] = useState('');
   const [distance, setDistance] = useState(null);
+  const [travelTime, setTravelTime] = useState(null);
   const [price, setPrice] = useState(null);
   const navigate = useNavigate();
   const [pickUpTime, setPickUpTime] = useState('');
   const [dropOffTime, setDropOffTime] = useState('');
+
+  const mapViewRef = useRef(null); // Ref for MapView component
+
+
+
 
 
 
@@ -68,7 +76,12 @@ function BookCar({ overAllState, setOverAllState}) {
       return data.results[0].formatted_address;
     }
   };
-  
+
+  useEffect(() => {
+    if (pickShowMap && mapViewRef.current) {
+      mapViewRef.current.focus(); // Focus on the MapView component when it is rendered
+    }
+  }, [pickShowMap]);
 
   function dropHandleMapView() {
     setDropShowMap(true);
@@ -110,7 +123,16 @@ function BookCar({ overAllState, setOverAllState}) {
                   if (status === 'OK') {
                       const result = response.rows[0].elements[0];
                       if (result.status === 'OK') {
-                          setDistance(result.distance.value); // distance in meters
+                        const distance = result.distance.value; // Distance in meters
+                        const duration = result.duration.value; // Duration in seconds
+
+
+                        // Convert duration to user-friendly format (e.g., minutes or hours)
+                        const formattedDuration = calculateTravelTime(duration);
+
+                        // Update state with calculated values
+                        setDistance(distance);
+                        setTravelTime(formattedDuration); // distance in meters
                       } else {
                           alert('Error calculating distance: ' + result.status);
                       }
@@ -120,6 +142,16 @@ function BookCar({ overAllState, setOverAllState}) {
               }
           );
       }
+
+// Function to convert duration to user-preferred unit (example)
+    function calculateTravelTime(durationInSeconds) {
+      const minutes = durationInSeconds / 60;
+      const hours = minutes / 60;
+
+      // Choose the relevant unit based on your app's requirements
+      return `${hours.toFixed(1)} hr`; // Or `${minutes.toFixed(0)} min`
+    }
+
   }, [pickLocation, dropLocation])
 
   // taking value of modal inputs
@@ -160,10 +192,15 @@ function BookCar({ overAllState, setOverAllState}) {
     e.preventDefault();
     const errorMsg = document.querySelector('.error-message');
     if (
+        tripType === '' ||
+        // (tripType === 'round-trip' && dropAddress === '' ) ||
+        // (tripType === 'round-trip' && dropLocation === null) ||
+        pickAddress === '' ||
+        pickLocation === null ||
         !pickUp ||
-        !dropOff ||
+        // !dropOff ||
         pickTime === '' ||
-        dropTime === '' ||
+        // dropTime === '' ||
         carType === ''
     ) {
       errorMsg.style.display = 'flex';
@@ -206,12 +243,13 @@ function BookCar({ overAllState, setOverAllState}) {
         zipcode: zipcode,
         distance: Math.ceil(distance/1000),
         price: price,
-        pickUpAddress: pickAddress,
-        dropOffAddress: dropAddress
+        pickUpAddress: pickUpInput,
+        dropOffAddress: dropOffInput
     }
     setOverAllState(value);
 
     setTimeout(() => {
+      console.log(overAllState)
       navigate('/summary');
     }, 500);
   };
@@ -322,17 +360,17 @@ function BookCar({ overAllState, setOverAllState}) {
                   All fields required! <i className="fa-solid fa-xmark"></i>
                 </p>
 
-                <div style={{display: "flex", flexDirection: 'column'}}>
+                <div style={{display: "flex", flexDirection: 'column'}} >
                   <label style={{fontSize:"16px", fontWeight:"bold"}}>
                     <i className="fa-solid fa-car"></i> &nbsp;Journey Type<b style={{color:"red"}}>*</b>
                   </label>
-                  <div style={{display: "flex", gap: "20px"}} aria-required>
-                    <input type={'radio'} name={'trip'} required value={'one-way'}
+                  <div style={{display: "flex", gap: "20px"}} >
+                    <input type={'radio'} name={'trip'} value={'one-way'}
                            onChange={(e) => setTripType(e.target.value)}/>
                     <label style={{fontSize: '15px'}} htmlFor={'one-way'}>One Way</label>
                   </div>
                   <div style={{display: "flex", gap: "20px"}}>
-                    <input type={'radio'} name={'trip'} required value={'round-trip'}
+                    <input type={'radio'} name={'trip'} value={'round-trip'} defaultChecked
                            onChange={(e) => setTripType(e.target.value)}/>
                     <label style={{fontSize: '15px'}} htmlFor={'round-trip'}>Round Trip</label>
                   </div>
@@ -345,23 +383,7 @@ function BookCar({ overAllState, setOverAllState}) {
                 </p>
 
                 <form className="box-form">
-                  <div className="box-form__car-type">
-                    <label>
-                      <i className="fa-solid fa-car"></i> &nbsp; Select Your Car
-                      Type <b>*</b>
-                      <div className="tooltip">
-                        &nbsp;&nbsp;
-                        <i className="fa-solid fa-info fa-beat-fade"></i>
-                        <span className="tooltiptext">To know more about the cars, <a href={"#pick-car"} style={{color:'blue'}}>Click Here !</a></span>
-                      </div>
-                    </label>
-                    <select value={carType} onChange={handleCar}>
-                      <option>Select your car type</option>
-                      <option value="sedan">Sedan</option>
-                      <option value="xylo">MUV-Xylo</option>
-                      <option value="innova">MUV-Innova</option>
-                    </select>
-                  </div>
+
 
                   <div className="box-form__car-time">
                     <label htmlFor="picktime">
@@ -369,6 +391,7 @@ function BookCar({ overAllState, setOverAllState}) {
                       Pick-up <b>*</b>
                     </label>
                     <input
+                        required
                         id="picktime"
                         value={pickTime}
                         onChange={handlePickTime}
@@ -376,18 +399,19 @@ function BookCar({ overAllState, setOverAllState}) {
                     ></input>
                   </div>
 
-                  <div className="box-form__car-time">
+                  {tripType !== "one-way" && <div className="box-form__car-time">
                     <label htmlFor="droptime">
                       <i className="fa-regular fa-calendar-days "></i> &nbsp;
-                      Drop-of <b>*</b>
+                      Drop-off <b>*</b>
                     </label>
                     <input
                         id="droptime"
                         value={dropTime}
+                        required
                         onChange={handleDropTime}
                         type="date"
                     ></input>
-                  </div>
+                  </div>}
 
                   <div className="box-form__car-type">
                     <label>
@@ -398,6 +422,7 @@ function BookCar({ overAllState, setOverAllState}) {
                         onLoad={(autocomplete) => setPickUp(autocomplete)}
                         onPlaceChanged={() => {
                           const place = pickUp.getPlace();
+                          setPickUpInput(place.name);
                           setPickLocation({
                             lat: place.geometry.location.lat(),
                             lng: place.geometry.location.lng()
@@ -405,39 +430,11 @@ function BookCar({ overAllState, setOverAllState}) {
                         }}
                     >
                       <div>
-                      <input
-                          type="text"
-                          placeholder="Enter pick up location"
-                          style={{width: '90%', padding: '1.5rem', height: '4rem', fontSize: '15px', fontWeight: "normal", fontFamily: 'sans-serif'}}
-                      />
-                        <i className={"fa fa-location"} style={{fontSize:"20px", paddingLeft:"6px"}} onClick={pickHandleMapView}></i>
-                        {pickShowMap && <MapView showMap={pickShowMap} setShowMap={setPickShowMap} location={pickLocation} setLocation={setPickLocation}/>}
-                      </div>
-
-                    </Autocomplete>
-                    <p> {pickAddress != '' && pickAddress} </p>
-                  </div>
-
-                  <div className="box-form__car-type">
-                    <label>
-                      <i className="fa-solid fa-location-dot"></i> &nbsp; Drop-of{' '}
-                      <b>*</b>
-                    </label>
-                    <Autocomplete
-                        onLoad={(autocomplete) => setDropOff(autocomplete)}
-                        onPlaceChanged={() => {
-                          const place = dropOff.getPlace();
-                          setDropLocation({
-                            lat: place.geometry.location.lat(),
-                            lng: place.geometry.location.lng()
-                          });
-                        }}
-                
-                    >
-                      <div>
                         <input
                             type="text"
-                            placeholder="Enter drop off location"
+                            required
+                            placeholder="Enter pick up location"
+
                             style={{
                               width: '90%',
                               padding: '1.5rem',
@@ -447,11 +444,76 @@ function BookCar({ overAllState, setOverAllState}) {
                               fontFamily: 'sans-serif'
                             }}
                         />
-                        <i className={"fa fa-location"} style={{fontSize: "20px", paddingLeft: "6px"}} onClick={dropHandleMapView}></i>
-                        {dropShowMap && <MapView showMap={dropShowMap} setShowMap={setDropShowMap} location={dropLocation} setLocation={setDropLocation}/>}
+                        <i className={"fa fa-location"} style={{fontSize: "20px", paddingLeft: "6px"}}
+                           onClick={pickHandleMapView}></i>
+                        {pickShowMap &&
+                            <MapView showMap={pickShowMap} setShowMap={setPickShowMap} location={pickLocation}
+                                     setLocation={setPickLocation}/>}
+                      </div>
+
+                    </Autocomplete>
+                  </div>
+
+                  <div className="box-form__car-type">
+                    <label>
+                      <i className="fa-solid fa-location-dot"></i> &nbsp; Drop-off {' '}
+                      <b>*</b>
+                    </label>
+                    <Autocomplete
+                        onLoad={(autocomplete) => setDropOff(autocomplete)}
+                        onPlaceChanged={() => {
+                          const place = dropOff.getPlace();
+                          setDropOffInput(place.name);
+                          setDropLocation({
+                            lat: place.geometry.location.lat(),
+                            lng: place.geometry.location.lng()
+                          });
+                        }}
+
+                    >
+                      <div>
+                        <input
+                            type="text"
+                            required
+                            placeholder="Enter drop off location"
+
+                            style={{
+                              width: '90%',
+                              padding: '1.5rem',
+                              height: '4rem',
+                              fontSize: '15px',
+                              fontWeight: "normal",
+                              fontFamily: 'sans-serif'
+                            }}
+                        />
+                        <i className={"fa fa-location"} style={{fontSize: "20px", paddingLeft: "6px"}}
+                           onClick={dropHandleMapView}></i>
+                        {dropShowMap &&
+                            <MapView showMap={dropShowMap} setShowMap={setDropShowMap} location={dropLocation}
+                                     setLocation={setDropLocation}/>}
                       </div>
                     </Autocomplete>
-                    <p> {dropAddress != '' && dropAddress} </p>
+                  </div>
+
+                  <div className="box-form__car-type">
+                    <label>
+                      <i className="fa-solid fa-car"></i> &nbsp; Select Your Car
+                      Type <b>*</b>
+                      <div className="tooltip">
+                        &nbsp;&nbsp;
+                        <i className="fa-solid fa-info fa-beat-fade"></i>
+                        <span className="tooltiptext">To know more about the cars, <a href={"#pick-car"}
+                                                                                      style={{color: 'blue'}}>Click Here !</a></span>
+                      </div>
+                    </label>
+
+                      <select value={carType} onChange={handleCar} required>
+                        <option>Select your car type</option>
+                        <option value="sedan">Sedan</option>
+                        <option value="xylo">MUV-Xylo</option>
+                        <option value="innova">MUV-Innova</option>
+                      </select>
+
                   </div>
 
                   <button onClick={openModal} type="submit">
@@ -475,15 +537,15 @@ function BookCar({ overAllState, setOverAllState}) {
           <div className="booking-modal__message">
             <h4>
               <i className="fa-solid fa-circle-info"></i> Upon completing this
-             booking, you will receive:
+              booking, you will receive:
             </h4>
             <p>
               Your booking details in the mail to make a Comfortable and safe journey.
             </p>
           </div>
           {/* car info */}
-          <div className="booking-modal__car-info" >
-            <div className="dates-div" >
+          <div className="booking-modal__car-info">
+            <div className="dates-div">
               <div className="booking-modal__car-info__dates">
                 <h5>Location & Date</h5>
                 <span style={{width:"100%"}}>
@@ -503,15 +565,16 @@ function BookCar({ overAllState, setOverAllState}) {
               <div className="booking-modal__car-info__dates">
               <span>
                 <i className="fa-solid fa-location-dot"></i>
+
+
                 <div>
-                  <h6>Drop-Off Date & Time</h6>
+                  <h6>Estimated Travelling Time</h6>
                   <p>
-                    {dropTime} /{' '}
-                    <input type="time" className="input-time" onChange={(e) => {
-                      setDropOffTime(e.target.value);
-                    }}></input>
+                    {travelTime}
                   </p>
                 </div>
+
+
               </span>
               </div>
 
@@ -520,7 +583,7 @@ function BookCar({ overAllState, setOverAllState}) {
                 <i className="fa-solid fa-calendar-days"></i>
                 <div>
                   <h6>Pick-Up Location</h6>
-                  <p>{pickAddress}</p>
+                  <p>{pickUpInput}</p>
                 </div>
               </span>
               </div>
@@ -530,23 +593,38 @@ function BookCar({ overAllState, setOverAllState}) {
                 <i className="fa-solid fa-calendar-days"></i>
                 <div>
                   <h6>Drop-Off Location</h6>
-                  <p>{dropAddress}</p>
+                  <p>{dropOffInput}</p>
                 </div>
               </span>
               </div>
             </div>
-            <div className="booking-modal__car-info__model">
+            <div className="booking-modal__car-info__model" style={{justifyContent:'center', alignItems:'center', display:'flex'}}>
               <h5>
                 <span>Car -</span> {carType}
               </h5>
               {carType === "sedan" && <img src={sedan} alt="car_img"/>}
               {carType === "xylo" && <img src={suv} alt="car_img"/>}
               {carType === "innova" && <img src={innova} alt="car_img"/>}
-              <div>
-                {distance && <h5>Distance: {(distance/1000).toFixed(2)} kilometers</h5>}
+              <div style={{textAlign: 'center'}}>
+                {distance && <h5>Distance &nbsp;:&nbsp; {(distance / 1000).toFixed(2)} kilometers</h5>}
               </div>
+
+              <div style={{alignItems: 'center', justifyContent: 'center', width:'70%', border: '3px solid black', padding:'15px', background:'lightyellow', textAlign:'center'}}>
+                <h2>Trip Estimation</h2>
+                <h1>Fare : ₹ {price}</h1>
+                <div style={{textAlign:'left', margin:'10px auto'}}>
+                  <p>Total Distance : {distance}</p>
+                  <p>Total Duration: {travelTime}</p>
+                  <p>Selected Car : {carType}</p>
+                  <p>Driver Allowance : Included*</p>
+                </div>
+                <h3><i>NOTE : Above estimation us exclusive of Toll Gate and State Permit Etc</i></h3>
+
+              </div>
+
+
             </div>
-            
+
           </div>
           {/* personal info */}
           <div className="booking-modal__person-info">
@@ -555,29 +633,17 @@ function BookCar({ overAllState, setOverAllState}) {
               <div className="info-form__2col">
               <span>
                 <label>
-                  First Name <b>*</b>
+                  Full Name <b>*</b>
                 </label>
                 <input
                     value={name}
                     onChange={handleName}
                     type="text"
-                    placeholder="Enter your first name"
+                    placeholder="Enter your name"
                 ></input>
                 <p className="error-modal">This field is required.</p>
               </span>
 
-                <span>
-                <label>
-                  Last Name <b>*</b>
-                </label>
-                <input
-                    value={lastName}
-                    onChange={handleLastName}
-                    type="text"
-                    placeholder="Enter your last name"
-                ></input>
-                <p className="error-modal ">This field is required.</p>
-              </span>
 
                 <span>
                 <label>
@@ -592,18 +658,7 @@ function BookCar({ overAllState, setOverAllState}) {
                 <p className="error-modal">This field is required.</p>
               </span>
 
-                <span>
-                <label>
-                  Age <b>*</b>
-                </label>
-                <input
-                    value={age}
-                    onChange={handleAge}
-                    type="number"
-                    placeholder="18"
-                ></input>
-                <p className="error-modal ">This field is required.</p>
-              </span>
+
               </div>
 
               <div className="info-form__1col">
@@ -634,33 +689,6 @@ function BookCar({ overAllState, setOverAllState}) {
               </span>
               </div>
 
-              <div className="info-form__2col">
-              <span>
-                <label>
-                  City <b>*</b>
-                </label>
-                <input
-                    value={city}
-                    onChange={handleCity}
-                    type="text"
-                    placeholder="Enter your city"
-                ></input>
-                <p className="error-modal">This field is required.</p>
-              </span>
-
-                <span>
-                <label>
-                  Zip Code <b>*</b>
-                </label>
-                <input
-                    value={zipcode}
-                    onChange={handleZip}
-                    type="text"
-                    placeholder="Enter your zip code"
-                ></input>
-                <p className="error-modal ">This field is required.</p>
-              </span>
-              </div>
 
               
 

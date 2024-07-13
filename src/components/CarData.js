@@ -1,6 +1,6 @@
-import sedan from "../images/cars-big/car-sedan.png";
-import suv from "../images/cars-big/car-suv.png";
-import innova from "../images/cars-big/car-innova.png";
+import sedan from "./../images/car-sedan-new.webp";
+import suv from "./../images/car-xylo-new.webp";
+import innova from "./../images/car-innova-new.jpg";
 
 export const CAR_DATA = [
   [
@@ -8,11 +8,11 @@ export const CAR_DATA = [
       name: "Sedan",
       price: "13",
       img: sedan,
-      year: "2008",
-      doors: "4/5",
-      capacity: "3 + 1",
-      AC: "Yes",
-      fuel: "Diesel",
+      driverAllowance: "300",
+      oneWayMin: "Min. 130 KM",
+      roundTripMin: "Min. 250 KM",
+      seats: "4 + 1",
+      luggage: "2",
     },
   ],
   [
@@ -20,11 +20,11 @@ export const CAR_DATA = [
       name: "MUV-Xylo",
       price: "17",
       img: suv,
-      year: "2012",
-      doors: "4/5",
-      AC: "Yes",
-      capacity: "6 + 1",
-      fuel: "Petrol",
+      driverAllowance: "300",
+      oneWayMin: "Min 130 KM",
+      roundTripMin: "Min. 250 KM",
+      seats: "7 + 1",
+      luggage: "6",
     },
   ],
 
@@ -47,11 +47,11 @@ export const CAR_DATA = [
       name: "MUV-Innova",
       price: "18",
       img: innova,
-      year: "2016",
-      doors: "4/5",
-      AC: "Yes",
-      capacity : "6 + 1",
-      fuel: "Petrol",
+      driverAllowance: "300",
+      oneWayMin: "Min 130 KM",
+      roundTripMin: "Min. 250 KM",
+      seats: "7 + 1",
+      luggage: "5",
     },
   ],
 ];

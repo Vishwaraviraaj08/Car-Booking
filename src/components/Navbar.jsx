@@ -1,10 +1,17 @@
 import { Link } from "react-router-dom";
 import Logo from "../images/logo/logo.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProfileMenu from "./ProfileMenu";
 
 function Navbar({userData, setUserData}) {
   const [nav, setNav] = useState(false);
+
+  useEffect(() => {
+    const prevData = sessionStorage.getItem('userData');
+    if (prevData) {
+        setUserData(JSON.parse(prevData));
+    }
+  }, []);
 
   const openNav = () => {
     setNav(!nav);
