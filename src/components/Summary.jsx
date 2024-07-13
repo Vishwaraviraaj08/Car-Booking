@@ -16,11 +16,11 @@ const Summary = ({ overAllState, setOverAllState, userData, setUserData }) => {
     //     }
     // }, [navigate]);
     //
-    // useEffect(() => {
-    //     if(overAllState === null) {
-    //         navigate('/');
-    //     }
-    // }, [overAllState, navigate]);
+    useEffect(() => {
+        if(overAllState === null) {
+            navigate('/');
+        }
+    }, [overAllState, navigate]);
 
     const generateBookingSummaryText = (data) => {
         return `
