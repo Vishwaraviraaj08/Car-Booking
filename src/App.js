@@ -12,6 +12,7 @@ import Terms from "./Pages/Terms";
 import CancellationPolicy from "./Pages/CancellationPolicy";
 import RefundPolicy from "./Pages/RefundPolicy";
 import PhoneIcon from "./components/PhoneIcon";
+import WhatsAppIcon from "./components/whatsAppIcon";
 import {useState, useEffect} from "react";
 import Summary from "./components/Summary";
 import BookingConfirmation from "./components/BookingConfirmation";
@@ -49,8 +50,9 @@ function App() {
                 <Route path="refund-policy" element={<RefundPolicy />} />
                 <Route path={"/history"} element={<History userData={userData}/>}/>
 
-
             </Routes>
+            <WhatsAppIcon/>
+            
         </>
     );
 }

@@ -70,9 +70,9 @@ function Navbar({userData, setUserData}) {
         <div className="navbar">
           <div className="navbar__img">
             <Link to="/" onClick={() => window.scrollTo(0, 0)} style={{textDecoration:'none'}}>
-              <div style={{display:"flex", alignItems:'center', justifyContent:'center', gap:'20px'}}>
+              <div style={{display:"flex", alignItems:'center', justifyContent:'center'}}>
                 <img src={"/company_logo.png"} alt="logo-img" style={{width:"50px", height:'auto'}}/>
-                <h2 style={{color: "green", fontSize:'2rem' }}>ZeroDropTaxi</h2>
+                <h2 style={{color: "green", fontSize:'2rem',marginLeft:"10px" }}>ZeroDropTaxi</h2>
               </div>
             </Link>
           </div>

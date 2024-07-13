@@ -1,0 +1,23 @@
+/* PhoneIcon.css */
+.whatsApp-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4CAF50; /* Green */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    /* padding: 10px; */
+    z-index: 1000; /* Ensure it stays on top */
+  }
+  
+  .whatsApp-icon img {
+    width: 60px; /* Adjust width as needed */
+    height: 60px; /* Adjust height as needed */
+  }
+  
+  .whatsApp-icon:hover {
+    background-color: #45a049; /* Darker green on hover */
+  }

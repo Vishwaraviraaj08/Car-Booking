@@ -327,12 +327,12 @@ function BookCar({ overAllState, setOverAllState}) {
                     <i className="fa-solid fa-car"></i> &nbsp;Journey Type<b style={{color:"red"}}>*</b>
                   </label>
                   <div style={{display: "flex", gap: "20px"}} aria-required>
-                    <input type={'radio'} name={'trip'} value={'one-way'}
+                    <input type={'radio'} name={'trip'} required value={'one-way'}
                            onChange={(e) => setTripType(e.target.value)}/>
                     <label style={{fontSize: '15px'}} htmlFor={'one-way'}>One Way</label>
                   </div>
                   <div style={{display: "flex", gap: "20px"}}>
-                    <input type={'radio'} name={'trip'} value={'round-trip'}
+                    <input type={'radio'} name={'trip'} required value={'round-trip'}
                            onChange={(e) => setTripType(e.target.value)}/>
                     <label style={{fontSize: '15px'}} htmlFor={'round-trip'}>Round Trip</label>
                   </div>

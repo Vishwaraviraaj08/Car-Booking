@@ -7,7 +7,7 @@ export default function BookingConfirmation() {
     useEffect(() => {
         setTimeout(() => {
             navigate('/');
-        }, 3000);
+        }, 10000);
     }, []);
     return (
         <>
