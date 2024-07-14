@@ -204,7 +204,7 @@ const Summary = ({ overAllState, setOverAllState, userData, setUserData, setWhat
                     </tr>
                     <tr>
                         <td>Address</td>
-                        <td>{data.address}, {data.zipcode}</td>
+                        <td>{data.address}</td>
                     </tr>
                     <tr className="title">
                         <th colSpan="2">TERMS AND CONDITIONS</th>
