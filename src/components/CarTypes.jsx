@@ -3,10 +3,14 @@ import '../styles/CarTypes.css';
 import sedan from "./../images/car-sedan-new.webp";
 import suv from "./../images/car-xylo-new.webp";
 import innova from "./../images/car-innova-new.jpg";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+
 
 
 const CarTypes = () => {
     return (
+        <>
         <div className={"car-types-container"} style={{display:"flex", gap:'50px', alignItems:'center', justifyContent:'center', margin:'50px auto'}} >
 
             {/*sedan*/}
@@ -66,6 +70,8 @@ const CarTypes = () => {
 
 
         </div>
+            <Footer/>
+        </>
 
     );
 };
