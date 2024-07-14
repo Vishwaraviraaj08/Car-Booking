@@ -34,7 +34,7 @@ function Terms() {
                 >
                     <p>
                         The mobile Platform <em>ZeroDropTaxi </em>(the “<strong>Application</strong>”)
-                        and the website <a href="http://www.ZeroDropTaxi.in">www.ZeroDropTaxi.in</a> (the “
+                        and the website <a href="http://www.zerodroptaxi.in">www.ZeroDropTaxi.in</a> (the “
                         <strong>Website</strong>”) (collectively the “<strong>Platform</strong>”) is
                         owned and operated by Sanviv Services Private Limited, a company
                         incorporated in India, having its registered office at No 286 2<sup>nd</sup>{" "}
@@ -70,7 +70,7 @@ function Terms() {
                             <ol>
                                 <li>
                                     These Terms of Use and the privacy policy available at{" "}
-                                    <u>https://www.ZeroDropTaxi.in/privacy.php</u> (“
+                                    <u>https://www.ZeroDropTaxi.com/</u> (“
                                     <strong>Privacy Policy</strong>”) are applicable to the entire content
                                     of the Platform and the Services. We request you to carefully go
                                     through these Terms of Use and the Privacy Policy before you decide to
@@ -271,7 +271,7 @@ function Terms() {
                                     or from one way to multi city while his travel is in progress. A
                                     request for amendment while mentioning the booking ID number &amp;
                                     reason for amendment has to be made to the support team at ZeroDropTaxi by
-                                    reaching them on 7-999-222-000. Whether or not to make an amendment as
+                                    reaching them on +91 73583 80026, Whether or not to make an amendment as
                                     per the request of the customer solely rests with our support team. If
                                     the amendment request by the customer is approved our support team
                                     they will guide on the difference amount to be paid to the driver as
@@ -405,7 +405,7 @@ function Terms() {
                                     driver; (iv) Any dispute between you and the driver; and (v) force
                                     majeure events.. In case of any misconduct or misbehavior by the
                                     driver the customer should immediately report to the support team of
-                                    ZeroDropTaxi at 7-999-222-000 and share the experience while mentioning
+                                    ZeroDropTaxi at +91 73583 80026 and share the experience while mentioning
                                     the booking ID No for reference. While we will attempt to resolve any
                                     dispute, we cannot guarantee that we will remedy any losses incurred
                                     or suffered by you. As all drivers listed with us have produced a
@@ -779,8 +779,8 @@ function Terms() {
                                             refund will be refunded to you via your original method of
                                             payment. If your original method of payment has been cancelled,
                                             expired or has otherwise changed, you must inform the customer
-                                            support team immediately at 7-999-222-000 or through email
-                                            support@ZeroDropTaxi.in. If you fail to do this and you are refunded
+                                            support team immediately at +91 73583 80026  or through email
+                                            ZeroDropTaxi@gmail.com . If you fail to do this and you are refunded
                                             to your original method of payment, you may need to coordinate
                                             with your bank or your payment service provider to obtain your
                                             refund. The Company not provide more than one refund.
@@ -1043,7 +1043,7 @@ function Terms() {
                                 <li>
                                     In the event you come across any abuse or violation of the Terms or if
                                     you become aware of any objectionable content on the Platform, please
-                                    report to support@ZeroDropTaxi.in.
+                                    report to ZeroDropTaxi@gmail.com.
                                 </li>
                             </ol>
                         </li>
@@ -1076,7 +1076,7 @@ function Terms() {
                             withdraw my consent? <br/>
                             If after you opt-in, you change your mind, you may withdraw your consent
                             for us to contact you, for the continued collection, use or disclosure of
-                            your information, at any time, by contacting us at support@ZeroDropTaxi.in or
+                            your information, at any time, by contacting us at zerodroptaxi@gmail.com or
                             mailing us at: No 286 2nd Floor GST Road, Chrompet, Chennai -600044.
                             <h5> DISCLOSURE </h5>
                             We may disclose your personal information if we are required by law to do
@@ -1091,9 +1091,7 @@ function Terms() {
                             standards set by PCI-DSS as managed by the PCI Security Standards Council,
                             which is a joint effort of brands like Visa, MasterCard, American Express
                             and Discover. PCI-DSS requirements help ensure the secure handling of
-                            credit card information by our store and its service providers. For more
-                            insight, you may also want to read terms and conditions of razorpay on
-                            https://razorpay.com
+                            credit card information by our store and its service providers.
                             <h5> THIRD-PARTY SERVICES </h5>
                             <p>
                                 In general, the third-party providers used by us will only collect, use
@@ -1134,8 +1132,7 @@ function Terms() {
                             <h5>QUESTIONS AND CONTACT INFORMATION </h5>
                             If you would like to: access, correct, amend or delete any personal
                             information we have about you, register a complaint, or simply want more
-                            information contact our Privacy Compliance Officer support@ZeroDropTaxi.in or
-                            by mail at No 286 2nd Floor GST Road, Chrompet, Chennai - 600044.
+                            information contact our Privacy Compliance Officer zerodroptaxi@gmail.com.
                         </li>
                         <li>
                             <strong>Grievance Officer</strong>
@@ -1144,8 +1141,8 @@ function Terms() {
                                     If you have any grievance with respect to the Platform or the Service,
                                     including any discrepancies and grievances with respect to processing
                                     of information, you can contact our Grievance Officer at:Mr R
-                                    Raghavan, Manager Operations. Phone No 9597409865 email ;
-                                    raghavan@ZeroDropTaxi.in
+                                    Raghavan, Manager Operations. Phone No +91 73583 80026 email ;
+                                    zerodroptaxi@gmail.com
                                 </li>
                             </ol>
                         </li>

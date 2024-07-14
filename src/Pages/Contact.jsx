@@ -39,7 +39,8 @@ function Contact() {
                   zerodroptaxi@gmail.com
                 </a>
                 <a href="/">
-                  <i className="fa-solid fa-location-dot"></i>&nbsp; ZeroDropTaxi, 2 / 5, Parvathy Nagar, Chennai - 600063
+                  <i className="fa-solid fa-location-dot"></i>&nbsp; ZeroDropTaxi, 55, Devi Karumariamman Street, Kodungaiyur
+                  Chennai - 600073
                 </a>
               </div>
               <div className="contact-div__form">

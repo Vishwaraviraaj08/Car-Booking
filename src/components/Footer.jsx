@@ -47,8 +47,9 @@ function Footer() {
 
             <ul className="footer-content__2">
               <li>ZeroDropTaxi</li>
-              <li>2/5, Parvathy Nagar</li>
-              <li>Chennai, 600063</li>
+              <li>55, Devi Karumaiamman Street,</li>
+              <li>Kodungaiyur</li>
+              <li>Chennai - 600073</li>
               <li>zerodroptaxi@gmail.com</li>
             </ul>
 
