@@ -14,7 +14,7 @@ const CarTypes = ({ setShowCarTypes, distance, tripType, travelTime, setCarType}
         }
 
         const carRate = carType === "sedan" ? 13 : carType === "xylo" ? 17 : 18;
-        const price = Math.ceil((minDistance) * carRate) + 400;
+        const price = Math.ceil((minDistance) * carRate) + 300;
         return price;
     }
 

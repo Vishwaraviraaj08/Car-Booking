@@ -33,7 +33,7 @@ const Summary = ({ overAllState, setOverAllState, userData, setUserData, setWhat
         Trip Date: ${data.pickTime}
         Trip Type: ${data.tripType}
         Vehicle Type: ${data.carType}
-        Trip Amount: Estimate: ${data.price - 400} + Driver Bata: 400
+        Trip Amount: Estimate: ${data.price - 300} + Driver Bata: 300
         
         ADDRESS DETAILS
         ------------------
@@ -53,7 +53,7 @@ const Summary = ({ overAllState, setOverAllState, userData, setUserData, setWhat
         TERMS AND CONDITIONS
         ------------------
         Minimum running must be 100 Kms for Drop trips.
-        Driver Batta Rs. 400. [Rs. 600 for above 400 kms]
+        Driver Batta Rs. 300. [Rs. 600 for above 400 kms]
         Waiting Charges Rs. 150 per hour.
         Night charge of Rs.200 is applicable for trips between 11 pm to 5 am.
         Luggage allowed is 30 kg for sedan and 60 kg for MUV. If the limit is exceeded, an additional charge of Rs.300 will apply under the driver's guidance.
@@ -124,15 +124,10 @@ const Summary = ({ overAllState, setOverAllState, userData, setUserData, setWhat
     //     tripType: "one-way",
     //     carType: "Sedan",
     //     pickTime: "11-Jul-2024 00:15",
-    //     dropTime: "11-Jul-2024 02:30",
     //     name: "Ms. L",
-    //     lastName: "L",
     //     phone: "1234567890",
-    //     age: "35",
     //     email: "s.sankarking.s@gmail.com",
     //     address: "123 Main St",
-    //     city: "Cityname",
-    //     zipcode: "12345",
     //     distance: 100,
     //     price: 52300,
     //     pickUpAddress: "ykjnlk",
@@ -170,7 +165,7 @@ const Summary = ({ overAllState, setOverAllState, userData, setUserData, setWhat
                     </tr>
                     <tr>
                         <td>Trip Amount</td>
-                        <td> Estimate : {data.price - 400} + Driver Bata : 400</td>
+                        <td> Estimate : {data.price - 300} + Driver Bata : 300</td>
                     </tr>
                     <tr className="title">
                         <th colSpan="2">ADDRESS DETAILS</th>
@@ -213,7 +208,7 @@ const Summary = ({ overAllState, setOverAllState, userData, setUserData, setWhat
                         <th colSpan="2" style={{ textAlign: 'left', padding: ' 10px 30px' }}>Minimum running must be 100 Kms for Drop trips.</th>
                     </tr>
                     <tr>
-                        <th colSpan="2" style={{ textAlign: 'left', padding: ' 10px 30px' }}>Driver Batta Rs. 400. [Rs. 600 for above 400 kms]</th>
+                        <th colSpan="2" style={{ textAlign: 'left', padding: ' 10px 30px' }}>Driver Batta Rs. 300. [Rs. 600 for above 400 kms]</th>
                     </tr>
                     <tr>
                         <th colSpan="2" style={{ textAlign: 'left', padding: ' 10px 30px' }}>Waiting Charges Rs. 150 per hour.</th>

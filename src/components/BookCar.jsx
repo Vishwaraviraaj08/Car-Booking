@@ -62,7 +62,7 @@ function BookCar({ overAllState, setOverAllState}) {
     }
 
     const carRate = carType === "sedan" ? 13 : carType === "xylo" ? 17 : 18;
-    const price = Math.ceil((minDistance) * carRate) + 400;
+    const price = Math.ceil((minDistance) * carRate) + 300;
     setPrice(price);
   },[distance, tripType, carType])
 
@@ -715,8 +715,8 @@ function BookCar({ overAllState, setOverAllState}) {
                 <div className={"booking-price"} style={{textAlign:"left", fontSize:'1.8rem'}}>
                   <p> Total Price : <b>&#8377; {price} * </b> </p>
                   <br/>
-                  <p style={{fontSize:'1.5rem'}}> * Price with respect to kms : {price - 400} and</p>
-                  <p style={{fontSize:'1.5rem'}}> * Driver's Bata : {400}</p>
+                  <p style={{fontSize:'1.5rem'}}> * Price with respect to kms : {price - 300} and</p>
+                  <p style={{fontSize:'1.5rem'}}> * Driver's Bata : {300}</p>
 
                 </div>
                 <button onClick={confirmBooking}>Reserve Now</button>
