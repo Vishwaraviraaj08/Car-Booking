@@ -18,7 +18,7 @@ function BookCar({ overAllState, setOverAllState}) {
 
   // booking car
   const [tripType, setTripType] = useState('round-trip'); // ['one-way', 'round-trip'
-  const [carType, setCarType] = useState('');
+  const [carType, setCarType] = useState('Choose car');
   const [pickUp, setPickUp] = useState(null);
   const [dropOff, setDropOff] = useState(null);
   const [pickTime, setPickTime] = useState('');
@@ -47,7 +47,8 @@ function BookCar({ overAllState, setOverAllState}) {
 
   const [showCarTypes, setShowCarTypes] = useState(false);
 
-  const handleToggleCarTypes = () => {
+  const handleToggleCarTypes = (e) => {
+    e.preventDefault();
     setShowCarTypes(!showCarTypes);
   }
 
@@ -63,7 +64,7 @@ function BookCar({ overAllState, setOverAllState}) {
     const carRate = carType === "sedan" ? 13 : carType === "xylo" ? 17 : 18;
     const price = Math.ceil((minDistance) * carRate) + 400;
     setPrice(price);
-  },[distance])
+  },[distance, tripType, carType])
 
 
   const [dropShowMap, setDropShowMap] = useState(false);
@@ -206,7 +207,7 @@ function BookCar({ overAllState, setOverAllState}) {
         // !dropOff ||
         pickTime === '' ||
         // dropTime === '' ||
-        carType === ''
+        carType === 'Choose car'
     ) {
       errorMsg.style.display = 'flex';
     } else {
@@ -229,6 +230,10 @@ function BookCar({ overAllState, setOverAllState}) {
   // confirm modal booking
   const confirmBooking = (e) => {
     e.preventDefault();
+    if(pickUpTime === '' || name === '' || phone === '' || email === '' || address === '') {
+      alert('Please fill all the fields');
+      return;
+    }
     setModal(!modal);
     const doneMsg = document.querySelector('.booking-done');
     doneMsg.style.display = 'flex';
@@ -306,6 +311,15 @@ function BookCar({ overAllState, setOverAllState}) {
 .tooltip {
     position: relative;
     display: inline-block;
+}
+
+.input-date{
+    width: 100%;
+    padding: 1.5rem;
+    height: 4rem;
+    font-size: 15px;
+    font-weight: normal;
+    background-color: white;
 }
 
 .tooltip .tooltiptext {
@@ -396,6 +410,7 @@ function BookCar({ overAllState, setOverAllState}) {
                       Pick-up <b>*</b>
                     </label>
                     <input
+                        className='input-date'
                         required
                         id="picktime"
                         value={pickTime}
@@ -411,6 +426,7 @@ function BookCar({ overAllState, setOverAllState}) {
                     </label>
                     <input
                         id="droptime"
+                        className='input-date'
                         value={dropTime}
                         required
                         onChange={handleDropTime}
@@ -512,8 +528,8 @@ function BookCar({ overAllState, setOverAllState}) {
                       </div>
                     </label>
                     <div>
-                      <button onClick={handleToggleCarTypes} >Choose Car</button>
-                      {showCarTypes && <CarTypes onClose={handleToggleCarTypes}/> }
+                      <button onClick={handleToggleCarTypes} >{carType}</button>
+                      {showCarTypes && <CarTypes setShowCarTypes={setShowCarTypes} distance={distance} tripType={tripType} travelTime={travelTime} setCarType={setCarType}/> }
                     </div>
 
 
@@ -530,7 +546,7 @@ function BookCar({ overAllState, setOverAllState}) {
 
         {/* modal ------------------------------------ */}
 
-        <div className={`booking-modal ${modal ? 'active-modal' : ''}`}>
+        <div style={{marginTop: '30px'}} className={`booking-modal ${modal ? 'active-modal' : ''}`}>
           {/* title */}
           <div className="booking-modal__title">
             <h2>Complete Reservation</h2>
@@ -557,7 +573,7 @@ function BookCar({ overAllState, setOverAllState}) {
                   <h6>Pick-Up Date & Time</h6>
                   <p>
                     {pickTime} /{' '}
-                    <input type="time" className="input-time" onChange={(e) => {
+                    <input type="time" className="input-time input-date" style={{width: '65%'}} onChange={(e) => {
                       setPickUpTime(e.target.value);
                     }}></input>
                   </p>
@@ -615,8 +631,8 @@ function BookCar({ overAllState, setOverAllState}) {
               <div style={{alignItems: 'center', justifyContent: 'center', width:'70%', border: '3px solid black', padding:'15px', background:'lightyellow', textAlign:'center'}}>
                 <h2>Trip Estimation</h2>
                 <h1>Fare : ₹ {price}</h1>
-                <div style={{textAlign:'left', margin:'10px auto'}}>
-                  <p>Total Distance : {distance}</p>
+                <div style={{textAlign:'left', margin:'10px auto', fontSize: '1.5em'}}>
+                  <p>Total Distance : {(distance/1000).toFixed(2)}</p>
                   <p>Total Duration: {travelTime}</p>
                   <p>Selected Car : {carType}</p>
                   <p>Driver Allowance : Included*</p>
@@ -643,6 +659,7 @@ function BookCar({ overAllState, setOverAllState}) {
                     onChange={handleName}
                     type="text"
                     placeholder="Enter your name"
+                    required
                 ></input>
                 <p className="error-modal">This field is required.</p>
               </span>
@@ -657,6 +674,7 @@ function BookCar({ overAllState, setOverAllState}) {
                     onChange={handlePhone}
                     type="tel"
                     placeholder="Enter your phone number"
+                    required
                 ></input>
                 <p className="error-modal">This field is required.</p>
               </span>
@@ -674,6 +692,7 @@ function BookCar({ overAllState, setOverAllState}) {
                     onChange={handleEmail}
                     type="email"
                     placeholder="Enter your email address"
+                    required
                 ></input>
                 <p className="error-modal">This field is required.</p>
               </span>
@@ -687,6 +706,7 @@ function BookCar({ overAllState, setOverAllState}) {
                     onChange={handleAddress}
                     type="text"
                     placeholder="Enter your street address"
+                    required
                 ></input>
                 <p className="error-modal ">This field is required.</p>
               </span>
@@ -695,8 +715,8 @@ function BookCar({ overAllState, setOverAllState}) {
 
               
 
-              <div className="reserve-button" style={{display:"flex", flexDirection:'row', justifyContent:"space-between", alignItems:"center"}}>
-                <div className={"booking-price"} style={{textAlign:"left", fontSize:'2rem'}}>
+              <div className="reserve-button" style={{display:"flex", gap: '2rem', flexDirection:'row', justifyContent:"space-between", alignItems:"center"}}>
+                <div className={"booking-price"} style={{textAlign:"left", fontSize:'1.8rem'}}>
                   <p> Total Price : <b>&#8377; {price} * </b> </p>
                   <br/>
                   <p style={{fontSize:'1.5rem'}}> * Price with respect to kms : {price - 400} and</p>

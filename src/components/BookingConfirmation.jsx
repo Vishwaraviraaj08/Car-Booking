@@ -130,7 +130,7 @@ export default function BookingConfirmation({whatsappMsg}) {
                 <br/>
                 <br/>
                 <div style={{margin: '20px'}}/>
-                <h1>To contact us through Whatsapp with your booking details,</h1>
+                <h1 style={{textAlign: 'center', padding:'0 20px'}}>To contact us through Whatsapp with your booking details,</h1>
                 <div style={{margin: '20px'}}/>
                 <a href={`https://wa.me/7358380026?text=${encodedMsg}`} target={"_blank"} rel="noopener noreferrer">
                     <button className={"car-type-btn"}>Click Here</button>
