@@ -7,6 +7,7 @@ import etios from '../images/cars-big/car-sedan.png';
 import MapView from "./MapView";
 import {Link} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
+import CarTypes from "./CarTypes";
 
 
 const libraries = ['places'];
@@ -44,7 +45,11 @@ function BookCar({ overAllState, setOverAllState}) {
 
   const mapViewRef = useRef(null); // Ref for MapView component
 
+  const [showCarTypes, setShowCarTypes] = useState(false);
 
+  const handleToggleCarTypes = () => {
+    setShowCarTypes(!showCarTypes);
+  }
 
 
 
@@ -506,13 +511,11 @@ function BookCar({ overAllState, setOverAllState}) {
                                                                                       style={{color: 'blue'}}>Click Here !</a></span>
                       </div>
                     </label>
+                    <div>
+                      <button onClick={handleToggleCarTypes} >Choose Car</button>
+                      {showCarTypes && <CarTypes onClose={handleToggleCarTypes}/> }
+                    </div>
 
-                      <select value={carType} onChange={handleCar} required>
-                        <option>Select your car type</option>
-                        <option value="sedan">Sedan</option>
-                        <option value="xylo">MUV-Xylo</option>
-                        <option value="innova">MUV-Innova</option>
-                      </select>
 
                   </div>
 
