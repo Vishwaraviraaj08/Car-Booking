@@ -5,7 +5,7 @@ import html2pdf from "html2pdf.js";
 import emailjs from 'emailjs-com';
 import { useNavigate } from "react-router-dom";
 
-const Summary = ({ overAllState, setOverAllState, userData, setUserData }) => {
+const Summary = ({ overAllState, setOverAllState, userData, setUserData, setWhatsappMsg }) => {
 
     const navigate = useNavigate();
     const formRef = useRef();
@@ -23,7 +23,7 @@ const Summary = ({ overAllState, setOverAllState, userData, setUserData }) => {
     }, [overAllState, navigate]);
 
     const generateBookingSummaryText = (data) => {
-        return `
+        const msg =  `
         Booking Summary:
         
         Zero Taxi
@@ -47,7 +47,9 @@ const Summary = ({ overAllState, setOverAllState, userData, setUserData }) => {
         Email Id: ${data.email}
         Mobile No: ${data.phone}
         Address: ${data.address}, ${data.zipcode}
-        
+        `
+
+        const terms =  `
         TERMS AND CONDITIONS
         ------------------
         Minimum running must be 100 Kms for Drop trips.
@@ -60,6 +62,8 @@ const Summary = ({ overAllState, setOverAllState, userData, setUserData }) => {
         
         Note: Kindly verify the bill amount on our app or booking link, and then you can settle the trip amount with the driver. If you need any clarification or assistance regarding the bill amount, please contact us at 7999222000 (available 24/7).
     `;
+        setWhatsappMsg(msg);
+        return msg + terms;
     };
 
 

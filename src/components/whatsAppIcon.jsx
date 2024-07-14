@@ -5,7 +5,7 @@ import '../styles/whatsAppIcon.css';
 const WhatsAppIcon = () => {
   return (
     <div className="whatsApp-icon">
-      <a href="https://wa.me/9444266312?text=hiida">
+      <a href="https://wa.me/7358380026?text=hi" target={"_blank"}>
         <img src="/whatsApp.png" alt="Phone" />
       </a>
     </div>

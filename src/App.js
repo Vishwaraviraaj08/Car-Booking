@@ -17,11 +17,13 @@ import {useState, useEffect} from "react";
 import Summary from "./components/Summary";
 import BookingConfirmation from "./components/BookingConfirmation";
 import History from "./components/History";
+import CarTypes from "./components/CarTypes";
 
 
 function App() {
     const [overAllState, setOverAllState] = useState(null);
     const [userData, setUserData] = useState(null);
+    const [whatsappMsg, setWhatsappMsg] = useState("");
 
     useEffect(() => {
         const prevData = sessionStorage.getItem('userData');
@@ -38,8 +40,8 @@ function App() {
                 <Route index path="/" element={<Home overAllState={overAllState} setOverAllState={setOverAllState} />}/>
                 <Route path="about" element={<About/>}/>
 
-                <Route path={"summary"} element={<Summary overAllState={overAllState} setOverAllState={setOverAllState} userData={userData} setUserData={setUserData}/>}/>
-                <Route path={"booking-confirmation"} element={<BookingConfirmation/>}/>
+                <Route path={"summary"} element={<Summary overAllState={overAllState} setOverAllState={setOverAllState} userData={userData} setUserData={setUserData} setWhatsappMsg={setWhatsappMsg}/>}/>
+                <Route path={"booking-confirmation"} element={<BookingConfirmation whatsappMsg={whatsappMsg}/>}/>
                 <Route path="contact" element={<Contact/>}/>
                 <Route path="luggage-policy" element={<LuggagePolicy/>}/>
                 <Route path="login" element={<Login userData={userData} setUserData={setUserData}/>}/>
@@ -49,6 +51,7 @@ function App() {
                 <Route path="cancellation-policy" element={<CancellationPolicy />} />
                 <Route path="refund-policy" element={<RefundPolicy />} />
                 <Route path={"/history"} element={<History userData={userData} setUserData={setUserData}/>}/>
+                <Route path={"/cartypes"} element={<CarTypes/>}/>
 
             </Routes>
             <WhatsAppIcon/>

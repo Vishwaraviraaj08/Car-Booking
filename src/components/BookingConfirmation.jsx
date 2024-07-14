@@ -1,14 +1,11 @@
 import React, {useEffect} from "react";
 import {useNavigate} from "react-router-dom";
+import '../styles/CarTypes.css';
 
 
-export default function BookingConfirmation() {
-    const navigate = useNavigate();
-    useEffect(() => {
-        setTimeout(() => {
-            navigate('/');
-        }, 10000);
-    }, []);
+export default function BookingConfirmation({whatsappMsg}) {
+    const encodedMsg = encodeURIComponent(whatsappMsg);
+    // const encodedMsg = encodeURIComponent(`hi da`);
     return (
         <>
             <style>
@@ -128,7 +125,16 @@ export default function BookingConfirmation() {
                     <div className="check-shadow"></div>
 
                 </div>
-                <h2 style={{marginTop:'30px', fontSize:'20px'}}>Booking Confirmed</h2>
+                <h2 style={{marginTop: '30px', fontSize: '20px'}}>Booking Confirmed</h2>
+
+                <br/>
+                <br/>
+                <div style={{margin: '20px'}}/>
+                <h1>To contact us through Whatsapp with your booking details,</h1>
+                <div style={{margin: '20px'}}/>
+                <a href={`https://wa.me/7358380026?text=${encodedMsg}`} target={"_blank"} rel="noopener noreferrer">
+                    <button className={"car-type-btn"}>Click Here</button>
+                </a>
             </div>
         </>
     );
