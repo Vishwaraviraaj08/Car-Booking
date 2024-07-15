@@ -5,7 +5,7 @@ import suv from "./../images/car-xylo-new.webp";
 import innova from "./../images/car-innova-new.jpg";
 import Footer from "./Footer";
 
-const CarTypes = ({ setShowCarTypes, distance, tripType, travelTime, setCarType}) => {
+const CarTypes = ({ setShowCarTypes, distance, tripType, travelTime, setCarType, openModal}) => {
 
     function getPrice(carType){
         let minDistance = Math.max(130, distance/1000);
@@ -50,6 +50,7 @@ const CarTypes = ({ setShowCarTypes, distance, tripType, travelTime, setCarType}
                                 e.preventDefault();
                                 setCarType("sedan")
                                 setShowCarTypes(false)
+                                openModal();
                             }}>Select</button>
                         </div>
                     </div>
@@ -80,6 +81,7 @@ const CarTypes = ({ setShowCarTypes, distance, tripType, travelTime, setCarType}
                                 e.preventDefault();
                                 setCarType("xylo")
                                 setShowCarTypes(false)
+                                openModal();
                             }}>Select</button>
                         </div>
                     </div>
@@ -110,6 +112,7 @@ const CarTypes = ({ setShowCarTypes, distance, tripType, travelTime, setCarType}
                                 e.preventDefault();
                                 setCarType("innova")
                                 setShowCarTypes(false)
+                                openModal();
                             }}>Select</button>
                         </div>
                     </div>

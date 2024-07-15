@@ -43,10 +43,10 @@ const Summary = ({ overAllState, setOverAllState, userData, setUserData, setWhat
         
         CUSTOMER DETAILS
         ------------------
-        Customer Name: ${data.name} ${data.lastName}
+        Customer Name: ${data.name}
         Email Id: ${data.email}
         Mobile No: ${data.phone}
-        Address: ${data.address}, ${data.zipcode}
+        Address: ${data.address}
         `
 
         const terms =  `

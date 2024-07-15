@@ -17,7 +17,7 @@ function BookCar({ overAllState, setOverAllState}) {
   const [modal, setModal] = useState(false); //  class - active-modal
 
   // booking car
-  const [tripType, setTripType] = useState('round-trip'); // ['one-way', 'round-trip'
+  const [tripType, setTripType] = useState('one-way'); // ['one-way', 'round-trip'
   const [carType, setCarType] = useState('Choose car');
   const [pickUp, setPickUp] = useState(null);
   const [dropOff, setDropOff] = useState(null);
@@ -194,8 +194,7 @@ function BookCar({ overAllState, setOverAllState}) {
   };
 
   // open modal when all inputs are fulfilled
-  const openModal = (e) => {
-    e.preventDefault();
+  const openModal = () => {
     const errorMsg = document.querySelector('.error-message');
     if (
         tripType === '' ||
@@ -205,9 +204,8 @@ function BookCar({ overAllState, setOverAllState}) {
         pickLocation === null ||
         !pickUp ||
         // !dropOff ||
-        pickTime === '' ||
+        pickTime === ''
         // dropTime === '' ||
-        carType === 'Choose car'
     ) {
       errorMsg.style.display = 'flex';
     } else {
@@ -380,12 +378,12 @@ function BookCar({ overAllState, setOverAllState}) {
                     <i className="fa-solid fa-car"></i> &nbsp;Journey Type<b style={{color:"red"}}>*</b>
                   </label>
                   <div style={{display: "flex", gap: "20px"}} >
-                    <input type={'radio'} name={'trip'} value={'one-way'}
+                    <input type={'radio'} name={'trip'} value={'one-way'} defaultChecked
                            onChange={(e) => setTripType(e.target.value)}/>
                     <label style={{fontSize: '15px'}} htmlFor={'one-way'}>One Way</label>
                   </div>
                   <div style={{display: "flex", gap: "20px"}}>
-                    <input type={'radio'} name={'trip'} value={'round-trip'} defaultChecked
+                    <input type={'radio'} name={'trip'} value={'round-trip'}
                            onChange={(e) => setTripType(e.target.value)}/>
                     <label style={{fontSize: '15px'}} htmlFor={'round-trip'}>Round Trip</label>
                   </div>
@@ -512,7 +510,7 @@ function BookCar({ overAllState, setOverAllState}) {
                     </Autocomplete>
                   </div>
 
-                  <div className="box-form__car-type">
+                  {/* <div className="box-form__car-type">
                     <label>
                       <i className="fa-solid fa-car"></i> &nbsp; Select Your Car
                       Type <b>*</b>
@@ -525,14 +523,18 @@ function BookCar({ overAllState, setOverAllState}) {
                     </label>
                     <div>
                       <button onClick={handleToggleCarTypes} >{carType}</button>
-                      {showCarTypes && <CarTypes setShowCarTypes={setShowCarTypes} distance={distance} tripType={tripType} travelTime={travelTime} setCarType={setCarType}/> }
-                    </div>
+                      </div>
+                      
+                      
+                      </div> */}
+                  {showCarTypes && <CarTypes setShowCarTypes={setShowCarTypes} distance={distance} tripType={tripType} travelTime={travelTime} setCarType={setCarType} openModal={openModal}/> }
 
-
-                  </div>
-
-                  <button onClick={openModal} type="submit">
-                    Search
+                  <button  onClick={(e) => {
+                    e.preventDefault();
+                    setShowCarTypes(true);
+                  }
+                  } type="submit">
+                    Book Car
                   </button>
                 </form>
               </div>
