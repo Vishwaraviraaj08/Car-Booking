@@ -233,6 +233,16 @@ function BookCar({ overAllState, setOverAllState}) {
       alert('Please fill all the fields');
       return;
     }
+
+    if(!email.includes('@') || !email.includes('.')) {
+      alert('Please enter a valid email address');
+      return;
+    }
+    if(phone.length !== 10 || isNaN(phone)) {
+      alert('Please enter a valid phone number');
+      return;
+    }
+    
     setModal(!modal);
     const doneMsg = document.querySelector('.booking-done');
     doneMsg.style.display = 'flex';
@@ -532,7 +542,10 @@ function BookCar({ overAllState, setOverAllState}) {
 
                   <button  onClick={(e) => {
                     e.preventDefault();
-                    if (pickTime === '' ||  pickUpInput === '' || dropOffInput === '' ) return ;
+                    if (pickTime === '' ||  pickUpInput === '' || dropOffInput === '' ){
+                      alert("Please fill all the fields");
+                      return; 
+                    }
                     setShowCarTypes(true);
                   }
                   } type="submit">
