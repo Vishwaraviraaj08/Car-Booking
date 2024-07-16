@@ -532,6 +532,7 @@ function BookCar({ overAllState, setOverAllState}) {
 
                   <button  onClick={(e) => {
                     e.preventDefault();
+                    if (pickTime === '' ||  pickUpInput === '' || dropOffInput === '' ) return ;
                     setShowCarTypes(true);
                   }
                   } type="submit">
