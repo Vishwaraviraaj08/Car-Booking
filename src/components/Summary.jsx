@@ -60,7 +60,7 @@ const Summary = ({ overAllState, setOverAllState, userData, setUserData, setWhat
         Only 1 (Pickup & drop) points are allowed. More than that charges will be applicable. (Optional)
         Toll fees, Inter-State Permit charges (if any) are extra.
         
-        Note: Kindly verify the bill amount on our app or booking link, and then you can settle the trip amount with the driver. If you need any clarification or assistance regarding the bill amount, please contact us at 7999222000 (available 24/7).
+        Note: Kindly verify the bill amount on our app or booking link, and then you can settle the trip amount with the driver. If you need any clarification or assistance regarding the bill amount, please contact us at +91 7358380026 (available 24/7).
     `;
         setWhatsappMsg(msg);
         return msg + terms;
