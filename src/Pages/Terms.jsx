@@ -236,7 +236,7 @@ function Terms() {
                                     subject to availability. In case of a no show where the customer has
                                     not informed ZeroDropTaxi on the changes on his schedule 10 hours before
                                     the pick-up no refunds will be made. The amendments can be done by
-                                    contacting the support team of ZeroDropTaxi on 7-999-222-000 and mention
+                                    contacting the support team of ZeroDropTaxi on +91 7385380026 and mention
                                     the booking ID No for references.
                                 </li>
                                 <li>
