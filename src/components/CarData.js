@@ -6,7 +6,7 @@ export const CAR_DATA = [
   [
     {
       name: "Sedan",
-      price: "13",
+      price: 14,
       img: sedan,
       driverAllowance: "300",
       oneWayMin: "Min. 130 KM",
@@ -18,7 +18,7 @@ export const CAR_DATA = [
   [
     {
       name: "MUV-Xylo",
-      price: "17",
+      price: 18,
       img: suv,
       driverAllowance: "300",
       oneWayMin: "Min 130 KM",
@@ -45,7 +45,7 @@ export const CAR_DATA = [
   [
     {
       name: "MUV-Innova",
-      price: "18",
+      price: 19,
       img: innova,
       driverAllowance: "300",
       oneWayMin: "Min 130 KM",

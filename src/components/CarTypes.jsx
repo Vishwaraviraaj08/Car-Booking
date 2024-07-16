@@ -4,6 +4,7 @@ import sedan from "./../images/car-sedan-new.webp";
 import suv from "./../images/car-xylo-new.webp";
 import innova from "./../images/car-innova-new.jpg";
 import Footer from "./Footer";
+import { CAR_DATA } from "./CarData";
 
 const CarTypes = ({ setShowCarTypes, distance, tripType, travelTime, setCarType, openModal}) => {
 
@@ -13,7 +14,7 @@ const CarTypes = ({ setShowCarTypes, distance, tripType, travelTime, setCarType,
             minDistance = 2 * minDistance;
         }
 
-        const carRate = carType === "sedan" ? 13 : carType === "xylo" ? 17 : 18;
+        const carRate = carType === "sedan" ? CAR_DATA[0][0].price : carType === "xylo" ? CAR_DATA[1][0].price : CAR_DATA[2][0].price;
         const price = Math.ceil((minDistance) * carRate) + 300;
         return price;
     }

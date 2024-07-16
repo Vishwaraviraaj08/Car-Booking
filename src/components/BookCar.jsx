@@ -8,6 +8,7 @@ import MapView from "./MapView";
 import {Link} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
 import CarTypes from "./CarTypes";
+import { CAR_DATA } from "./CarData";
 
 
 const libraries = ['places'];
@@ -61,7 +62,7 @@ function BookCar({ overAllState, setOverAllState}) {
       minDistance = 2 * minDistance;
     }
 
-    const carRate = carType === "sedan" ? 13 : carType === "xylo" ? 17 : 18;
+    const carRate = carType === "sedan" ? CAR_DATA[0][0].price : carType === "xylo" ? CAR_DATA[1][0].price : CAR_DATA[2][0].price;
     const price = Math.ceil((minDistance) * carRate) + 300;
     setPrice(price);
   },[distance, tripType, carType])
