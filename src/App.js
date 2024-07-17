@@ -18,6 +18,7 @@ import Summary from "./components/Summary";
 import BookingConfirmation from "./components/BookingConfirmation";
 import History from "./components/History";
 import CarTypes from "./components/CarTypes";
+import ScrollToTop from "./components/ScrollToTop";
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
         <>
             <Navbar userData={userData} setUserData={setUserData}/>
             <PhoneIcon/>
+            <ScrollToTop />
             <Routes>
                 <Route index path="/" element={<Home overAllState={overAllState} setOverAllState={setOverAllState} />}/>
                 <Route path="about" element={<About/>}/>

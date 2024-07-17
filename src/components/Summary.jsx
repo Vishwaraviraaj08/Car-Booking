@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import '../styles/BookingSummary.css';
 import Footer from "./Footer";
 import html2pdf from "html2pdf.js";
@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 const Summary = ({ overAllState, setOverAllState, userData, setUserData, setWhatsappMsg }) => {
 
     const navigate = useNavigate();
-    const formRef = useRef();
+    const [carBooking, setCarBooking] = useState(false);
 
     // useEffect(() => {
     //     if (performance.getEntriesByType('navigation')[0].type === 'reload') {
@@ -82,6 +82,14 @@ const Summary = ({ overAllState, setOverAllState, userData, setUserData, setWhat
     }
 
     async function handleBooking() {
+
+        if(carBooking) {
+            return;
+        }
+        else{
+            setCarBooking(true);
+        }
+
         if(userData) {
             let response = await fetch('https://car-booking-api.netlify.app/user/addhistory', {
                 method: 'POST',
@@ -110,12 +118,14 @@ const Summary = ({ overAllState, setOverAllState, userData, setUserData, setWhat
         emailjs.send('service_9xjmzqf', 'template_hgiteq8', templateParams, 'fjNGl4fwZtpvtiI0h')
             .then((result) => {
                 console.log(result.text);
+                setCarBooking(false);
                 alert("Booking summary sent to your email!");
                 navigate('/booking-confirmation');
             }, (error) => {
                 console.log(error.text);
                 alert("An error occurred, Please try again");
                 navigate('/');
+                setCarBooking(false);
             });
     }
 
@@ -226,7 +236,7 @@ const Summary = ({ overAllState, setOverAllState, userData, setUserData, setWhat
                         <th colSpan="2" style={{ textAlign: 'left', padding: ' 10px 30px' }}>Toll fees, Inter-State Permit charges (if any) are extra.</th>
                     </tr>
                     <tr>
-                        <th colSpan="2" style={{ fontWeight: 'bold' }}>[Note: Kindly verify the bill amount on our app or booking link, and then you can settle the trip amount with the driver. If you need any clarification or assistance regarding the bill amount, please contact us at 7999222000 (available 24/7).</th>
+                        <th colSpan="2" style={{ fontWeight: 'bold' }}>[Note: Kindly verify the bill amount on our app or booking link, and then you can settle the trip amount with the driver. If you need any clarification or assistance regarding the bill amount, please contact us at +91 9358380026 (available 24/7).</th>
                     </tr>
                     </tbody>
                 </table>
@@ -241,6 +251,10 @@ const Summary = ({ overAllState, setOverAllState, userData, setUserData, setWhat
                     </span>
                 </button>
             </div>
+            {carBooking && <div className="spinner-container">
+                                <div className="spinner"></div>
+                            </div>
+            }
 
             <Footer />
        </>

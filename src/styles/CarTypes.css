@@ -134,7 +134,8 @@
     align-items: center;
     justify-content: center;
     z-index: 1000;
-    overflow:auto;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 @media screen and (max-width: 768px) {
@@ -147,6 +148,13 @@
     padding: 20px;
     border-radius: 10px;
     position: relative;
+}
+
+@media screen and (max-width: 768px) {
+    .overlay-content {
+        width: 100%;
+        max-width: 500px;
+    }
 }
 
 .close-btn {
