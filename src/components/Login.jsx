@@ -1,14 +1,43 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/Login.css';
 import 'https://kit.fontawesome.com/a81368914c.js';
-import { useNavigate } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
+
+
 
 const Login = ({userData, setUserData}) => {
     const [user, setUser] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
-
     const navigate = useNavigate();
+
+    async function handleForgotPassword() {
+        if(user === '') {
+            alert('Please enter your email');
+            return;
+        }
+        const response = await fetch('https://car-booking-api.netlify.app/user/forgot-passowrd', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email : user}),
+        });
+        const data = await response.json();
+        if (!data.exists) {
+            alert('No user found with this email');
+            return;
+        }
+
+        if (!data.sentMail){
+            alert("Mail not sent. Please try again later");
+            return;
+        }
+        navigate('/forgot-password')
+
+    }
+
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -79,7 +108,9 @@ const Login = ({userData, setUserData}) => {
                                 <h5 className="login-h5">Password</h5>
                                 <input type="password" className="login-input" onChange={(event) => { setPassword(event.target.value) }} style={{fontSize:'1.5rem'}}/>
                             </div>
+
                         </div>
+                        <p className="forgot-password" onClick={handleForgotPassword}>Forgot Password ? </p>
                         <input type="submit" className="login-btn" value="Login" onClick={handleSubmit} style={{fontSize:'1.5rem'}} />
                         {loading && (
                             <div className="spinner-container">

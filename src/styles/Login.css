@@ -222,6 +222,17 @@
     }
 }
 
+.forgot-password{
+    text-align: right;
+    margin-top: 1rem;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.forgot-password:hover{
+    color:  #1fb82d;
+}
+
 .spinner {
     border: 4px solid rgba(0, 0, 0, 0.1);
     width: 50px;

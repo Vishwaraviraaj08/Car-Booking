@@ -19,6 +19,7 @@ import BookingConfirmation from "./components/BookingConfirmation";
 import History from "./components/History";
 import CarTypes from "./components/CarTypes";
 import ScrollToTop from "./components/ScrollToTop";
+import ForgotPassword from "./components/ForgotPassword";
 
 
 function App() {
@@ -54,7 +55,7 @@ function App() {
                 <Route path="refund-policy" element={<RefundPolicy />} />
                 <Route path={"/history"} element={<History userData={userData} setUserData={setUserData}/>}/>
                 <Route path={"/cartypes"} element={<CarTypes/>}/>
-
+                <Route path={"/forgot-password"} element={<ForgotPassword/>}/>
             </Routes>
             <WhatsAppIcon/>
             
