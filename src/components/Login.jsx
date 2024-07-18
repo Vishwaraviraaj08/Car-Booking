@@ -16,7 +16,7 @@ const Login = ({userData, setUserData}) => {
             alert('Please enter your email');
             return;
         }
-        const response = await fetch('https://car-booking-api.netlify.app/user/forgot-passowrd', {
+        const response = await fetch('https://car-booking-api.netlify.app/user/forgot-password', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
