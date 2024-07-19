@@ -23,7 +23,7 @@ function Contact() {
   return (
       <>
         <section className="contact-page">
-          <h1 style={{textAlign:'center', fontSize:'4em'}}>Contact ZeroDrop Taxi</h1>
+          <h1 style={{textAlign:'center', fontSize:'4em'}}>Contact Zero Drop Taxi</h1>
           <div className="container">
             <div className="contact-div">
               <div className="contact-div__text">
@@ -39,7 +39,7 @@ function Contact() {
                   zerodroptaxi@gmail.com
                 </a>
                 <a href="/">
-                  <i className="fa-solid fa-location-dot"></i>&nbsp; ZeroDropTaxi, 55, Devi Karumariamman Street, Kodungaiyur
+                  <i className="fa-solid fa-location-dot"></i>&nbsp; Zero Drop Taxi, 55, Devi Karumariamman Street, Kodungaiyur
                   Chennai - 600073
                 </a>
               </div>
