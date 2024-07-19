@@ -74,7 +74,7 @@ const Register = () => {
                                 <i className="fas fa-envelope"></i>
                             </div>
                             <div className="login-div">
-                                <h5 className="login-h5">Email</h5>
+                                <h5 className="login-h5">email</h5>
                                 <input style={{fontSize:'1.5rem'}}  type="email" className="login-input" onChange={(event) => { setEmail(event.target.value) }} />
                             </div>
                         </div>
