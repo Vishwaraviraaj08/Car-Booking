@@ -79,7 +79,7 @@ function Navbar({userData, setUserData}) {
             <Link to="/" onClick={() => window.scrollTo(0, 0)} style={{textDecoration:'none'}}>
               <div style={{display:"flex", alignItems:'center', justifyContent:'center'}}>
                 <img src={"/company_logo.png"} alt="logo-img" style={{width:"40px", height:'auto', marginLeft: '55px'}}/>
-                <h2 style={{color: "green", fontSize:'2rem',marginLeft:"10px" }}>Zero Drop Taxi</h2>
+                <h2 style={{color: "green", fontSize:'1.8rem',marginLeft:"10px" }}>Zero&nbsp;Drop&nbsp;Taxi</h2>
               </div>
             </Link>
           </div>
