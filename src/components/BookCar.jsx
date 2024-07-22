@@ -54,7 +54,19 @@ function BookCar({ overAllState, setOverAllState}) {
   }
 
 
+  function changeDateTimeFormat(dateTime){
 
+    const date = new Date(dateTime);
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+    let hours = date.getHours();
+    const ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    const minutes = date.getMinutes();
+    let pickTime = day + "/" + month + "/" + year + " " + hours + ':' + minutes + ' ' + ampm;
+    return pickTime;
+  }
 
   useEffect(() => {
     let minDistance = Math.max(130, distance/1000);
@@ -229,7 +241,7 @@ function BookCar({ overAllState, setOverAllState}) {
   // confirm modal booking
   const confirmBooking = (e) => {
     e.preventDefault();
-    if(pickUpTime === '' || name === '' || phone === '' || email === '' || address === '') {
+    if(name === '' || phone === '' || email === '' || address === '') {
       alert('Please fill all the fields');
       return;
     }
@@ -250,7 +262,7 @@ function BookCar({ overAllState, setOverAllState}) {
     const value = {
         tripType: tripType,
         carType: carType,
-        pickTime: pickTime + ' ' + pickUpTime,
+        pickTime: changeDateTimeFormat(pickTime),
         dropTime: dropTime + ' ' + dropOffTime,
         name: name,
         phone: phone,
@@ -420,7 +432,7 @@ function BookCar({ overAllState, setOverAllState}) {
                         id="picktime"
                         value={pickTime}
                         onChange={handlePickTime}
-                        type="date"
+                        type="datetime-local"
                     ></input>
                   </div>
 
@@ -585,10 +597,9 @@ function BookCar({ overAllState, setOverAllState}) {
                 <div>
                   <h6>Pick-Up Date & Time</h6>
                   <p>
-                    {pickTime} /{' '}
-                    <input type="time" className="input-time input-date" style={{width: '65%'}} onChange={(e) => {
-                      setPickUpTime(e.target.value);
-                    }}></input>
+                    {
+                      changeDateTimeFormat(pickTime)
+                    }
                   </p>
                 </div>
               </span>
