@@ -424,7 +424,7 @@ function BookCar({ overAllState, setOverAllState}) {
                   <div className="box-form__car-time">
                     <label htmlFor="picktime">
                       <i className="fa-regular fa-calendar-days "></i> &nbsp;
-                      Pick-up <b>*</b>
+                      Date and Time <b>*</b>
                     </label>
                     <input
                         className='input-date'

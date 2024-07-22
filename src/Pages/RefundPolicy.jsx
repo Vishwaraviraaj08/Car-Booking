@@ -8,7 +8,7 @@ function RefundPolicy() {
             
                 
             <div className="about-main__text" style={{padding: "110px 5% 0"}}>
-            <h2>Drop Taxi Refund Policy</h2>
+            <h2>Zero Drop Taxi Refund Policy</h2>
             <p style={{fontSize: "2rem"}}>
                 This Refund policy applicable only for Drivers who makes payments with us.
                 <br />

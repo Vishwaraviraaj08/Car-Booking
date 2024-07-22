@@ -26,7 +26,7 @@ const Summary = ({ overAllState, setOverAllState, userData, setUserData, setWhat
         const msg =  `
         Booking Summary:
         
-        Zero Taxi
+        Zero Drop Taxi
         
         TRIP DETAILS
         ------------------
