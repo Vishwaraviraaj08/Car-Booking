@@ -22,7 +22,7 @@ function Hero() {
             <div className="hero-content__text">
               <h4>Plan your trip with Zero Drop Taxi</h4>
               <h1>
-                Pay <span>only</span> for one-way with Zero taxi
+                Your <span>Trusted</span> Outstation Taxi Partner
               </h1>
               <p>
                 At Zero Drop Taxi, we prioritize your comfort and safety. Book your next outstation trip with us and experience exceptional service.
