@@ -20,7 +20,7 @@ function Hero() {
           <img className="bg-shape" src={BgShape} alt="bg-shape" />
           <div className="hero-content" style={{height: '70vh', paddingTop: '5rem'}}>
             <div className="hero-content__text">
-              <h4>Plan your trip now</h4>
+              <h4>Plan your trip with Zero Drop Taxi</h4>
               <h1>
                 Save <span>big</span> with our Car Booking Service
               </h1>
