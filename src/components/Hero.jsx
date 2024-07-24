@@ -22,11 +22,10 @@ function Hero() {
             <div className="hero-content__text">
               <h4>Plan your trip with Zero Drop Taxi</h4>
               <h1>
-                Save <span>big</span> with our Car Booking Service
+                Pay <span>only</span> for one-way with Zero taxi
               </h1>
               <p>
-                Book the car of your dreams. Unbeatable prices, unlimited miles,
-                flexible pick-up options and much more.
+                At Zero Drop Taxi, we prioritize your comfort and safety. Book your next outstation trip with us and experience exceptional service.
               </p>
               <div className="hero-content__text__btns">
                 <Link
