@@ -22,6 +22,7 @@ function Contact() {
 
   return (
       <>
+        <title>Zero Drop Taxi : Contact us</title>
         <section className="contact-page">
           <h1 style={{textAlign:'center', fontSize:'4em'}}>Contact Zero Drop Taxi</h1>
           <div className="container">
