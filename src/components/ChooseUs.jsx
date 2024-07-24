@@ -12,14 +12,16 @@ function ChooseUs() {
           <div className="choose-container">
             <div className="text-container">
               <div className="text-container__left">
-                <h4>Why Choose Us</h4>
+                <h4>Why Choose Zero Drop Taxi</h4>
                 <h2>Best valued deals you will ever find</h2>
                 <p>
-                  Discover the best deals you'll ever find with our unbeatable
-                  Quality Of Service (QOS). We're dedicated to providing you with the best value
-                  for your money, so you can enjoy top-quality services without breaking the bank. Our deals are designed to
-                  give you the ultimate car booking and taxi experience, so don't miss out on
-                  your chance to save big.
+                 Choosing Zero Drop Taxi ensures you receive exceptional service quality, 
+                  as we prioritize reliable and comfortable outstation travel across South India. 
+                  Our competitive one-way tariffs provide excellent value, allowing you to travel cost-effectively. 
+                  With a team of professional drivers committed to your safety and comfort, you can expect a pleasant journey every time. 
+                  Our easy-to-use online booking platform simplifies scheduling your ride, saving you time and effort. We cover all major destinations in
+                  South India, ensuring convenient travel to any location. Our dedication to customer satisfaction means we are always ready to assist you
+                  promptly. Additionally, our modern, well-maintained fleet guarantees a smooth and stylish ride, enhancing your overall travel experience.
                 </p>
                 <Link to="about">
                   Find Details &nbsp;
