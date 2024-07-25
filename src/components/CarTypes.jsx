@@ -43,7 +43,7 @@ const CarTypes = ({ setShowCarTypes, distance, tripType, travelTime, setCarType,
                             <p>Rs.14/Per Km</p>
                             <p>Total Distance : {(distance/1000).toFixed(2)}</p>
                             <p>Total Duration: {travelTime}</p>
-                            <p>Driver Allowance : Included*</p>
+                            <p>Driver Allowance :Rs.300 Included*</p>
                             </div>
                             
                         </div>
@@ -75,7 +75,7 @@ const CarTypes = ({ setShowCarTypes, distance, tripType, travelTime, setCarType,
                             <p>Rs.18/Per Km</p>
                             <p>Total Distance : {(distance/1000).toFixed(2)}</p>
                             <p>Total Duration: {travelTime}</p>
-                            <p>Driver Allowance : Included*</p>
+                            <p>Driver Allowance :Rs.300 Included*</p>
                             </div>
                             
                         </div>
@@ -107,7 +107,7 @@ const CarTypes = ({ setShowCarTypes, distance, tripType, travelTime, setCarType,
                             <p>Rs.19/Per Km</p>
                             <p>Total Distance : {(distance/1000).toFixed(2)}</p>
                             <p>Total Duration: {travelTime}</p>
-                            <p>Driver Allowance : Included*</p>
+                            <p>Driver Allowance :Rs.300 Included*</p>
                             </div>
                             
                         </div>
