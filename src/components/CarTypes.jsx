@@ -40,6 +40,7 @@ const CarTypes = ({ setShowCarTypes, distance, tripType, travelTime, setCarType,
                             <h2>Trip Estimation</h2>
                             <h1>Fare : ₹ {getPrice("sedan")}</h1>
                             <div style={{textAlign:'left', margin:'10px auto'}}>
+                            <p>Rs.14/Per Km</p>
                             <p>Total Distance : {(distance/1000).toFixed(2)}</p>
                             <p>Total Duration: {travelTime}</p>
                             <p>Driver Allowance : Included*</p>
@@ -71,6 +72,7 @@ const CarTypes = ({ setShowCarTypes, distance, tripType, travelTime, setCarType,
                             <h2>Trip Estimation</h2>
                             <h1>Fare : ₹ {getPrice("xylo")}</h1>
                             <div style={{textAlign:'left', margin:'10px auto'}}>
+                            <p>Rs.18/Per Km</p>
                             <p>Total Distance : {(distance/1000).toFixed(2)}</p>
                             <p>Total Duration: {travelTime}</p>
                             <p>Driver Allowance : Included*</p>
@@ -102,6 +104,7 @@ const CarTypes = ({ setShowCarTypes, distance, tripType, travelTime, setCarType,
                             <h2>Trip Estimation</h2>
                             <h1>Fare : ₹ {getPrice("innova")}</h1>
                             <div style={{textAlign:'left', margin:'10px auto'}}>
+                            <p>Rs.19/Per Km</p>
                             <p>Total Distance : {(distance/1000).toFixed(2)}</p>
                             <p>Total Duration: {travelTime}</p>
                             <p>Driver Allowance : Included*</p>
