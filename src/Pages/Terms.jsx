@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Footer from "../components/Footer";
-
 function Terms() {
-    useeffect(() => { document.title = "Terms and Policies | Zero Drop Taxi";
+    useEffect(() => { document.title = "Terms and Policies | Zero Drop Taxi";
                     }, []);
     return (
         <div style={{paddingTop:"120px"}}>
