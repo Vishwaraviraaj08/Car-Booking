@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "../styles/luggagePolicy.css";
 import Footer from './Footer';
 const LuggagePolicy = () => {
+     useEffect(() => {
+    document.title = 'Luggage Policy | Zero Drop Taxi';
+  }, []);
     return (
         <div>
             <section className="testimonials-section">
