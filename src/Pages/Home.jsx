@@ -9,7 +9,6 @@ import Footer from "../components/Footer";
 import React, { useEffect } from "react";
 
 function Home({ overAllState, setOverAllState}) {
-  function Example() {
   useEffect(() => {
     document.title = "Online Drop Taxi Service in South India | Zero Drop Taxi";
   }, []);
