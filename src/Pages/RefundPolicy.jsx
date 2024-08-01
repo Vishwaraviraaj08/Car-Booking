@@ -5,7 +5,7 @@ import React, { useEffect } from "react";
 
 function RefundPolicy() {
   useEffect(() => {
-    document.title = "One Way Taxi Refund Policy | Zero Drop Taxi;
+    document.title = "One Way Taxi Refund Policy | Zero Drop Taxi";
   }, []);
     return (
         <>
