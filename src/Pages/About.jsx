@@ -2,8 +2,13 @@ import Footer from "../components/Footer";
 import HeroPages from "../components/HeroPages";
 import PlanTrip from "../components/PlanTrip";
 import AboutMain from "../images/about/car-discussion.jpg";
+import React, { useEffect } from "react";
+
 
 function About() {
+  useEffect(() => {
+    document.title = " About Us One Way Drop Taxi | Zero Drop Taxi";
+  }, []);
   return (
     <>
       <section className="about-page">
