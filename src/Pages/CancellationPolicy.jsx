@@ -1,8 +1,12 @@
 import Footer from "../components/Footer";
+import React, { useEffect } from 'react';
 
 
 
 function CancellationPolicy() {
+    useEffect(() => {
+    document.title = "One Way Taxi Cancellation Policy | Zero Drop Taxi";
+  }, []);
     return (
         <>
             
