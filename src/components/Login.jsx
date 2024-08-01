@@ -6,6 +6,9 @@ import {Link, useNavigate} from 'react-router-dom';
 
 
 const Login = ({userData, setUserData}) => {
+    useEffect(() => {
+    document.title = "One Way Taxi Login | Zero Drop Taxi";
+  }, []);
     const [user, setUser] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
