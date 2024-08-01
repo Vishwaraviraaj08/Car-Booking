@@ -35,11 +35,11 @@ function Terms() {
                 >
                     <p>
                         The mobile Platform <em>Zero Drop Taxi </em>(the “<strong>Application</strong>”)
-                        and the website <a href="http://www.zerodroptaxi.in">www.ZeroDropTaxi.in</a> (the “
+                        and the website <a href="http://www.zerodroptaxi.com">www.zerodroptaxi.com</a> (the “
                         <strong>Website</strong>”) (collectively the “<strong>Platform</strong>”) is
-                        owned and operated by Sanviv Services Private Limited, a company
-                        incorporated in India, having its registered office at No 286 2<sup>nd</sup>{" "}
-                        Floor GST Road,Chrompet, Chennai - 600044 (the “<strong>Company</strong>”,
+                        owned and operated by Fluezen technology Private Limited, a company
+                        incorporated in India, having its registered office at No 55,<sup>nd</sup>{" "}
+                         Devi Karumaiamman Street, Kodungaiyur Chennai - 600073 (the “<strong>Company</strong>”,
                         which expression would mean and include its officers, successors and
                         permitted assigns).&nbsp; The Company is in the business of providing
                         inter-city taxi services. Such online services made available through the
