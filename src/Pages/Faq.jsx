@@ -1,8 +1,12 @@
 import { useState } from "react";
 import faqQuestions from "../components/faqQuestions";
 import Footer from "../components/Footer";
+import React, { useEffect } from "react";
 
 function Faq() {
+  useEffect(() => {
+    document.title = "Drop Taxi Service Frequently Asked Quesions | Zero Drop Taxi";
+  }, []);
   const [activeQ, setActiveQ] = useState("");
 
   const openQ = (id) => {
