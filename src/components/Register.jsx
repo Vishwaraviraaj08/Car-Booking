@@ -4,6 +4,9 @@ import '../styles/Register.css';
 import 'https://kit.fontawesome.com/a81368914c.js';
 
 const Register = () => {
+    useEffect(() => {
+    document.title = "Registration | Zero Drop Taxi";
+  }, []);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
