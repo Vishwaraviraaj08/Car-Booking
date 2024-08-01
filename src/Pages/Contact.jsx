@@ -1,8 +1,13 @@
 import React, { useRef } from "react";
 import emailjs from "emailjs-com";
 import Footer from "../components/Footer";
+import React, { useEffect } from "react";
+
 
 function Contact() {
+  useEffect(() => {
+    document.title = "Contact Us | Zero Drop Taxi";
+  }, []);
   const form = useRef();
 
   const sendEmail = (e) => {
