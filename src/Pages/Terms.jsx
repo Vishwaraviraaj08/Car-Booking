@@ -2,6 +2,8 @@ import React from "react";
 import Footer from "../components/Footer";
 
 function Terms() {
+    useeffect(() => { document.title = "Terms and Policies | Zero Drop Taxi";
+                    }, []);
     return (
         <div style={{paddingTop:"120px"}}>
             <h1 style={{textAlign:'center', fontSize:'3em'}}>Terms of Use and Policies</h1>
