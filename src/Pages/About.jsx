@@ -21,9 +21,8 @@ function About() {
               <h2 style={{fontSize:'2rem'}}>You start the engine and your adventure begins</h2>
               <p>
                 Zero Drop Taxi is an Inter-city taxi booking facilitator. It is owned and operated by Fluezen Technology Private
-                Limited, a company incorporated in India, having its registered office at No 286 GST Road, Chrompet,
-                Chennai -600044. It is involved in Supporting and auxiliary transport activities; activities of travel
-                agencies.
+                Limited, a company incorporated in India, having its registered office at 55, Devi Karumaiamman Street, Kodungaiyur, 
+                Chennai - 600118, It is involved in Supporting and auxiliary transport activities; activities of travel agencies.
                 <br/>
                 We started this venture out of a personal pain point of having to pay two way charges for a one way drop
                 trip.
