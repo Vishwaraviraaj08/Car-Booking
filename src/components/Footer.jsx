@@ -21,8 +21,7 @@ function Footer() {
                   <i className="fa-solid fa-phone"></i> &nbsp; +91 9677699512 
                 </a>
               </li>
-              
-
+    
             </ul>
 
             <ul className="footer-content__2">
