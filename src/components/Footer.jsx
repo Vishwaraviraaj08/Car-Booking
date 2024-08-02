@@ -15,13 +15,9 @@ function Footer() {
               <li>
                 <a href="tel:+917358380026">
                   <i className="fa-solid fa-phone"></i> &nbsp; +91 7358380026
-                </a> 
-              <li>
-                <a href="tel:+919677699512">
-                  <i className="fa-solid fa-phone"></i> &nbsp; +91 9677699512 
                 </a>
               </li>
-    
+
             </ul>
 
             <ul className="footer-content__2">
@@ -48,19 +44,19 @@ function Footer() {
                 <a href="/contact">Contact</a>
               </li>
             </ul>
-          
+
             <ul className="footer-content__2">
-              <li>Zero Drop Taxi</li>
+              <li>ZeroDropTaxi</li>
               <li>55, Devi Karumaiamman Street,</li>
               <li>Kodungaiyur</li>
-              <li>Chennai - 600118</li>
+              <li>Chennai - 600073</li>
               <li>zerodroptaxi@gmail.com</li>
             </ul>
 
             <ul className="footer-content__2">
               <li>Need to Contact us ? </li>
               <li>
-                <p>Contact us with your Email address for Queries</p>
+                <p>Contact us with your Email address for queries</p>
               </li>
               <li>
                 <input type="text" placeholder="Query ... "></input>
