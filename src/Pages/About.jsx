@@ -20,7 +20,7 @@ function About() {
               <h3>About Company</h3>
               <h2 style={{fontSize:'2rem'}}>You start the engine and your adventure begins</h2>
               <p>
-                Zero Drop Taxi is an Inter-city taxi booking facilitator. It is owned and operated by Sanviv Services Private
+                Zero Drop Taxi is an Inter-city taxi booking facilitator. It is owned and operated by Fluezen Technology Private
                 Limited, a company incorporated in India, having its registered office at No 286 GST Road, Chrompet,
                 Chennai -600044. It is involved in Supporting and auxiliary transport activities; activities of travel
                 agencies.
