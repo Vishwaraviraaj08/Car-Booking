@@ -61,7 +61,7 @@ function Footer() {
             <ul className="footer-content__2">
               <li>Need to Contact us ? </li>
               <li>
-                <p>Contact us with your Email address for queries</p>
+                <p>Contact us with your Email address for Queries</p>
               </li>
               <li>
                 <input type="text" placeholder="Query ... "></input>
