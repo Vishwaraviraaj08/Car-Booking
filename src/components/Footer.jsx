@@ -56,7 +56,7 @@ function Footer() {
             </ul>
 
             <ul className="footer-content__2">
-              <li>ZeroDropTaxi</li>
+              <li>Zero Drop Taxi</li>
               <li>55, Devi Karumaiamman Street,</li>
               <li>Kodungaiyur</li>
               <li>Chennai - 600073</li>
