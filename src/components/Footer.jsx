@@ -54,12 +54,12 @@ function Footer() {
                 <a href="/contact">Contact</a>
               </li>
             </ul>
-
+          
             <ul className="footer-content__2">
               <li>Zero Drop Taxi</li>
               <li>55, Devi Karumaiamman Street,</li>
               <li>Kodungaiyur</li>
-              <li>Chennai - 600073</li>
+              <li>Chennai - 600118</li>
               <li>zerodroptaxi@gmail.com</li>
             </ul>
 
