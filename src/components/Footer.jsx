@@ -19,7 +19,7 @@ function Footer() {
               </li>
               <li>
                 <a href="tel:+919677699512">
-                  <i className="fa-solid fa-phone"></i> &nbsp; +91 9677699512
+                  <i className="fa-solid fa-phone"></i> &nbsp; +91 9677699512 
                 </a>
               </li>
               <li>
@@ -27,6 +27,7 @@ function Footer() {
                   <i className="fa-solid fa-phone"></i> &nbsp; +91 8184869993
                 </a>
               </li>
+             
 
             </ul>
 
