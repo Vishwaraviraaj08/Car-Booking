@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/Login.css';
-import 'https://kit.fontawesome.com/a81368914c.js';
+// import 'https://kit.fontawesome.com/a81368914c.js';
 import {Link, useNavigate} from 'react-router-dom';
 
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Register.css';
-import 'https://kit.fontawesome.com/a81368914c.js';
+// import 'https://kit.fontawesome.com/a81368914c.js';
 
 const Register = () => {
     useEffect(() => {
