@@ -7,7 +7,7 @@ import React, { useEffect } from "react";
 
 function About() {
   useEffect(() => {
-    document.title = " About Us One Way Drop Taxi | Zero Drop Taxi";
+    document.title = " About Us One Way Zero Drop Taxi | Zero Drop Taxi";
   }, []);
   return (
     <>
