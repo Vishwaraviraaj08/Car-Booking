@@ -22,11 +22,6 @@ function Footer() {
                   <i className="fa-solid fa-phone"></i> &nbsp; +91 96776 99512
                 </a>
               </li>
-              <li>
-                <a href="tel:+9196776 99512">
-                  <i className="fa-solid fa-phone"></i> &nbsp; +91 96776 99512
-                </a>
-              </li>
 
             </ul>
 
@@ -59,7 +54,7 @@ function Footer() {
               <li>ZeroDropTaxi</li>
               <li>55, Devi Karumaiamman Street,</li>
               <li>Kodungaiyur</li>
-              <li>Chennai - 600073</li>
+              <li>Chennai - 600118</li>
               <li>zerodroptaxi@gmail.com</li>
             </ul>
 
