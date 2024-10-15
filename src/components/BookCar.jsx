@@ -89,7 +89,7 @@ function BookCar({ overAllState, setOverAllState}) {
   const [dropAddress, setDropAddress] = useState('');
 
   const updateAddress = async (location) => {
-    const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${location.lat},${location.lng}&key=AIzaSyANlHK0u60OeB61jRC-wdpY_djhheq3P98`);
+    const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${location.lat},${location.lng}&key=AIzaSyCXTCjFyFupJ56K1JF2NglN669aCzQC8CA`);
     const data = await response.json();
     if (data.results && data.results[0]) {
       return data.results[0].formatted_address;
@@ -379,7 +379,7 @@ function BookCar({ overAllState, setOverAllState}) {
 
 
 
-      <LoadScript googleMapsApiKey="AIzaSyANlHK0u60OeB61jRC-wdpY_djhheq3P98" libraries={libraries}>
+      <LoadScript googleMapsApiKey="AIzaSyCXTCjFyFupJ56K1JF2NglN669aCzQC8CA" libraries={libraries}>
         <section id="booking-section" className="book-section">
           {/* overlay */}
           <div
