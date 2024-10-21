@@ -50,7 +50,6 @@ function BookCar({ overAllState, setOverAllState }) {
       );
       const data = await response.json();
       setApiKey(data.mapkey);
-      console.log(data.mapkey);
     } catch (error) {
       console.error("Error fetching API key:", error);
     }
